@@ -1,0 +1,5 @@
+site_name: DevSecOps-pipeline
+nav:
+    - Introduction: 'index.md'
+    - Contents: 'contents.md'
+theme: material
