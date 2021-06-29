@@ -4,24 +4,22 @@
     2. For application(suiteCRM) server.
 
 - In virtual Box Click "NEW" icon to ceate a new machine
-- Create Virtual machine window opened
-    The Name Jenkins-infra.
-    The Type to Linux.
-    Version to Ubuntu (64-bit).
-    Allocated memory size(RAM).
-- Clicked on Create
-    Allocated the storage.
-    Set the default disk type to VDI(VirtualBox Disk Image)
-    Selected storage on physical hard disk Dynamically allocated.
-    Clicked on Create.
+![image](/home/apoorva/Pictures/1.png)
 
+- Create Virtual machine window is opened: Name - Jenkins-infra, Type - Linux, Version - Ubuntu (64-bit), Allocated memory size(RAM).
+![image](/home/apoorva/Pictures/2.png)
+- Clicked on Create - Allocated the storage, Set the default disk type to VDI(VirtualBox Disk Image), Selected storage on physical hard disk Dynamically allocated, Clicked on Create.
+![image](/home/apoorva/Pictures/3.png)
 ## Download server image 18.04
 - To download the server image 18.04 on VirtualBox as it is an LTS version which is a desirable feature for a CI pipeline.
      64-bit PC (AMD64) server install image
+![image](/home/apoorva/Pictures/4.png)
+### Setting up VM
 - In VM box I selected Jenkins-infra to install the server and then clicked on start
+![image](/home/apoorva/Pictures/5.png)
 - Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on start
 
-- later select the language English and click on done
+- Select the language English and click on done
 
 - The proxy configured on this screen is used for accessing the package repository and the snap store both in the installer environment and in the installed system. I did not provide any Proxy address, kept it default and selected Done
 
@@ -37,3 +35,5 @@
 - Once done hit done and you will get a window where you have to Click on reboot and the installation of ubuntu 18.04 is done
 
 - Repeat the same process in order to create another VM for suiteCRM deployment where I have specified the server name as "suitecrm-deploy".
+
+![image](/home/apoorva/Pictures/Getting-started-jenkins.png)
