@@ -2,4 +2,5 @@ site_name: DevSecOps-pipeline
 nav:
     - Introduction: 'index.md'
     - Contents: 'contents.md'
+    - Setting up VM: 'setting-up-VM.md'
 theme: material
