@@ -246,6 +246,13 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#what-is-jenkins" class="md-nav__link">
+    What is Jenkins?
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -294,6 +301,13 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#what-is-jenkins" class="md-nav__link">
+    What is Jenkins?
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -307,69 +321,76 @@
               
                 
                 
-                <h1 id="installation-of-jenkins">Installation of jenkins</h1>
-<ul>
-<li>What is jenkins?
-    Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.</li>
-</ul>
+                <h1 id="installation-of-jenkins">Installation of Jenkins</h1>
+<h2 id="what-is-jenkins">What is Jenkins?</h2>
+<p>Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. </p>
 <h1 id="prerequisite">Prerequisite</h1>
-<ul>
-<li>
-<p>I have setup ubuntu 18.04 VM for installing Jenkins: https://www.jenkins.io/doc/book/installing/</p>
-</li>
-<li>
-<p>I have installed java 8 OpenJDK and JRE(Java Developement Kit and Java Runtime Environment) which is used to develop and run the software: https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk</p>
-</li>
-</ul>
+<p>I have setup ubuntu 18.04 VM for installing Jenkins from <a href="https://www.jenkins.io/doc/book/installing/">Documentation</a>. </p>
+<p>I have installed java 8 OpenJDK and JRE (Java Development Kit and Java Runtime Environment) which is used to develop and run the software, I have used this <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk">Link</a> to download the same. </p>
 <h1 id="installation-steps-for-jenkins">Installation steps for Jenkins</h1>
-<ul>
-<li>Add the repository key to the system: wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-<img alt="image" src="/pictures/jenk.png" /></li>
-<li>
-<p>the system will return OK</p>
-</li>
-<li>
-<p>Next, add the debian package repository address: sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \
-    /etc/apt/sources.list.d/jenkins.list'</p>
-</li>
-<li>
-<p>sudo apt update
-<img alt="image" src="/pictures/last.png" /></p>
-</li>
-<li>
-<p>Now install Jenkins and it's dependencies: sudo apt install jenkins
-<img alt="image" src="/pictures/installed.png" /></p>
-</li>
-</ul>
+<p>Add the repository key to the terminal:  </p>
+<pre><code>`wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - `
+</code></pre>
+<p><img alt="image" src="/home/apoorva/my-project/pictures/jenk.png" /> </p>
+<p>The system will return <strong>OK</strong>  </p>
+<p>Next, add the Debian package repository address:   </p>
+<pre><code>sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \
+</code></pre>
+<p>/etc/apt/sources.list.d/jenkins.list </p>
+<pre><code>sudo apt update
+</code></pre>
+<p><img alt="image" src="/pictures/last.png" /> </p>
+<p>Now install Jenkins and it’s dependencies: </p>
+<pre><code>sudo apt install jenkins
+</code></pre>
+<p><img alt="image" src="/pictures/installed.png" /> </p>
 <h1 id="starting-jenkins">Starting Jenkins</h1>
-<p><img alt="image" src="/pictures/startandstatus.png" />
-- The systemctl command is used to manage "systemd" services and service manager: sudo systemctl start jenkins
-- Check the status of jenkins service using the below command: sudo systemctl status jenkins
-    If the jenkins has installed succesfully, then the output will show as Active: active(excited).To reach it from a web browser I will adjust the firewall rules to complete the initial setup.</p>
+<p>The systemctl command is used to manage "systemd" services and service manager:  </p>
+<pre><code>sudo systemctl start jenkins
+</code></pre>
+<p>Check the status of Jenkins service using the below command:  </p>
+<pre><code>sudo systemctl status jenkins
+</code></pre>
+<p><img alt="image" src="/pictures/startandstatus.png" />  </p>
+<p>If the Jenkins has installed successfully, then the output will show as Active: <strong>active(excited)</strong>. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. </p>
 <h1 id="set-up-a-firewall-with-ufw">Set-up a Firewall with UFW</h1>
-<p><img alt="image" src="/pictures/activee.png" />
-- Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports.
-- By default, Jenkins runs on port 8080. Opening using ufw(uncomplicated firewall): sudo ufw allow 8080
-- To check the status of the ufw: sudo ufw status
-- If the status shows "Inactive". Then enable using following command
-    To configure your server to allow incoming SSH connections, you can use this command:sudo ufw allow ssh
-    - To enable UFW, use this command: sudo ufw enable</p>
+<p>Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports. </p>
+<p>By default, Jenkins runs on port 8080. Opening using ufw(uncomplicated firewall): </p>
+<pre><code>sudo ufw allow 8080
+</code></pre>
+<p>To check the status of the ufw: </p>
+<pre><code>sudo ufw status
+</code></pre>
+<p><img alt="image" src="/pictures/activee.png" /> </p>
+<p>If the status shows "Inactive". Then enable using following command </p>
+<p>To configure your server to allow incoming SSH connections, you can use this command: </p>
+<pre><code>sudo ufw allow ssh
+</code></pre>
+<p>To enable UFW, use this command:   </p>
+<pre><code>sudo ufw enable
+</code></pre>
 <h1 id="setting-up-jenkins">Setting up Jenkins</h1>
-<ul>
-<li>To complete setup in the browser I entered http://your_server_name_or_domain:8080
-<img alt="image" src="/pictures/unlock.png" /></li>
-<li>The Unlock Jenkins screen opens, which will display where the Admin Password is stored.
-<img alt="image" src="/pictures/cat.png" /></li>
-<li>In the terminal I will use the cat command to display the passsword: sudo cat /var/lib/jenkins/secrets/initialAdminPassword</li>
-<li>The 32-character alphanumeric password is displayed in the terminal paste it onto Administrator password field, and then click continue.
-<img alt="image" src="/pictures/costumize.png" /></li>
-<li>In the Customize jenkins select "install suggested plugins" which will start installtion process directly and press continue.
-<img alt="image" src="/pictures/info.png" /></li>
-<li>Add the required credentials, CLick on save and continue as admin.</li>
-<li>The "Instance configuration" page will be displayed which will ask to confirm the prefered URL for jenkins instance, Click on save and finish.
-<img alt="image" src="/pictures/started.png" /></li>
-<li>Once the process is over click on "Reboot" which will restart the jenkins.</li>
-</ul>
+<p>To find your server's name or domain name enter the following command in your terminal: </p>
+<pre><code>ifconfig
+</code></pre>
+<p>Using the server's name or domain name as shown in the following command, entered that into a browser which in turn gave the Unlock Jenkins window. </p>
+<p>http://your_server_name_or_domain:8080 </p>
+<h2 id="using-that-server-name">Using that server name</h2>
+<p><img alt="image" src="/pictures/unlock.png" /> </p>
+<p>The Unlock Jenkins window shows where the admin password is stored. In the terminal I will use the cat command to display the password: </p>
+<p>sudo cat /var/lib/jenkins/secrets/initialAdminPassword </p>
+<p>The 32-character alphanumeric password is displayed in the terminal, paste it onto Administrator password field, and then click <strong>continue</strong>.  </p>
+<h2 id="customize-jenkins">Customize Jenkins</h2>
+<p><img alt="image" src="/pictures/costumize.png" /> </p>
+<p>In the Customize Jenkins select "install suggested plugins" which will start installation process directly and press <strong>continue</strong>. </p>
+<h2 id="create-admin-user">Create Admin User</h2>
+<p><img alt="image" src="/pictures/info.png" /> </p>
+<p>Add the required credentials, click on <strong>save</strong> and continue as admin. </p>
+<p>The "Instance configuration" page will be displayed which will ask to confirm the preferred URL for Jenkins instance, click on <strong>save</strong> and <strong>finish</strong>. </p>
+<h2 id="installation-starts">Installation Starts</h2>
+<p><img alt="image" src="/pictures/started.png" /> </p>
+<p>Once the process is over click on <strong>Reboot</strong> which will restart the Jenkins. </p>
+<p><strong>Now, Jenkins is installed! </strong> </p>
                 
               
               
