@@ -16,7 +16,7 @@ Add the repository key to the terminal:
 
     wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - 
 
-![pictures](/pictures/jenk.png) 
+![image](/home/apoorva/my-project/pictures/jenk.png) 
 
 The system will return **OK**  
 
