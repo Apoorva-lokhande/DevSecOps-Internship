@@ -6,6 +6,18 @@ MkDocs is a static site generator that's geared towards building project documen
 
 I have installed MKDocs using the official [Documentation](https://www.mkdocs.org/user-guide/installation/) 
 
+- If you need to install pip for the first time, download [get-pip.py](https://bootstrap.pypa.io/get-pip.py). Then run the following command to install it:
+ 
+      python get-pip.py
+
+- Install the MKDocs package using:
+  
+      pip insatll mkdocs
+
+- Later, check the version of the MKDocs installed in order to check everything worked okay.
+  
+      mkdocs --version
+
 ## Selecting a Theme
 
 In order to customize a theme, I referred official [Documentation](https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes) from MkDocs themes. Here I preferred `Material` theme, to use this particular theme it needs to be installed via pip. 
@@ -19,13 +31,13 @@ Create a new project to store all the documentation as given in below commands:
     mkdocs new my-project
     cd my-project
 
-After creating an folder in VScode, create a file named `mkdocs.yml` and a folder named `docs`.  
+After creating a folder in VScode, create a file named `mkdocs.yml` and a folder named `docs`.  
 
 `The index.md` file is created in docs folder which contains a single documentation page.
 
 In `mkdocs.yml` include:
 
-    `site_name: 'DevSecOps-pipeline'
+    site_name: 'DevSecOps-pipeline'
     nav:
     Introduction: 'index.md'
     Contents: 'contents.md'
@@ -33,9 +45,9 @@ In `mkdocs.yml` include:
     Setting up Jenkins: 'setting-up-jenkins.md'
     Setting up mkDocs: 'setting-up-mkdocs.md'
 
-    theme: material`
+    theme: material
 
-Here we have mentioned the site name as **DevSecOps-pipeline** which is the title of the site, in the **nav** include all the contents which are explained througout the documentation and the **theme** as we have downloaded before needs to be mentioned here.
+Here we have mentioned the site name as **DevSecOps-pipeline** which is the title of the site, in the **nav** include all the contents which are explained throughout the documentation and the **theme** as we have downloaded before needs to be mentioned here.
 
 ## Push code to GitHub
 
@@ -43,35 +55,35 @@ Here, I made a repository initially as `DevSecOps-Internship` also checked the o
 
 In a terminal, I ran:
 
-git init
-mkdocs build
-git add .
-git commit -m "Initial commit"
-git push -u origin master
+    git init
+    mkdocs build
+    git add .
+    git commit -m "Initial commit"
+    git push -u origin master
 
-Later I checked the repository all the files where not commited.
+Later, I checked the repository all the files where not committed.
 
-I figured this out by checkiing the contents.md file, where I forgot to add the files that were created. I again commited the files using the commands as above, now the files were successfully commited.
+I figured this out by checking the contents.md file, where I forgot to add the files that were created. I again committed the files using the commands as above, now the files were successfully committed. 
 
 ## Building the MKDocs site
 
 Building a site converts the documented files into a HTML and CSS format and will the files in a folder named `site` within the same directory which contains `mkdocs.yml` file.
 
-In the terminal i ran a following command froma parent directory:
+In the terminal I ran a following command from parent directory: 
 
     mkdocs build --clean
 
 ## Deploy on Netlify
 
-- Created an account in [netlify](https://www.netlify.com/).
-- Selected an `Add a new project` option.
+- Created a account in [netlify](https://www.netlify.com/).
+- Selected `Add a new project` option.
 - A window will open which asks for `Connect to git provider`.
 - Select `Create a new site` and later select `Github`.
-- Later, select the repository you need to  publish, i selected DevSecOps-pipeline.
+- Select the repository you need to publish, I selected DevSecOps-pipeline.
 - later select the repository and a window will appear under that add `site/` in publish directory.
 
   ![image](/pictures/github-site.png)
 
-- Click on Deploy site and the site will bw deployed and the link will bw available on top of the screen.
+- Click on Deploy site and the site will be deployed and the link will be available on top of the screen.
    
    ![image](/pictures/linkk.png)

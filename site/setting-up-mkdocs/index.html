@@ -395,6 +395,20 @@
 <p>MkDocs is a static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file. MkDocs will build your docs and used to commit and push them to GitHub.</p>
 <h2 id="installing-mkdocs">Installing MKDocs</h2>
 <p>I have installed MKDocs using the official <a href="https://www.mkdocs.org/user-guide/installation/">Documentation</a> </p>
+<ul>
+<li>
+<p>If you need to install pip for the first time, download <a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a>. Then run the following command to install it:</p>
+<p>python get-pip.py</p>
+</li>
+<li>
+<p>Install the MKDocs package using:</p>
+<p>pip insatll mkdocs</p>
+</li>
+<li>
+<p>Later, check the version of the MKDocs installed in order to check everything worked okay.</p>
+<p>mkdocs --version</p>
+</li>
+</ul>
 <h2 id="selecting-a-theme">Selecting a Theme</h2>
 <p>In order to customize a theme, I referred official <a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">Documentation</a> from MkDocs themes. Here I preferred <code>Material</code> theme, to use this particular theme it needs to be installed via pip. </p>
 <pre><code>pip install mkdocs-material
@@ -404,10 +418,10 @@
 <pre><code>mkdocs new my-project
 cd my-project
 </code></pre>
-<p>After creating an folder in VScode, create a file named <code>mkdocs.yml</code> and a folder named <code>docs</code>.  </p>
+<p>After creating a folder in VScode, create a file named <code>mkdocs.yml</code> and a folder named <code>docs</code>.  </p>
 <p><code>The index.md</code> file is created in docs folder which contains a single documentation page.</p>
 <p>In <code>mkdocs.yml</code> include:</p>
-<pre><code>`site_name: 'DevSecOps-pipeline'
+<pre><code>site_name: 'DevSecOps-pipeline'
 nav:
 Introduction: 'index.md'
 Contents: 'contents.md'
@@ -415,36 +429,37 @@ Setting up VM: 'setting-up-VM.md'
 Setting up Jenkins: 'setting-up-jenkins.md'
 Setting up mkDocs: 'setting-up-mkdocs.md'
 
-theme: material`
+theme: material
 </code></pre>
-<p>Here we have mentioned the site name as <strong>DevSecOps-pipeline</strong> which is the title of the site, in the <strong>nav</strong> include all the contents which are explained througout the documentation and the <strong>theme</strong> as we have downloaded before needs to be mentioned here.</p>
+<p>Here we have mentioned the site name as <strong>DevSecOps-pipeline</strong> which is the title of the site, in the <strong>nav</strong> include all the contents which are explained throughout the documentation and the <strong>theme</strong> as we have downloaded before needs to be mentioned here.</p>
 <h2 id="push-code-to-github">Push code to GitHub</h2>
 <p>Here, I made a repository initially as <code>DevSecOps-Internship</code> also checked the option <code>private repository</code> and then create <code>repository</code>.</p>
 <p>In a terminal, I ran:</p>
-<p>git init
+<pre><code>git init
 mkdocs build
 git add .
 git commit -m "Initial commit"
-git push -u origin master</p>
-<p>Later I checked the repository all the files where not commited.</p>
-<p>I figured this out by checkiing the contents.md file, where I forgot to add the files that were created. I again commited the files using the commands as above, now the files were successfully commited.</p>
+git push -u origin master
+</code></pre>
+<p>Later, I checked the repository all the files where not committed.</p>
+<p>I figured this out by checking the contents.md file, where I forgot to add the files that were created. I again committed the files using the commands as above, now the files were successfully committed. </p>
 <h2 id="building-the-mkdocs-site">Building the MKDocs site</h2>
 <p>Building a site converts the documented files into a HTML and CSS format and will the files in a folder named <code>site</code> within the same directory which contains <code>mkdocs.yml</code> file.</p>
-<p>In the terminal i ran a following command froma parent directory:</p>
+<p>In the terminal I ran a following command from parent directory: </p>
 <pre><code>mkdocs build --clean
 </code></pre>
 <h2 id="deploy-on-netlify">Deploy on Netlify</h2>
 <ul>
-<li>Created an account in <a href="https://www.netlify.com/">netlify</a>.</li>
-<li>Selected an <code>Add a new project</code> option.</li>
+<li>Created a account in <a href="https://www.netlify.com/">netlify</a>.</li>
+<li>Selected <code>Add a new project</code> option.</li>
 <li>A window will open which asks for <code>Connect to git provider</code>.</li>
 <li>Select <code>Create a new site</code> and later select <code>Github</code>.</li>
-<li>Later, select the repository you need to  publish, i selected DevSecOps-pipeline.</li>
+<li>Select the repository you need to publish, I selected DevSecOps-pipeline.</li>
 <li>later select the repository and a window will appear under that add <code>site/</code> in publish directory.</li>
 </ul>
 <p><img alt="image" src="/pictures/github-site.png" /></p>
 <ul>
-<li>Click on Deploy site and the site will bw deployed and the link will bw available on top of the screen.</li>
+<li>Click on Deploy site and the site will be deployed and the link will be available on top of the screen.</li>
 </ul>
 <p><img alt="image" src="/pictures/linkk.png" /></p>
                 

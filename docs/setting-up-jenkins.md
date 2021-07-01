@@ -14,9 +14,9 @@ I have installed java 8 OpenJDK and JRE (Java Development Kit and Java Runtime E
 
 Add the repository key to the terminal:  
 
-    `wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - `
+    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - 
 
-![image](/home/apoorva/my-project/pictures/jenk.png) 
+![pictures](/home/apoorva/my-project/pictures/jenk.png) 
 
 The system will return **OK**  
 

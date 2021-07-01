@@ -24,7 +24,7 @@ In virtual Box Click **NEW** icon to create a new machine
 
 ## Name and operating system 
 
-![image](/home/apoorva/my-project/pictures/os.png)
+![image](/pictures/os.png)
 
 - Name : `Jenkins-deploy`
 - Type : `Linux`

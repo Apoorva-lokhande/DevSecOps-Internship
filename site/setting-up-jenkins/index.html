@@ -329,9 +329,9 @@
 <p>I have installed java 8 OpenJDK and JRE (Java Development Kit and Java Runtime Environment) which is used to develop and run the software, I have used this <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk">Link</a> to download the same. </p>
 <h1 id="installation-steps-for-jenkins">Installation steps for Jenkins</h1>
 <p>Add the repository key to the terminal:  </p>
-<pre><code>`wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - `
+<pre><code>wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 </code></pre>
-<p><img alt="image" src="/home/apoorva/my-project/pictures/jenk.png" /> </p>
+<p><img alt="pictures" src="/home/apoorva/my-project/pictures/jenk.png" /> </p>
 <p>The system will return <strong>OK</strong>  </p>
 <p>Next, add the Debian package repository address:   </p>
 <pre><code>sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \
