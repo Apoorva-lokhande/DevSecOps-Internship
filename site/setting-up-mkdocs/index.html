@@ -261,6 +261,48 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#installing-mkdocs" class="md-nav__link">
+    Installing MKDocs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selecting-a-theme" class="md-nav__link">
+    Selecting a Theme
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-code-to-github" class="md-nav__link">
+    Push code to GitHub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-the-mkdocs-site" class="md-nav__link">
+    Building the MKDocs site
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-on-netlify" class="md-nav__link">
+    Deploy on Netlify
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -294,6 +336,48 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#installing-mkdocs" class="md-nav__link">
+    Installing MKDocs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selecting-a-theme" class="md-nav__link">
+    Selecting a Theme
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-code-to-github" class="md-nav__link">
+    Push code to GitHub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-the-mkdocs-site" class="md-nav__link">
+    Building the MKDocs site
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-on-netlify" class="md-nav__link">
+    Deploy on Netlify
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -308,10 +392,61 @@
                 
                 
                 <h1 id="setting-up-mkdocs">Setting up MKDocs</h1>
+<p>MkDocs is a static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file. MkDocs will build your docs and used to commit and push them to GitHub.</p>
+<h2 id="installing-mkdocs">Installing MKDocs</h2>
+<p>I have installed MKDocs using the official <a href="https://www.mkdocs.org/user-guide/installation/">Documentation</a> </p>
+<h2 id="selecting-a-theme">Selecting a Theme</h2>
+<p>In order to customize a theme, I referred official <a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">Documentation</a> from MkDocs themes. Here I preferred <code>Material</code> theme, to use this particular theme it needs to be installed via pip. </p>
+<pre><code>pip install mkdocs-material
+</code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>Create a new project to store all the documentation as given in below commands:</p>
+<pre><code>mkdocs new my-project
+cd my-project
+</code></pre>
+<p>After creating an folder in VScode, create a file named <code>mkdocs.yml</code> and a folder named <code>docs</code>.  </p>
+<p><code>The index.md</code> file is created in docs folder which contains a single documentation page.</p>
+<p>In <code>mkdocs.yml</code> include:</p>
+<pre><code>`site_name: 'DevSecOps-pipeline'
+nav:
+Introduction: 'index.md'
+Contents: 'contents.md'
+Setting up VM: 'setting-up-VM.md'
+Setting up Jenkins: 'setting-up-jenkins.md'
+Setting up mkDocs: 'setting-up-mkdocs.md'
+
+theme: material`
+</code></pre>
+<p>Here we have mentioned the site name as <strong>DevSecOps-pipeline</strong> which is the title of the site, in the <strong>nav</strong> include all the contents which are explained througout the documentation and the <strong>theme</strong> as we have downloaded before needs to be mentioned here.</p>
+<h2 id="push-code-to-github">Push code to GitHub</h2>
+<p>Here, I made a repository initially as <code>DevSecOps-Internship</code> also checked the option <code>private repository</code> and then create <code>repository</code>.</p>
+<p>In a terminal, I ran:</p>
+<p>git init
+mkdocs build
+git add .
+git commit -m "Initial commit"
+git push -u origin master</p>
+<p>Later I checked the repository all the files where not commited.</p>
+<p>I figured this out by checkiing the contents.md file, where I forgot to add the files that were created. I again commited the files using the commands as above, now the files were successfully commited.</p>
+<h2 id="building-the-mkdocs-site">Building the MKDocs site</h2>
+<p>Building a site converts the documented files into a HTML and CSS format and will the files in a folder named <code>site</code> within the same directory which contains <code>mkdocs.yml</code> file.</p>
+<p>In the terminal i ran a following command froma parent directory:</p>
+<pre><code>mkdocs build --clean
+</code></pre>
+<h2 id="deploy-on-netlify">Deploy on Netlify</h2>
 <ul>
-<li>MkDocs is a fast, simple and static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file.</li>
-<li>MkDocs will build your docs and use the ghp-import tool to commit them to the gh-pages branch and push the gh-pages branch to GitHub</li>
+<li>Created an account in <a href="https://www.netlify.com/">netlify</a>.</li>
+<li>Selected an <code>Add a new project</code> option.</li>
+<li>A window will open which asks for <code>Connect to git provider</code>.</li>
+<li>Select <code>Create a new site</code> and later select <code>Github</code>.</li>
+<li>Later, select the repository you need to  publish, i selected DevSecOps-pipeline.</li>
+<li>later select the repository and a window will appear under that add <code>site/</code> in publish directory.</li>
 </ul>
+<p><img alt="image" src="/pictures/github-site.png" /></p>
+<ul>
+<li>Click on Deploy site and the site will bw deployed and the link will bw available on top of the screen.</li>
+</ul>
+<p><img alt="image" src="/pictures/linkk.png" /></p>
                 
               
               
