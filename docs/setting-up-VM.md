@@ -8,9 +8,9 @@ For understanding Virtual machine (VM) we will have to understand what Virtualiz
 
 - There are 2 types of hypervisors: 
 
-1. Type 1: It is installed directly on top of physical server. 
+    1. Type 1: It is installed directly on top of physical server. 
 
-2. Type 2: Here there is a layer of Host operating system (OS) between the hardware and Hypervisor (as we are using here). 
+    2. Type 2: Here there is a layer of Host operating system (OS) between the hardware and Hypervisor (as we are using here). 
 
 A VM is an OS or application environment that is installed on software, which imitates dedicated physical server. A VM provides an isolated environment for running its own OS and applications independently from the underlying host system or from other VMs on that host. The VM's OS is commonly referred to as the guest OS, and it can be the same as or different from the host OS or the other VMs. 
    
@@ -24,14 +24,14 @@ In virtual Box Click **NEW** icon to create a new machine
 
 ## Name and operating system 
 
-![image](/pictures/os.png)
+![image](/home/apoorva/my-project/pictures/os.png)
 
 - Name : `Jenkins-deploy`
 - Type : `Linux`
 - Version : `Ubuntu (64-bit)`
 ## Memory size 
 
-[image](/pictures/2.png) 
+![image](/pictures/2.png) 
 
 Select `2000 MB` and click on **create** 
 
