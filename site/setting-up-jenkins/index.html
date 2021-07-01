@@ -9,19 +9,19 @@
       
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
     
     
       
-        <title>DevSecOps-pipeline</title>
+        <title>Installation of jenkins - DevSecOps-pipeline</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.6f955dcd.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f955dcd.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -51,12 +51,17 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#installation-of-jenkins" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -65,7 +70,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="DevSecOps-pipeline" class="md-header__button md-logo" aria-label="DevSecOps-pipeline" data-md-component="logo">
+    <a href=".." title="DevSecOps-pipeline" class="md-header__button md-logo" aria-label="DevSecOps-pipeline" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -84,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Installation of jenkins
             
           </span>
         </div>
@@ -145,7 +150,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="DevSecOps-pipeline" class="md-nav__button md-logo" aria-label="DevSecOps-pipeline" data-md-component="logo">
+    <a href=".." title="DevSecOps-pipeline" class="md-nav__button md-logo" aria-label="DevSecOps-pipeline" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -164,7 +169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -179,7 +184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/contents/" class="md-nav__link">
+      <a href="../contents/" class="md-nav__link">
         Contents
       </a>
     </li>
@@ -194,7 +199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/setting-up-VM/" class="md-nav__link">
+      <a href="../setting-up-VM/" class="md-nav__link">
         Setting up VM
       </a>
     </li>
@@ -208,11 +213,105 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                
+                <h1 id="installation-of-jenkins">Installation of jenkins</h1>
+<ul>
+<li>What is jenkins?
+    Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.</li>
+</ul>
+<h1 id="prerequisite">Prerequisite</h1>
+<ul>
+<li>
+<p>I have setup ubuntu 18.04 VM for installing Jenkins: https://www.jenkins.io/doc/book/installing/</p>
+</li>
+<li>
+<p>I have installed java 8 OpenJDK and JRE(Java Developement Kit and Java Runtime Environment) which is used to develop and run the software: https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk</p>
+</li>
+</ul>
+<h1 id="installation-steps-for-jenkins">Installation steps for Jenkins</h1>
+<ul>
+<li>Add the repository key to the system: wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+<img alt="image" src="/pictures/jenk.png" /></li>
+<li>
+<p>the system will return OK</p>
+</li>
+<li>
+<p>Next, add the debian package repository address: sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \
+    /etc/apt/sources.list.d/jenkins.list'</p>
+</li>
+<li>
+<p>sudo apt update
+<img alt="image" src="/pictures/last.png" /></p>
+</li>
+<li>
+<p>Now install Jenkins and it's dependencies: sudo apt install jenkins
+<img alt="image" src="/pictures/installed.png" /></p>
+</li>
+</ul>
+<h1 id="starting-jenkins">Starting Jenkins</h1>
+<p><img alt="image" src="/pictures/startandstatus.png" />
+- The systemctl command is used to manage "systemd" services and service manager: sudo systemctl start jenkins
+- Check the status of jenkins service using the below command: sudo systemctl status jenkins
+    If the jenkins has installed succesfully, then the output will show as Active: active(excited).To reach it from a web browser I will adjust the firewall rules to complete the initial setup.</p>
+<h1 id="set-up-a-firewall-with-ufw">Set-up a Firewall with UFW</h1>
+<p><img alt="image" src="/pictures/activee.png" />
+- Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports.
+- By default, Jenkins runs on port 8080. Opening using ufw(uncomplicated firewall): sudo ufw allow 8080
+- To check the status of the ufw: sudo ufw status
+- If the status shows "Inactive". Then enable using following command
+    To configure your server to allow incoming SSH connections, you can use this command:sudo ufw allow ssh
+    - To enable UFW, use this command: sudo ufw enable</p>
+<h1 id="setting-up-jenkins">Setting up Jenkins</h1>
+<ul>
+<li>To complete setup in the browser I entered http://your_server_name_or_domain:8080
+<img alt="image" src="/pictures/unlock.png" /></li>
+<li>The Unlock Jenkins screen opens, which will display where the Admin Password is stored.
+<img alt="image" src="/pictures/cat.png" /></li>
+<li>In the terminal I will use the cat command to display the passsword: sudo cat /var/lib/jenkins/secrets/initialAdminPassword</li>
+<li>The 32-character alphanumeric password is displayed in the terminal paste it onto Administrator password field, and then click continue.
+<img alt="image" src="/pictures/costumize.png" /></li>
+<li>In the Customize jenkins select "install suggested plugins" which will start installtion process directly and press continue.
+<img alt="image" src="/pictures/info.png" /></li>
+<li>Add the required credentials, CLick on save and continue as admin.</li>
+<li>The "Instance configuration" page will be displayed which will ask to confirm the prefered URL for jenkins instance, Click on save and finish.
+<img alt="image" src="/pictures/started.png" /></li>
+<li>Once the process is over click on "Reboot" which will restart the jenkins.</li>
+</ul>
+                
+              
+              
+                
+
 
               
             </article>
@@ -243,10 +342,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "/assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.4ea5477f.min.js"></script>
+      <script src="../assets/javascripts/bundle.4ea5477f.min.js"></script>
       
     
   </body>

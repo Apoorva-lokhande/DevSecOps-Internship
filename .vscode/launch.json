@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "name": "https://releases.ubuntu.com/18.04/",
+            "request": "launch",
+            "url": "https://releases.ubuntu.com/18.04/"
+        }
+    ]
+}
