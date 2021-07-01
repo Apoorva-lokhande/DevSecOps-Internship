@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-is-vm" class="md-skip">
+        <a href="#what-is-virtual-machine" class="md-skip">
           Skip to content
         </a>
       
@@ -239,6 +239,36 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setting-up-jenkins/" class="md-nav__link">
+        Setting up Jenkins
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setting-up-mkdocs/" class="md-nav__link">
+        Setting up mkDocs
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -277,111 +307,93 @@
               
                 
                 
-                <h1 id="what-is-vm">What is VM?</h1>
+                <h1 id="what-is-virtual-machine">What is Virtual Machine?</h1>
+<p>For understanding Virtual machine (VM) we will have to understand what Virtualization is. </p>
 <ul>
 <li>
-<p>For understandig VM we will have to understand what Virtualiaztion is?</p>
+<p><strong>Virtualization</strong> is a software based or virtual version of something, that be compute, storage, networking, servers or applications. And Hypervisor makes Virtualization possible. </p>
 </li>
 <li>
-<p>Virtualization is a software based or virtual version of something, that be compute, storage, networking, servers or applications. And Hypervisor makes Virtualization feasible.</p>
+<p><strong>Hypervisor</strong> is a piece of software that runs above host or server. </p>
 </li>
-<li>Hypervisor is a peice of software that runs above host or server.</li>
-<li>There are 2 types of hypervisor:<ol>
-<li>Type 1: It is installed directly on top of physical server.</li>
-<li>Type 2: Here there is a layer of Host OS btween the physical server and Hypervisor.</li>
-</ol>
+<li>
+<p>There are 2 types of hypervisors: </p>
 </li>
-<li>Here we are using Type 2 Hypervisor.</li>
+<li>
+<p>Type 1: It is installed directly on top of physical server. </p>
+</li>
+<li>
+<p>Type 2: Here there is a layer of Host operating system (OS) between the hardware and Hypervisor (as we are using here). </p>
+</li>
 </ul>
+<p>A VM is an OS or application environment that is installed on software, which imitates dedicated physical server. A VM provides an isolated environment for running its own OS and applications independently from the underlying host system or from other VMs on that host. The VM's OS is commonly referred to as the guest OS, and it can be the same as or different from the host OS or the other VMs. </p>
 <h1 id="setting-up-vm">Setting up VM</h1>
-<ul>
-<li>
 <p>Here I will be setting up two VMs:</p>
 <ol>
 <li>For Jenkins Deployment.</li>
-<li>For suiteCRM server.</li>
+<li>For suiteCRM server.`</li>
 </ol>
-</li>
-<li>
-<p>In virtual Box Click "NEW" icon to ceate a new machine</p>
-</li>
-</ul>
-<h3 id="name-and-operating-system">Name and operating system</h3>
-<p><img alt="image" src="/pictures/os.png" />
-- Name : Jenkins-deploy
-- Type : Linux
-- Version : Ubuntu (64-bit)</p>
-<h3 id="memory-size">Memory size</h3>
-<p><img alt="image" src="/pictures/2.png" />
-- Select 2000 MB and click on create</p>
-<h3 id="hard-disk">Hard disk</h3>
-<p><img alt="image" src="/pictures/3.png" />
-- Select a virtual hard disk now and Create and Hard disk file type will open in that select VDI(VirtualBox Disk Image) and NEXT.
-<img alt="image" src="/pictures/js.png" /></p>
+<p>In virtual Box Click <strong>NEW</strong> icon to create a new machine</p>
+<h2 id="name-and-operating-system">Name and operating system</h2>
+<p><img alt="image" src="/pictures/os.png" /></p>
 <ul>
-<li>In storage on physical hard disk select Dynamically allocated File location and size will open hit create and is done.
-<img alt="image" src="/pictures/2021-06-29_19-41.png" /></li>
+<li>Name : <code>Jenkins-deploy</code></li>
+<li>Type : <code>Linux</code></li>
+<li>Version : <code>Ubuntu (64-bit)</code></li>
 </ul>
+<h2 id="memory-size">Memory size</h2>
+<p><a href="/pictures/2.png">image</a> </p>
+<p>Select <code>2000 MB</code> and click on <strong>create</strong> </p>
+<h2 id="hard-disk">Hard disk</h2>
+<p><img alt="image" src="/pictures/3.png" /> </p>
+<p>Select a <code>virtual hard disk now</code> and <strong>Create</strong> and Hard disk file type will open in that select <code>VDI (VirtualBox Disk Image)</code>and <strong>NEXT</strong>. </p>
+<p><img alt="image" src="/pictures/js.png" /> </p>
+<p>In storage on physical hard disk select <code>Dynamically allocated</code> File location and size will open hit <strong>Create</strong> and is done. </p>
+<p><img alt="image" src="/pictures/2021-06-29_19-41.png" /> </p>
 <h2 id="download-server-image-1804">Download server image 18.04</h2>
-<ul>
-<li>Downloaded the server image Ubuntu 18.04 on VirtualBox as it is an LTS version which is a desirable feature for a CI pipeline. </li>
-<li>
-<p>I followed the official link to download the 64-bit PC(AMD64) desktop image : https://releases.ubuntu.com/18.04/ link
-<img alt="image" src="/pictures/desktop.png" /></p>
-</li>
-<li>
-<p>In VM box I selected Jenkins-deploy to install the server and then clicked on start
-<img alt="image" src="/pictures/mark.png" /></p>
-</li>
-<li>
-<p>Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on start
-<img alt="image" src="/pictures/optical.png" />
-<img alt="image" src="/pictures/8.png" /></p>
-</li>
-<li>Now Jenkin VM starts running!</li>
-</ul>
-<h3 id="language-selection">Language selection</h3>
-<ul>
-<li>Select the language English and click on done
-<img alt="image" src="/pictures/9.png" /></li>
-</ul>
-<h3 id="keyboard-configuration">Keyboard configuration</h3>
-<ul>
-<li>By default English is selected for Layout and variant, pressed Done.
-<img alt="image" src="/pictures/10.png" /></li>
-</ul>
-<h3 id="network-connections">Network connections</h3>
-<ul>
-<li>I kept it as default and selected Done.
-<img alt="image" src="/pictures/11.png" /></li>
-</ul>
-<h3 id="configure-proxy">Configure proxy</h3>
-<p><img alt="image" src="/pictures/12.png" /></p>
-<h3 id="configure-ubuntu-archive-mirror">Configure ubuntu archive mirror</h3>
-<p><img alt="image" src="/pictures/13.png" />
-- I kept it as default and pressed Done for both Configure proxy and Configure ubuntu archive mirror </p>
-<h3 id="storage-configuration">Storage configuration</h3>
-<p><img alt="image" src="/pictures/14.png" />
-- I did not make changes in the storage configuration I kept it as default and pressed Done.</p>
-<p><img alt="image" src="/pictures/15.png" />
-- I kept this too as default and hit Done.</p>
-<h3 id="profile-setup">Profile setup</h3>
-<p><img alt="image" src="/pictures/17.png" />
-- I provided all the details and pressed Done.</p>
-<h3 id="ssh-setup">SSH Setup</h3>
-<p><img alt="image" src="/pictures/18.png" />
-- In order to install the OpenSSH server I pressed Space button to select the "Install OpenSSH server" option.I selected the install openSSH server because by default ubuntu didnot have openSSH installed, and then I kept Import SSH identity as default and pressed Done.</p>
-<h3 id="featured-server-snaps">Featured Server Snaps</h3>
-<p><img alt="image" src="/pictures/19.png" />
-- Selected the snaps which are useful in a server environment, once selected pressed Done.
-<img alt="image" src="/pictures/20.png" /></p>
-<h3 id="installation-complete">Installation complete</h3>
-<ul>
-<li>Installation complete window appeared, I waited until the Reboot button appeared on this window. Later, pressed reboot.
-<img alt="image" src="/pictures/21.png" /></li>
-<li>And the installation of Ubuntu 18.04 is completed!</li>
-<li>Repeat the same process in order to create another VM for suiteCRM deployment where I have specified the server name as "suitecrm-deploy".</li>
-</ul>
+<p>Downloaded the server image Ubuntu 18.04 on VirtualBox as it is an LTS version which is a desirable feature for a CI pipeline.  </p>
+<p>I followed the official <a href="https://releases.ubuntu.com/18.04/">link</a> to download the 64-bit PC(AMD64) desktop image  </p>
+<p><img alt="image" src="/pictures/desktop.png" /> </p>
+<p>In VM box I selected <code>Jenkins-deploy</code> to install the server and then clicked on <strong>start</strong> </p>
+<p><img alt="image" src="/pictures/mark.png" /> </p>
+<p>Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on <strong>start</strong> </p>
+<p><img alt="image" src="/pictures/optical.png" /> </p>
+<p><img alt="image" src="/pictures/8.png" /> </p>
+<p>Now Jenkin VM starts running! </p>
+<h2 id="language-selection">Language selection</h2>
+<p>Select the language English and click on done </p>
+<p><img alt="image" src="/pictures/9.png" /> </p>
+<h2 id="keyboard-configuration">Keyboard configuration</h2>
+<p>By default, English is selected for Layout and variant, pressed <strong>Done</strong>. </p>
+<p><img alt="image" src="/pictures/10.png" /> </p>
+<h2 id="network-connections">Network connections</h2>
+<p>I kept it as default and selected <strong>Done</strong>. </p>
+<p><img alt="image" src="/pictures/11.png" /> </p>
+<h2 id="configure-proxy">Configure proxy</h2>
+<p><img alt="image" src="/pictures/12.png" /> </p>
+<h2 id="configure-ubuntu-archive-mirror">Configure ubuntu archive mirror</h2>
+<p><img alt="image" src="/pictures/13.png" /> </p>
+<p>I kept it as default and pressed Done for both Configure proxy and configure ubuntu archive mirror  </p>
+<h2 id="storage-configuration">Storage configuration</h2>
+<p><img alt="image" src="/pictures/14.png" /> </p>
+<p>I did not make changes in the storage configuration I kept it as default and pressed <strong>Done</strong>. </p>
+<p><img alt="image" src="/pictures/15.png" /> </p>
+<p>I kept this too as default and hit <strong>Done</strong>. </p>
+<h2 id="profile-setup">Profile setup</h2>
+<p><img alt="image" src="/pictures/17.png" /> </p>
+<p>I provided all the details and pressed <strong>Done</strong>. </p>
+<h2 id="ssh-setup">SSH Setup</h2>
+<p><img alt="image" src="/pictures/18.png" /> </p>
+<p>In order to install the OpenSSH server I pressed Space button to select the <strong>Install OpenSSH server</strong> option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and pressed <strong>Done</strong>. </p>
+<h2 id="featured-server-snaps">Featured Server Snaps</h2>
+<p><img alt="image" src="/pictures/19.png" />  </p>
+<p>Selected the snaps which are useful in a server environment, once selected pressed <strong>Done</strong>. </p>
+<p><img alt="image" src="/pictures/20.png" /> </p>
+<h2 id="installation-complete">Installation complete</h2>
+<p>Installation complete window appeared, I waited until the <strong>Reboot</strong> button appeared on this window. Later, pressed <strong>reboot</strong>. </p>
+<p><img alt="image" src="/pictures/21.png" /> </p>
+<p>And the installation of Ubuntu 18.04 is completed! </p>
+<p>Repeat the same process in order to create another VM for suiteCRM deployment where I have specified the server name as <code>suitecrm-deploy</code>. </p>
                 
               
               
@@ -414,6 +426,20 @@
           </div>
         </a>
       
+      
+        <a href="../setting-up-jenkins/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Setting up Jenkins
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
