@@ -28,7 +28,7 @@ Next, add the Debian package repository address:
 
     sudo apt update 
 
-![image](/pictures/last.png) 
+![image](/last.png) 
 
 Now install Jenkins and it’s dependencies: 
 
