@@ -5,5 +5,6 @@ nav:
 - Setting up VM: 'setting-up-VM.md'
 - Setting up Jenkins: 'setting-up-jenkins.md'
 - Setting up mkDocs: 'setting-up-mkdocs.md'
-
+- Setting up pipeline: 'setting-up-pipeline.md'
+- Setting up DVNA: 'setting-up-dvna.md'
 theme: material
