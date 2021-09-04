@@ -14,7 +14,7 @@
     
     
       
-        <title>Woeking-of-pipeline - DevSecOps-pipeline</title>
+        <title>Working-of-pipeline - DevSecOps-pipeline</title>
       
     
     
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Woeking-of-pipeline
+              Working-of-pipeline
             
           </span>
         </div>
@@ -329,12 +329,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Woeking-of-pipeline
+          Working-of-pipeline
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Woeking-of-pipeline
+        Working-of-pipeline
       </a>
       
         
@@ -496,16 +496,38 @@
                 
                 
                 <h1 id="working-of-pipeline">Working of pipeline</h1>
-<p>To start creating the Jenkins pipeline, login into the jenkin web interface.
--  In the <code>Dashboard</code>, create a <code>New Item</code> and enter a <code>item name</code>(e.g. <code>dvna-pipeline</code>) and select <code>pipeline</code> and click <code>OK</code>.
--  It was redirected to the <code>configuration</code> page. Here:
-    - Under <code>general</code> section:
-      - Gave description of the application being deployed.
-      - I checked the <code>Discard old builds</code> as they keep metadata related to old builds.
-    - Under <code>pipeline</code> section, I selected the defination dropdown to <code>Pipeline script from SCM</code>.
-     - In <code>SCM</code> dropdown I selected <code>GIT</code>, and gave the <code>repository URL</code>.
-      - Click <code>Save</code> to save and aplly the configurations. 
-- Go to <code>Dashboard</code> -&gt; <code>dvna-pipeline</code> -&gt; <code>build now</code> -&gt; <code>console output</code>.</p>
+<p>To start creating the Jenkins pipeline, login into the jenkin web interface.</p>
+<ul>
+<li>
+<p>In the <code>Dashboard</code>, create a <code>New Item</code> and enter a <code>item name</code>(e.g. <code>dvna-pipeline</code>) and select <code>pipeline</code> and click <code>OK</code>.</p>
+</li>
+<li>
+<p>It was redirected to the <code>configuration</code> page. Here:</p>
+<ul>
+<li>
+<p>Under <code>general</code> section:</p>
+</li>
+<li>
+<p>Gave description of the application being deployed.</p>
+</li>
+<li>
+<p>I checked the <code>Discard old builds</code> as they keep metadata related to old builds.</p>
+</li>
+<li>
+<p>Under <code>pipeline</code> section, I selected the defination dropdown to <code>Pipeline script from SCM</code>.</p>
+</li>
+<li>
+<p>In <code>SCM</code> dropdown I selected <code>GIT</code>, and gave the <code>repository URL</code>.</p>
+</li>
+<li>
+<p>Click <code>Save</code> to save and aplly the configurations. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Go to <code>Dashboard</code> -&gt; <code>dvna-pipeline</code> -&gt; <code>build now</code> -&gt; <code>console output</code>.</p>
+</li>
+</ul>
 <h2 id="jenkinsfile">Jenkinsfile</h2>
 <ul>
 <li>Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline and is checked into source control.The following are the contents of the Jenkinsfile which implements a continuous delivery pipeline:</li>

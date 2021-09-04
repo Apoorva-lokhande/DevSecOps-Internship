@@ -1,14 +1,23 @@
 # Working of pipeline
 
 To start creating the Jenkins pipeline, login into the jenkin web interface.
+
 -  In the `Dashboard`, create a `New Item` and enter a `item name`(e.g. `dvna-pipeline`) and select `pipeline` and click `OK`.
+  
 -  It was redirected to the `configuration` page. Here:
+  
     - Under `general` section:
+  
       - Gave description of the application being deployed.
+  
       - I checked the `Discard old builds` as they keep metadata related to old builds.
+  
     - Under `pipeline` section, I selected the defination dropdown to `Pipeline script from SCM`.
+  
      - In `SCM` dropdown I selected `GIT`, and gave the `repository URL`.
+  
       - Click `Save` to save and aplly the configurations. 
+  
 - Go to `Dashboard` -> `dvna-pipeline` -> `build now` -> `console output`.
   
 ## Jenkinsfile
