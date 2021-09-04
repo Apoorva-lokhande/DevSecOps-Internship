@@ -23,8 +23,7 @@ The system will return **OK**
 Next, add the Debian package repository address:   
 
     sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \ 
-
-/etc/apt/sources.list.d/jenkins.list 
+    /etc/apt/sources.list.d/jenkins.list 
 
     sudo apt update 
 
