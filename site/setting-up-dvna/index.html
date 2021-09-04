@@ -433,26 +433,26 @@
 - Docker, NodeJS and NPM</p>
 <h2 id="install-docker-nodejs-and-npm">Install Docker, NodeJS and NPM</h2>
 <ul>
-<li>
-<p>For Docker installation I referred the <a href="https://docs.docker.com/engine/install/">official documentation</a>, update the <code>apt</code> package index:</p>
+<li>For Docker installation I referred the <a href="https://docs.docker.com/engine/install/">official documentation</a>, update the <code>apt</code> package index:</li>
+</ul>
 <p>sudo apt-get update</p>
-</li>
-<li>
-<p>Add Docker’s official GPG key:</p>
+<ul>
+<li>Add Docker’s official GPG key:</li>
+</ul>
 <p>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</p>
-</li>
-<li>
-<p>Use the following command to set up the stable repository:</p>
+<ul>
+<li>Use the following command to set up the stable repository:</li>
+</ul>
 <p>echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</p>
-</li>
-<li>
-<p>Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:</p>
+<ul>
+<li>Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:</li>
+</ul>
 <p>sudo apt-get update
   sudo apt-get install docker-ce docker-ce-cli containerd.io
   sudo docker run hello-world # Test if docker installation is successful </p>
-</li>
+<ul>
 <li>
 <p>Install NodeJS and NPM:</p>
 <p>sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - &amp;&amp;
