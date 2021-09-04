@@ -408,9 +408,9 @@
 <p>Here I will be setting up two VMs:</p>
 <ol>
 <li>For Jenkins Deployment.</li>
-<li>For suiteCRM server.`</li>
+<li>For suiteCRM server.</li>
 </ol>
-<p>In virtual Box Click <strong>NEW</strong> icon to create a new machine</p>
+<p>In virtual Box Click <code>NEW</code> icon to create a new machine.</p>
 <h2 id="name-and-operating-system">Name and operating system</h2>
 <p><img alt="image" src="/pictures/os.png" /></p>
 <ul>
@@ -420,20 +420,20 @@
 </ul>
 <h2 id="memory-size">Memory size</h2>
 <p><img alt="image" src="/pictures/2.png" /> </p>
-<p>Select <code>2000 MB</code> and click on <strong>create</strong> </p>
+<p>Select <code>2000 MB</code> and click on <code>create</code>.</p>
 <h2 id="hard-disk">Hard disk</h2>
 <p><img alt="image" src="/pictures/3.png" /> </p>
-<p>Select a <code>virtual hard disk now</code> and <strong>Create</strong> and Hard disk file type will open in that select <code>VDI (VirtualBox Disk Image)</code>and <strong>NEXT</strong>. </p>
+<p>Select a <code>virtual hard disk now</code> and <code>Create</code> and Hard disk file type will open in that select <code>VDI (VirtualBox Disk Image)</code>and <code>NEXT</code>. </p>
 <p><img alt="image" src="/pictures/js.png" /> </p>
-<p>In storage on physical hard disk select <code>Dynamically allocated</code> File location and size will open hit <strong>Create</strong> and is done. </p>
+<p>In storage on physical hard disk select <code>Dynamically allocated</code> File location and size will open hit <code>Create</code> and is done. </p>
 <p><img alt="image" src="/pictures/2021-06-29_19-41.png" /> </p>
 <h2 id="download-server-image-1804">Download server image 18.04</h2>
 <p>Downloaded the server image Ubuntu 18.04 on VirtualBox as it is an LTS version which is a desirable feature for a CI pipeline.  </p>
 <p>I followed the official <a href="https://releases.ubuntu.com/18.04/">link</a> to download the 64-bit PC(AMD64) desktop image  </p>
 <p><img alt="image" src="/pictures/desktop.png" /> </p>
-<p>In VM box I selected <code>Jenkins-deploy</code> to install the server and then clicked on <strong>start</strong> </p>
+<p>In VM box I selected <code>Jenkins-deploy</code> to install the server and then clicked on <code>start</code>.</p>
 <p><img alt="image" src="/pictures/mark.png" /> </p>
-<p>Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on <strong>start</strong> </p>
+<p>Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on <code>start</code>.</p>
 <p><img alt="image" src="/pictures/optical.png" /> </p>
 <p><img alt="image" src="/pictures/8.png" /> </p>
 <p>Now Jenkin VM starts running! </p>
@@ -441,10 +441,10 @@
 <p>Select the language English and click on done </p>
 <p><img alt="image" src="/pictures/9.png" /> </p>
 <h2 id="keyboard-configuration">Keyboard configuration</h2>
-<p>By default, English is selected for Layout and variant, pressed <strong>Done</strong>. </p>
+<p>By default, English is selected for Layout and variant, pressed <code>Done</code>. </p>
 <p><img alt="image" src="/pictures/10.png" /> </p>
 <h2 id="network-connections">Network connections</h2>
-<p>I kept it as default and selected <strong>Done</strong>. </p>
+<p>I kept it as default and selected <code>Done</code>. </p>
 <p><img alt="image" src="/pictures/11.png" /> </p>
 <h2 id="configure-proxy">Configure proxy</h2>
 <p><img alt="image" src="/pictures/12.png" /> </p>
@@ -453,21 +453,21 @@
 <p>I kept it as default and pressed Done for both Configure proxy and configure ubuntu archive mirror  </p>
 <h2 id="storage-configuration">Storage configuration</h2>
 <p><img alt="image" src="/pictures/14.png" /> </p>
-<p>I did not make changes in the storage configuration I kept it as default and pressed <strong>Done</strong>. </p>
+<p>I did not make changes in the storage configuration I kept it as default and pressed <code>Done</code>. </p>
 <p><img alt="image" src="/pictures/15.png" /> </p>
-<p>I kept this too as default and hit <strong>Done</strong>. </p>
+<p>I kept this too as default and hit <code>Done</code>. </p>
 <h2 id="profile-setup">Profile setup</h2>
 <p><img alt="image" src="/pictures/17.png" /> </p>
-<p>I provided all the details and pressed <strong>Done</strong>. </p>
+<p>I provided all the details and pressed <code>Done</code>. </p>
 <h2 id="ssh-setup">SSH Setup</h2>
 <p><img alt="image" src="/pictures/18.png" /> </p>
-<p>In order to install the OpenSSH server I pressed Space button to select the <strong>Install OpenSSH server</strong> option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and pressed <strong>Done</strong>. </p>
+<p>In order to install the OpenSSH server I pressed Space button to select the <code>Install OpenSSH server</code> option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and pressed <code>Done</code>. </p>
 <h2 id="featured-server-snaps">Featured Server Snaps</h2>
 <p><img alt="image" src="/pictures/19.png" />  </p>
-<p>Selected the snaps which are useful in a server environment, once selected pressed <strong>Done</strong>. </p>
+<p>Selected the snaps which are useful in a server environment, once selected pressed <code>Done</code>. </p>
 <p><img alt="image" src="/pictures/20.png" /> </p>
 <h2 id="installation-complete">Installation complete</h2>
-<p>Installation complete window appeared, I waited until the <strong>Reboot</strong> button appeared on this window. Later, pressed <strong>reboot</strong>. </p>
+<p>Installation complete window appeared, I waited until the <strong>Reboot</strong> button appeared on this window. Later, pressed <code>reboot</code>. </p>
 <p><img alt="image" src="/pictures/21.png" /> </p>
 <p>And the installation of Ubuntu 18.04 is completed! </p>
 <p>Repeat the same process in order to create another VM for suiteCRM deployment where I have specified the server name as <code>suitecrm-deploy</code>. </p>

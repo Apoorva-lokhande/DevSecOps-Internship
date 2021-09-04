@@ -18,9 +18,9 @@ A VM is an OS or application environment that is installed on software, which im
 Here I will be setting up two VMs:
 
 1. For Jenkins Deployment.
-2. For suiteCRM server.`
+2. For suiteCRM server.
 
-In virtual Box Click **NEW** icon to create a new machine
+In virtual Box Click `NEW` icon to create a new machine.
 
 ## Name and operating system 
 
@@ -33,17 +33,17 @@ In virtual Box Click **NEW** icon to create a new machine
 
 ![image](/pictures/2.png) 
 
-Select `2000 MB` and click on **create** 
+Select `2000 MB` and click on `create`.
 
 ## Hard disk 
 
 ![image](/pictures/3.png) 
 
-Select a `virtual hard disk now` and **Create** and Hard disk file type will open in that select `VDI (VirtualBox Disk Image) `and **NEXT**. 
+Select a `virtual hard disk now` and `Create` and Hard disk file type will open in that select `VDI (VirtualBox Disk Image) `and `NEXT`. 
 
 ![image](/pictures/js.png) 
 
-In storage on physical hard disk select `Dynamically allocated` File location and size will open hit **Create** and is done. 
+In storage on physical hard disk select `Dynamically allocated` File location and size will open hit `Create` and is done. 
 
 ![image](/pictures/2021-06-29_19-41.png) 
 
@@ -55,11 +55,11 @@ I followed the official [link](https://releases.ubuntu.com/18.04/) to download t
 
 ![image](/pictures/desktop.png) 
 
-In VM box I selected `Jenkins-deploy` to install the server and then clicked on **start** 
+In VM box I selected `Jenkins-deploy` to install the server and then clicked on `start`.
 
 ![image](/pictures/mark.png) 
 
-Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on **start** 
+Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on `start`.
 
 ![image](/pictures/optical.png) 
 
@@ -75,13 +75,13 @@ Select the language English and click on done
 
 ## Keyboard configuration 
 
-By default, English is selected for Layout and variant, pressed **Done**. 
+By default, English is selected for Layout and variant, pressed `Done`. 
 
 ![image](/pictures/10.png) 
 
 ## Network connections 
 
-I kept it as default and selected **Done**. 
+I kept it as default and selected `Done`. 
 
 ![image](/pictures/11.png) 
 
@@ -99,35 +99,35 @@ I kept it as default and pressed Done for both Configure proxy and configure ubu
 
 ![image](/pictures/14.png) 
 
-I did not make changes in the storage configuration I kept it as default and pressed **Done**. 
+I did not make changes in the storage configuration I kept it as default and pressed `Done`. 
 
 ![image](/pictures/15.png) 
 
-I kept this too as default and hit **Done**. 
+I kept this too as default and hit `Done`. 
 
 ## Profile setup 
 
 ![image](/pictures/17.png) 
 
-I provided all the details and pressed **Done**. 
+I provided all the details and pressed `Done`. 
 
 ## SSH Setup 
 
 ![image](/pictures/18.png) 
 
-In order to install the OpenSSH server I pressed Space button to select the **Install OpenSSH server** option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and pressed **Done**. 
+In order to install the OpenSSH server I pressed Space button to select the `Install OpenSSH server` option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and pressed `Done`. 
 
 ## Featured Server Snaps 
 
 ![image](/pictures/19.png)  
 
-Selected the snaps which are useful in a server environment, once selected pressed **Done**. 
+Selected the snaps which are useful in a server environment, once selected pressed `Done`. 
 
 ![image](/pictures/20.png) 
 
 ## Installation complete 
 
-Installation complete window appeared, I waited until the **Reboot** button appeared on this window. Later, pressed **reboot**. 
+Installation complete window appeared, I waited until the **Reboot** button appeared on this window. Later, pressed `reboot`. 
 
 ![image](/pictures/21.png) 
 
