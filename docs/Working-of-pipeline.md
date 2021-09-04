@@ -25,51 +25,51 @@ To start creating the Jenkins pipeline, login into the jenkin web interface.
 - Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline and is checked into source control.The following are the contents of the Jenkinsfile which implements a continuous delivery pipeline:
 
 
-    pipeline {
-        agent any
+        pipeline {
+            agent any
 
-            stages {
-                stage ('Initialization') {
-                    steps {
-                        sh 'echo "Starting the build!"'
+                stages {
+                    stage ('Initialization') {
+                        steps {
+                            sh 'echo "Starting the build!"'
+                        }
                     }
-                }
 
-                stage ('Build') {
-                    environment {
-                        MYSQL_USER="dvna"
-                        MYSQL_DATABASE="dvna"
-                        MYSQL_PASSWORD=<password>
-                        MYSQL_RANDOM_ROOT_PASSWORD=<yes or no>
-                        MYSQL_HOST="mysql-db"
-                        MYSQL_PORT=3306
-                    }
-                    steps {
-                        sh 'echo "MYSQL_USER=$MYSQL_USER\nMYSQL_DATABASE=$MYSQL_DATABASE\nMYSQL_PASSWORD=$MYSQL_PASSWORD\nMYSQL_RANDOM_ROOT_PASSWORD=$MYSQL_RANDOM_ROOT_PASSWORD\nMYSQL_HOST=$MYSQL_HOST\nMYSQL_PORT=$MYSQL_PORT" > ~/vars.env'
-                        sh 'docker run --rm -d --name dvna-mysql --env-file ~/vars.env mysql:5.7 tail -f /dev/null'
-                        sh 'docker run --rm -d --name dvna-app --env-file ~/vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna'
-                        sh 'docker cp dvna-app:/app/ ~/'        
-                    }
-                } 
+                    stage ('Build') {
+                        environment {
+                            MYSQL_USER="dvna"
+                            MYSQL_DATABASE="dvna"
+                            MYSQL_PASSWORD=<password>
+                            MYSQL_RANDOM_ROOT_PASSWORD=<yes or no>
+                            MYSQL_HOST="mysql-db"
+                            MYSQL_PORT=3306
+                        }
+                        steps {
+                            sh 'echo "MYSQL_USER=$MYSQL_USER\nMYSQL_DATABASE=$MYSQL_DATABASE\nMYSQL_PASSWORD=$MYSQL_PASSWORD\nMYSQL_RANDOM_ROOT_PASSWORD=$MYSQL_RANDOM_ROOT_PASSWORD\nMYSQL_HOST=$MYSQL_HOST\nMYSQL_PORT=$MYSQL_PORT" > ~/vars.env'
+                            sh 'docker run --rm -d --name dvna-mysql --env-file ~/vars.env mysql:5.7 tail -f /dev/null'
+                            sh 'docker run --rm -d --name dvna-app --env-file ~/vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna'
+                            sh 'docker cp dvna-app:/app/ ~/'        
+                        }
+                    } 
 
-                stage ('Remove DVNA from Jenkins') {
-                    steps {
-                        sh 'rm -rf ~/app'
-                        sh 'docker stop dvna-app && docker stop dvna-mysql'
-                        sh 'docker rmi appsecco/dvna'
+                    stage ('Remove DVNA from Jenkins') {
+                        steps {
+                            sh 'rm -rf ~/app'
+                            sh 'docker stop dvna-app && docker stop dvna-mysql'
+                            sh 'docker rmi appsecco/dvna'
+                        }
                     }
-                }
 
-                stage ('Deploy to DVNA') {
-                    steps {
-                        sh 'ssh -tt -o StrictHostKeyChecking=no prod-vm@192.168.1.55 "docker stop dvna-app && docker stop dvna-mysql && docker rm dvna-app && docker rm dvna-mysql && docker rmi appsecco/dvna || true"'
-                        sh 'scp ~/vars.env prod-vm@192.168.1.55:~/'
-                        sh 'ssh -tt -o StrictHostKeyChecking=no prod-vm@192.168.1.55 "docker run -d --name dvna-mysql --env-file ~/vars.env mysql:5.7 tail -f /dev/null"'
-                        sh 'ssh -tt -o StrictHostKeyChecking=no prod-vm@192.168.1.55 "docker run -d --name dvna-app --env-file ~/vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna"'
-                    }
-            }   }
-        }
-    } 
+                    stage ('Deploy to DVNA') {
+                        steps {
+                            sh 'ssh -tt -o StrictHostKeyChecking=no prod-vm@192.168.1.55 "docker stop dvna-app && docker stop dvna-mysql && docker rm dvna-app && docker rm dvna-mysql && docker rmi appsecco/dvna || true"'
+                            sh 'scp ~/vars.env prod-vm@192.168.1.55:~/'
+                            sh 'ssh -tt -o StrictHostKeyChecking=no prod-vm@192.168.1.55 "docker run -d --name dvna-mysql --env-file ~/vars.env mysql:5.7 tail -f /dev/null"'
+                            sh 'ssh -tt -o StrictHostKeyChecking=no prod-vm@192.168.1.55 "docker run -d --name dvna-app --env-file ~/vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna"'
+                        }
+                }   }
+            }
+        } 
 
 
 - `pipeline` - Constitutes the entire definition of the pipeline.
