@@ -24,6 +24,7 @@ To start creating the Jenkins pipeline, login into the jenkin web interface.
 
 - Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline and is checked into source control.The following are the contents of the Jenkinsfile which implements a continuous delivery pipeline:
 
+
     pipeline {
         agent any
 
