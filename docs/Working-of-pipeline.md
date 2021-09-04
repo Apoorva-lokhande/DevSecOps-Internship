@@ -68,7 +68,10 @@ To start creating the Jenkins pipeline, login into the jenkin web interface.
       }
     }
   }
-}```
+
+}
+
+```
 
 - `pipeline` - Constitutes the entire definition of the pipeline.
 - `agent` - Is used to choose the way the Jenkins instance(s) are used to run the pipeline. The `any` keyword defines that Jenkins should - allocate any available agent (an instance of Jenkins/a slave/the master instance) to execute the pipeline.
