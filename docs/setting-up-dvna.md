@@ -14,7 +14,7 @@ To serve DVNA, there are some prerequisites:
 
 - For Docker installation I referred the [official documentation](https://docs.docker.com/engine/install/), update the `apt` package index:
 
-  sudo apt-get update
+    sudo apt-get update
 
 - Add Docker’s official GPG key:
 
