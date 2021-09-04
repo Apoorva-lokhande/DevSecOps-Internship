@@ -22,20 +22,20 @@ To serve DVNA, there are some prerequisites:
   
 - Use the following command to set up the stable repository:
 
-  echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        echo \
+        "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+        $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 - Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:
 
-  sudo apt-get update
-  sudo apt-get install docker-ce docker-ce-cli containerd.io
-  sudo docker run hello-world # Test if docker installation is successful 
+        sudo apt-get update
+        sudo apt-get install docker-ce docker-ce-cli containerd.io
+        sudo docker run hello-world # Test if docker installation is successful 
 
 - Install NodeJS and NPM:
 
-      sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - &&
-      sudo apt install -y nodejs 
+        sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - &&
+        sudo apt install -y nodejs 
 
 ## Setup DVNA
 
