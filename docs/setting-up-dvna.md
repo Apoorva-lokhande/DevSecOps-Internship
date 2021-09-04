@@ -14,11 +14,11 @@ To serve DVNA, there are some prerequisites:
 
 - For Docker installation I referred the [official documentation](https://docs.docker.com/engine/install/), update the `apt` package index:
 
-      sudo apt-get update
+        sudo apt-get update
 
 - Add Docker’s official GPG key:
 
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
   
 - Use the following command to set up the stable repository:
 

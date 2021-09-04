@@ -435,15 +435,17 @@
 <ul>
 <li>
 <p>For Docker installation I referred the <a href="https://docs.docker.com/engine/install/">official documentation</a>, update the <code>apt</code> package index:</p>
-<p>sudo apt-get update</p>
+<pre><code>sudo apt-get update
+</code></pre>
 </li>
 <li>
 <p>Add Docker’s official GPG key:</p>
+<pre><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+</code></pre>
 </li>
-</ul>
-<p>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</p>
-<ul>
-<li>Use the following command to set up the stable repository:</li>
+<li>
+<p>Use the following command to set up the stable repository:</p>
+</li>
 </ul>
 <p>echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
