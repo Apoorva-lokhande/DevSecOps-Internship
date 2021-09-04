@@ -349,19 +349,6 @@
     njsscan
   </a>
   
-    <nav class="md-nav" aria-label="njsscan">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setup-njsscan-locally" class="md-nav__link">
-    Setup njsscan locally
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -405,6 +392,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Working-of-pipeline/" class="md-nav__link">
+        Woeking-of-pipeline
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -442,19 +444,6 @@
   <a href="#njsscan" class="md-nav__link">
     njsscan
   </a>
-  
-    <nav class="md-nav" aria-label="njsscan">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setup-njsscan-locally" class="md-nav__link">
-    Setup njsscan locally
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -509,18 +498,16 @@
 <p>SAST does not require a working application and can take place without code being executed. It helps developers identify vulnerabilities in the initial stages of development and quickly resolve issues without breaking builds or passing on vulnerabilities to the final release of the application.</p>
 <h2 id="sast-tools-for-nodejs-applications">SAST Tools for Node.js Applications</h2>
 <p>As given the name Damn Vulnerable Nodejs Application, it is quite obvious to figure the tech stack used, Nodejs is the server-side language used along with a SQL database.  </p>
-<p>The following are the tools used to perform static analysis on Nodejs applications with steps to install and configure them with Jenkins: </p>
+<p>The following are the tools used to perform static analysis on Nodejs applications with steps to install and configure them with Jenkins.</p>
 <h3 id="njsscan">njsscan</h3>
 <p>njsscan is a open source static security code scanner for Node.js applications. Finds insecure paatterns in Node.js code and HTML templates.</p>
 <p>The tool is written in python, hence we need to install it using pip3:</p>
 <pre><code>pip3 install njsscan
 </code></pre>
-<h4 id="setup-njsscan-locally">Setup njsscan locally</h4>
-<pre><code>python3 -m venv myenv
-source myenv/bin/activate
-</code></pre>
-<p>After installing and setting up the virtual environment, I executed the tool via shell script:</p>
-<pre><code>njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
+<p>NOTE: I got an error while installing through njsscan, I entered into the <code>root</code> directory and installed it, which worked for me or you can also create a virtual environment and install it.</p>
+<p>After installing, I executed the tool via shell script:</p>
+<pre><code>mkdir reports
+njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
 </code></pre>
 <p>I referred the document which provides us <a href="https://github.com/ajinabraham/njsscan#command-line-options">command line options</a>. Later, I added the script in the jenkinsfile with the following syntax:</p>
 <h2 id="njsscan-pipeline">njsscan pipeline</h2>
@@ -579,6 +566,20 @@ sudo apt install -y nodejs</p>
           </div>
         </a>
       
+      
+        <a href="../Working-of-pipeline/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Woeking-of-pipeline
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

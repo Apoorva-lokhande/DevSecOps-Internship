@@ -8,7 +8,7 @@ SAST does not require a working application and can take place without code bein
 
 As given the name Damn Vulnerable Nodejs Application, it is quite obvious to figure the tech stack used, Nodejs is the server-side language used along with a SQL database.  
 
-The following are the tools used to perform static analysis on Nodejs applications with steps to install and configure them with Jenkins: 
+The following are the tools used to perform static analysis on Nodejs applications with steps to install and configure them with Jenkins.
 
 
 ### njsscan
@@ -19,17 +19,12 @@ The tool is written in python, hence we need to install it using pip3:
 
     pip3 install njsscan 
 
-
-#### Setup njsscan locally 
-
-    python3 -m venv myenv
-    source myenv/bin/activate
+NOTE: I got an error while installing through njsscan, I entered into the `root` directory and installed it, which worked for me or you can also create a virtual environment and install it.
 
 
+After installing, I executed the tool via shell script:
 
-After installing and setting up the virtual environment, I executed the tool via shell script:
-
-
+    mkdir reports
     njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
 
 I referred the document which provides us [command line options](https://github.com/ajinabraham/njsscan#command-line-options). Later, I added the script in the jenkinsfile with the following syntax:

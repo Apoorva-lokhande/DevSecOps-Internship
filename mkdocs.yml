@@ -10,4 +10,5 @@ nav:
 - Source-Code-Quality-Analysis: 'Source-Code-Quality-Analysis.md'
 - SCA : 'SCA.md'
 - SAST: 'SAST.md'
+- Woeking-of-pipeline: 'Working-of-pipeline.md'
 theme: material
