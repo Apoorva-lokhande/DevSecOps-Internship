@@ -14,7 +14,7 @@
     
     
       
-        <title>Setting up Jenkins - DevSecOps-pipeline</title>
+        <title>Source-Code-Quality-Analysis - DevSecOps-pipeline</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation-of-jenkins" class="md-skip">
+        <a href="#source-code-quality-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Setting up Jenkins
+              Source-Code-Quality-Analysis
             
           </span>
         </div>
@@ -212,51 +212,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Setting up Jenkins
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../setting-up-jenkins/" class="md-nav__link">
         Setting up Jenkins
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-jenkins" class="md-nav__link">
-    What is Jenkins?
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -312,11 +272,79 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Source-Code-Quality-Analysis/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Source-Code-Quality-Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Source-Code-Quality-Analysis
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#source-code-linting" class="md-nav__link">
+    Source Code Linting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linting-tools-for-dvna" class="md-nav__link">
+    Linting tools for DVNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-jshint-with-jenkins-pipeline" class="md-nav__link">
+    Integrating JSHint with Jenkins pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jshint-pipeline" class="md-nav__link">
+    JSHint Pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eslint" class="md-nav__link">
+    ESLint
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -377,8 +405,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-jenkins" class="md-nav__link">
-    What is Jenkins?
+  <a href="#source-code-linting" class="md-nav__link">
+    Source Code Linting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linting-tools-for-dvna" class="md-nav__link">
+    Linting tools for DVNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-jshint-with-jenkins-pipeline" class="md-nav__link">
+    Integrating JSHint with Jenkins pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jshint-pipeline" class="md-nav__link">
+    JSHint Pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eslint" class="md-nav__link">
+    ESLint
   </a>
   
 </li>
@@ -396,76 +452,32 @@
               
                 
                 
-                <h1 id="installation-of-jenkins">Installation of Jenkins</h1>
-<h2 id="what-is-jenkins">What is Jenkins?</h2>
-<p>Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. </p>
-<h1 id="prerequisite">Prerequisite</h1>
-<p>I have setup ubuntu 18.04 VM for installing Jenkins from <a href="https://www.jenkins.io/doc/book/installing/">Documentation</a>. </p>
-<p>I have installed java 8 OpenJDK and JRE (Java Development Kit and Java Runtime Environment) which is used to develop and run the software, I have used this <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk">Link</a> to download the same. </p>
-<h1 id="installation-steps-for-jenkins">Installation steps for Jenkins</h1>
-<p>Add the repository key to the terminal:  </p>
-<pre><code>wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+                <h1 id="source-code-quality-analysis">Source Code Quality Analysis</h1>
+<h2 id="source-code-linting">Source Code Linting</h2>
+<p>Lint, or a linter, is a source code analysis tool used to flag programming errors, bugs, stylistic errors, and suspicious constructs.</p>
+<p>Linter's are used to generate reports about the code quality by either invoking a built-in functionality or writing a reporting wrapper arround the tool to resolve the identified issues.</p>
+<h2 id="linting-tools-for-dvna">Linting tools for DVNA</h2>
+<p>DVNA is a Nodejs application and hence, I used <a href="https://jshint.com/install/">JSHint</a> and <a href="https://eslint.org/docs/2.13.1/user-guide/command-line-interface">ESLint</a> as the linter.</p>
+<p>JSHint scans your program's source code and reports about commonly made mistakes and potential bugs. The potential problem could be a syntax error, a bug due to implicit type conversion, a leaking variable, or any of the other problems that JSHint looks for and it is a command-line utility, I can easily integrate it into my CI pipeline with Jenkins. </p>
+<h2 id="integrating-jshint-with-jenkins-pipeline">Integrating JSHint with Jenkins pipeline</h2>
+<ul>
+<li>
+<p>I installed it globally with NPM using the following command:</p>
+<p>sudo npm install -g jshint</p>
+</li>
+<li>
+<p>Run the jshint command with the aplication/project directory to scan all the .js files as given below:</p>
+<p>jshint ~/dvna &gt; ~/report/jshint-report</p>
+</li>
+<li>
+<p>To restrict the scan to only .js and .ejs files, use a find command. We will further exclude all files in the <code>node_modules</code> directory.</p>
+<pre><code>jshint $(find ~/app -type f -name "*.js" -o -name "*.ejs" | grep -v node_modules) &gt; ~/reports/jshint-report
 </code></pre>
-<p><img alt="image" src="/home/apoorva/my-project/pictures/jenk.png" /> </p>
-<p>The system will return <strong>OK</strong>  </p>
-<p>Next, add the Debian package repository address:   </p>
-<pre><code>sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \
-</code></pre>
-<p>/etc/apt/sources.list.d/jenkins.list </p>
-<pre><code>sudo apt update
-</code></pre>
-<p><img alt="image" src="/last.png" /> </p>
-<p>Now install Jenkins and it’s dependencies: </p>
-<pre><code>sudo apt install jenkins
-</code></pre>
-<p><img alt="image" src="/pictures/installed.png" /> </p>
-<h1 id="starting-jenkins">Starting Jenkins</h1>
-<p>The systemctl command is used to manage "systemd" services and service manager:  </p>
-<pre><code>sudo systemctl start jenkins
-</code></pre>
-<p>Check the status of Jenkins service using the below command:  </p>
-<pre><code>sudo systemctl status jenkins
-</code></pre>
-<p><img alt="image" src="/pictures/startandstatus.png" />  </p>
-<p>If the Jenkins has installed successfully, then the output will show as Active: <strong>active(excited)</strong>. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. </p>
-<h1 id="set-up-a-firewall-with-ufw">Set-up a Firewall with UFW</h1>
-<p>Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports. </p>
-<p>By default, Jenkins runs on port 8080. Opening using ufw(uncomplicated firewall): </p>
-<pre><code>sudo ufw allow 8080
-</code></pre>
-<p>To check the status of the ufw: </p>
-<pre><code>sudo ufw status
-</code></pre>
-<p><img alt="image" src="/pictures/activee.png" /> </p>
-<p>If the status shows "Inactive". Then enable using following command </p>
-<p>To configure your server to allow incoming SSH connections, you can use this command: </p>
-<pre><code>sudo ufw allow ssh
-</code></pre>
-<p>To enable UFW, use this command:   </p>
-<pre><code>sudo ufw enable
-</code></pre>
-<h1 id="setting-up-jenkins">Setting up Jenkins</h1>
-<p>To find your server's name or domain name enter the following command in your terminal: </p>
-<pre><code>ifconfig
-</code></pre>
-<p>Using the server's name or domain name as shown in the following command, entered that into a browser which in turn gave the Unlock Jenkins window. </p>
-<p>http://your_server_name_or_domain:8080 </p>
-<h2 id="using-that-server-name">Using that server name</h2>
-<p><img alt="image" src="/pictures/unlock.png" /> </p>
-<p>The Unlock Jenkins window shows where the admin password is stored. In the terminal I will use the cat command to display the password: </p>
-<p>sudo cat /var/lib/jenkins/secrets/initialAdminPassword </p>
-<p>The 32-character alphanumeric password is displayed in the terminal, paste it onto Administrator password field, and then click <strong>continue</strong>.  </p>
-<h2 id="customize-jenkins">Customize Jenkins</h2>
-<p><img alt="image" src="/pictures/costumize.png" /> </p>
-<p>In the Customize Jenkins select "install suggested plugins" which will start installation process directly and press <strong>continue</strong>. </p>
-<h2 id="create-admin-user">Create Admin User</h2>
-<p><img alt="image" src="/pictures/info.png" /> </p>
-<p>Add the required credentials, click on <strong>save</strong> and continue as admin. </p>
-<p>The "Instance configuration" page will be displayed which will ask to confirm the preferred URL for Jenkins instance, click on <strong>save</strong> and <strong>finish</strong>. </p>
-<h2 id="installation-starts">Installation Starts</h2>
-<p><img alt="image" src="/pictures/started.png" /> </p>
-<p>Once the process is over click on <strong>Reboot</strong> which will restart the Jenkins. </p>
-<p><strong>Now, Jenkins is installed! </strong> </p>
+</li>
+</ul>
+<h2 id="jshint-pipeline">JSHint Pipeline</h2>
+<h2 id="eslint">ESLint</h2>
+<p>ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code. ESLint covers both code quality and coding style issues.</p>
                 
               
               
@@ -484,7 +496,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../setting-up-VM/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../setting-up-dvna/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -493,19 +505,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Setting up VM
+              Setting up DVNA
             </div>
           </div>
         </a>
       
       
-        <a href="../setting-up-mkdocs/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../SCA/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Setting up mkDocs
+              SCA
             </div>
           </div>
           <div class="md-footer__button md-icon">

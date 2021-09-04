@@ -14,7 +14,7 @@
     
     
       
-        <title>Setting up Jenkins - DevSecOps-pipeline</title>
+        <title>SAST - DevSecOps-pipeline</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation-of-jenkins" class="md-skip">
+        <a href="#static-application-security-testingsast" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Setting up Jenkins
+              SAST
             
           </span>
         </div>
@@ -212,51 +212,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Setting up Jenkins
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../setting-up-jenkins/" class="md-nav__link">
         Setting up Jenkins
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-jenkins" class="md-nav__link">
-    What is Jenkins?
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -342,11 +302,105 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../SAST/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SAST
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         SAST
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sast-tools-for-nodejs-applications" class="md-nav__link">
+    SAST Tools for Node.js Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="SAST Tools for Node.js Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#njsscan" class="md-nav__link">
+    njsscan
+  </a>
+  
+    <nav class="md-nav" aria-label="njsscan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-njsscan-locally" class="md-nav__link">
+    Setup njsscan locally
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#njsscan-pipeline" class="md-nav__link">
+    njsscan pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditjs" class="md-nav__link">
+    AuditJS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditjs-pipeline" class="md-nav__link">
+    AuditJS pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sast-pipeline" class="md-nav__link">
+    SAST Pipeline
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -377,8 +431,62 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-jenkins" class="md-nav__link">
-    What is Jenkins?
+  <a href="#sast-tools-for-nodejs-applications" class="md-nav__link">
+    SAST Tools for Node.js Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="SAST Tools for Node.js Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#njsscan" class="md-nav__link">
+    njsscan
+  </a>
+  
+    <nav class="md-nav" aria-label="njsscan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-njsscan-locally" class="md-nav__link">
+    Setup njsscan locally
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#njsscan-pipeline" class="md-nav__link">
+    njsscan pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditjs" class="md-nav__link">
+    AuditJS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditjs-pipeline" class="md-nav__link">
+    AuditJS pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sast-pipeline" class="md-nav__link">
+    SAST Pipeline
   </a>
   
 </li>
@@ -396,76 +504,49 @@
               
                 
                 
-                <h1 id="installation-of-jenkins">Installation of Jenkins</h1>
-<h2 id="what-is-jenkins">What is Jenkins?</h2>
-<p>Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. </p>
-<h1 id="prerequisite">Prerequisite</h1>
-<p>I have setup ubuntu 18.04 VM for installing Jenkins from <a href="https://www.jenkins.io/doc/book/installing/">Documentation</a>. </p>
-<p>I have installed java 8 OpenJDK and JRE (Java Development Kit and Java Runtime Environment) which is used to develop and run the software, I have used this <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk">Link</a> to download the same. </p>
-<h1 id="installation-steps-for-jenkins">Installation steps for Jenkins</h1>
-<p>Add the repository key to the terminal:  </p>
-<pre><code>wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+                <h1 id="static-application-security-testingsast">Static Application Security Testing(SAST)</h1>
+<p>SAST is a testing methodology that analyses source code, byte code and binaries for bugs and design errors to find <a href="https://www.synopsys.com/blogs/software-security/types-of-security-vulnerabilities/">security vulnerabilities</a>, before the application is compiled. </p>
+<p>SAST does not require a working application and can take place without code being executed. It helps developers identify vulnerabilities in the initial stages of development and quickly resolve issues without breaking builds or passing on vulnerabilities to the final release of the application.</p>
+<h2 id="sast-tools-for-nodejs-applications">SAST Tools for Node.js Applications</h2>
+<p>As given the name Damn Vulnerable Nodejs Application, it is quite obvious to figure the tech stack used, Nodejs is the server-side language used along with a SQL database.  </p>
+<p>The following are the tools used to perform static analysis on Nodejs applications with steps to install and configure them with Jenkins: </p>
+<h3 id="njsscan">njsscan</h3>
+<p>njsscan is a open source static security code scanner for Node.js applications. Finds insecure paatterns in Node.js code and HTML templates.</p>
+<p>The tool is written in python, hence we need to install it using pip3:</p>
+<pre><code>pip3 install njsscan
 </code></pre>
-<p><img alt="image" src="/home/apoorva/my-project/pictures/jenk.png" /> </p>
-<p>The system will return <strong>OK</strong>  </p>
-<p>Next, add the Debian package repository address:   </p>
-<pre><code>sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \
+<h4 id="setup-njsscan-locally">Setup njsscan locally</h4>
+<pre><code>python3 -m venv myenv
+source myenv/bin/activate
 </code></pre>
-<p>/etc/apt/sources.list.d/jenkins.list </p>
-<pre><code>sudo apt update
+<p>After installing and setting up the virtual environment, I executed the tool via shell script:</p>
+<pre><code>njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
 </code></pre>
-<p><img alt="image" src="/last.png" /> </p>
-<p>Now install Jenkins and it’s dependencies: </p>
-<pre><code>sudo apt install jenkins
+<p>I referred the document which provides us <a href="https://github.com/ajinabraham/njsscan#command-line-options">command line options</a>. Later, I added the script in the jenkinsfile with the following syntax:</p>
+<h2 id="njsscan-pipeline">njsscan pipeline</h2>
+<h2 id="auditjs">AuditJS</h2>
+<p>Audits JavaScript is a SAST tool which uses <a href="https://ossindex.sonatype.org/rest">OSS Index v3 REST API</a> to identify known vulnerabilities and outdated package versions.</p>
+<ul>
+<li>
+<p>To install npm and nodejs in dvna container in production server, I followed the commandsas given below, the package versions are: npm v6.14.14 and nodejs v14.17.4.</p>
+<p>sudo apt update
+sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt install -y nodejs</p>
+</li>
+<li>
+<p>Install auditjs using npm:</p>
+<pre><code>sudo npm install -g auditjs
 </code></pre>
-<p><img alt="image" src="/pictures/installed.png" /> </p>
-<h1 id="starting-jenkins">Starting Jenkins</h1>
-<p>The systemctl command is used to manage "systemd" services and service manager:  </p>
-<pre><code>sudo systemctl start jenkins
-</code></pre>
-<p>Check the status of Jenkins service using the below command:  </p>
-<pre><code>sudo systemctl status jenkins
-</code></pre>
-<p><img alt="image" src="/pictures/startandstatus.png" />  </p>
-<p>If the Jenkins has installed successfully, then the output will show as Active: <strong>active(excited)</strong>. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. </p>
-<h1 id="set-up-a-firewall-with-ufw">Set-up a Firewall with UFW</h1>
-<p>Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports. </p>
-<p>By default, Jenkins runs on port 8080. Opening using ufw(uncomplicated firewall): </p>
-<pre><code>sudo ufw allow 8080
-</code></pre>
-<p>To check the status of the ufw: </p>
-<pre><code>sudo ufw status
-</code></pre>
-<p><img alt="image" src="/pictures/activee.png" /> </p>
-<p>If the status shows "Inactive". Then enable using following command </p>
-<p>To configure your server to allow incoming SSH connections, you can use this command: </p>
-<pre><code>sudo ufw allow ssh
-</code></pre>
-<p>To enable UFW, use this command:   </p>
-<pre><code>sudo ufw enable
-</code></pre>
-<h1 id="setting-up-jenkins">Setting up Jenkins</h1>
-<p>To find your server's name or domain name enter the following command in your terminal: </p>
-<pre><code>ifconfig
-</code></pre>
-<p>Using the server's name or domain name as shown in the following command, entered that into a browser which in turn gave the Unlock Jenkins window. </p>
-<p>http://your_server_name_or_domain:8080 </p>
-<h2 id="using-that-server-name">Using that server name</h2>
-<p><img alt="image" src="/pictures/unlock.png" /> </p>
-<p>The Unlock Jenkins window shows where the admin password is stored. In the terminal I will use the cat command to display the password: </p>
-<p>sudo cat /var/lib/jenkins/secrets/initialAdminPassword </p>
-<p>The 32-character alphanumeric password is displayed in the terminal, paste it onto Administrator password field, and then click <strong>continue</strong>.  </p>
-<h2 id="customize-jenkins">Customize Jenkins</h2>
-<p><img alt="image" src="/pictures/costumize.png" /> </p>
-<p>In the Customize Jenkins select "install suggested plugins" which will start installation process directly and press <strong>continue</strong>. </p>
-<h2 id="create-admin-user">Create Admin User</h2>
-<p><img alt="image" src="/pictures/info.png" /> </p>
-<p>Add the required credentials, click on <strong>save</strong> and continue as admin. </p>
-<p>The "Instance configuration" page will be displayed which will ask to confirm the preferred URL for Jenkins instance, click on <strong>save</strong> and <strong>finish</strong>. </p>
-<h2 id="installation-starts">Installation Starts</h2>
-<p><img alt="image" src="/pictures/started.png" /> </p>
-<p>Once the process is over click on <strong>Reboot</strong> which will restart the Jenkins. </p>
-<p><strong>Now, Jenkins is installed! </strong> </p>
+<ul>
+<li>
+<p>Scan the directory which holds the files for DVNA and store the scan result in ~/reports/auditjs-report.</p>
+<p>auditjs ossi &gt; ~/reports/auditjs-report ./dvna</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="auditjs-pipeline">AuditJS pipeline</h2>
+<h2 id="sast-pipeline">SAST Pipeline</h2>
                 
               
               
@@ -484,7 +565,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../setting-up-VM/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../SCA/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -493,25 +574,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Setting up VM
+              SCA
             </div>
           </div>
         </a>
       
-      
-        <a href="../setting-up-mkdocs/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Setting up mkDocs
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   

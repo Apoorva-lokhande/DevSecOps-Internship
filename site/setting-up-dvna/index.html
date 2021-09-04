@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dvna-setup" class="md-skip">
+        <a href="#requirements" class="md-skip">
           Skip to content
         </a>
       
@@ -288,13 +288,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dvna-setup" class="md-nav__link">
-    DVNA Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     Requirements
   </a>
@@ -312,6 +305,51 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Source-Code-Quality-Analysis/" class="md-nav__link">
+        Source-Code-Quality-Analysis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SCA/" class="md-nav__link">
+        SCA
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SAST/" class="md-nav__link">
+        SAST
+      </a>
     </li>
   
 
@@ -338,13 +376,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dvna-setup" class="md-nav__link">
-    DVNA Setup
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
@@ -375,8 +406,8 @@
                 
                   <h1>Setting up DVNA</h1>
                 
-                <h2 id="dvna-setup">DVNA Setup</h2>
-<h2 id="requirements">Requirements</h2>
+                <h2 id="requirements">Requirements</h2>
+<p>I've referred the official <a href="https://github.com/appsecco/dvna">documentation</a> for installation of DVNA.</p>
 <ul>
 <li>Setup without Docker:</li>
 <li>NodeJS (Developed using NodeJS v6.11.4)</li>
@@ -384,7 +415,62 @@
 </ul>
 <h2 id="setup">Setup</h2>
 <ul>
-<li>For setup, I referred the <a href="https://github.com/appsecco/dvna">documentation</a>, this setup requires you to have NodeJS setup on your system and access to a MySQL Database. And I had installed the latest version of </li>
+<li>For setup you need <a href="https://nodejs.org/en/download/package-manager/">NodeJS</a> setup on your system and access to a <a href="https://dev.mysql.com/doc/mysql-getting-started/en/">MySQL</a> database.</li>
+<li>
+<p>Once done with installing NodeJS and MySql, I cloned the repository into VM and configured the environment variables with database information as shown below:</p>
+<p>git clone https://github.com/appsecco/dvna; cd dvna</p>
+<p>export MYSQL_USER=dvna
+   export MYSQL_DATABASE=dvna
+   export MYSQL_PASSWORD=passw0rd
+   export MYSQL_HOST=127.0.0.1
+   export MYSQL_PORT=3306</p>
+</li>
+<li>
+<p>Now, I installed the dependencies and started the application:</p>
+<p>npm install</p>
+<p>npm start</p>
+</li>
+<li>
+<p>But, while installing NPM I got an error because I had installed latest version of MySQL and NodeJS, ignoring the requirements mentioned. </p>
+</li>
+<li>
+<p>I uninstalled the latest version's of each and installed MySQL 5.7:</p>
+<p>sudo apt update</p>
+<p>sudo apt install wget -y</p>
+</li>
+<li>
+<p>Once downloaded, install the repository by running the below command:</p>
+<p>wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb        </p>
+</li>
+<li>
+<p>In the prompt choose <code>ubuntu bionic</code> and in the next prompt choose <code>MySQL server and cluster</code> and select the version <code>MySQL 5.7</code> hit <code>tab</code> and <code>enter</code>.</p>
+</li>
+<li>
+<p>Now, run the below command to update your system packages:</p>
+<p>sudo apt-get update
+  sudo apt-cache policy mysql-server</p>
+</li>
+<li>
+<p>Having found MySQL 5.7 in our system, we are going to install MySQL 5.7 client, MySQL 5.7 server with the below command:</p>
+<p>sudo apt install -f mysql-client=5.7<em> mysql-community-server=5.7</em> mysql-server=5.7*</p>
+</li>
+<li>
+<p>And, yet again I checked running NPM. It gave me an error saying  <code>MySQL ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)</code>, beacuse I had not created user and database in MySQL.</p>
+</li>
+<li>
+<p>Firstly, connected yo MySQL with the set root password and run the below command:</p>
+<p>mysql -u root -p </p>
+</li>
+<li>
+<p>While still connected to MySQL, run the following commands to create a user and database:</p>
+<p>CREATE USER 'user'@'%' IDENTIFIED BY 'MyStrongPass.';
+  GRANT ALL PRIVILEGES ON * . * TO 'user'@'%';<br />
+  CREATE DATABASE;
+  FLUSH PRIVILEGES;</p>
+</li>
+<li>
+<p>Now, I tried acesssing the application from http://localhost:9090 and it worked !</p>
+</li>
 </ul>
                 
               
@@ -418,6 +504,20 @@
           </div>
         </a>
       
+      
+        <a href="../Source-Code-Quality-Analysis/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Source-Code-Quality-Analysis
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
