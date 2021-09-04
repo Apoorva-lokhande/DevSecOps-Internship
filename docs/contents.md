@@ -5,5 +5,7 @@
 * [setting-up-jenkins](#setting-up-jenkins)
 * [setting-up-mkdocs](#setting-up-mkdocs)
 * [setting-up-pipeline](#setting-up-pipeline)
-* [DVNA-setup](#DVNA-setup)
-  
+* [setting-up-dvna](#setting-up-dvna)
+* [Source-Code-Quality-Analysis](#Source-Code-Quality-Analysis)
+* [SCA](#SCA)
+* [SAST](#SAST)

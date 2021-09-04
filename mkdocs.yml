@@ -7,4 +7,7 @@ nav:
 - Setting up mkDocs: 'setting-up-mkdocs.md'
 - Setting up pipeline: 'setting-up-pipeline.md'
 - Setting up DVNA: 'setting-up-dvna.md'
+- Source-Code-Quality-Analysis: 'Source-Code-Quality-Analysis.md'
+- SCA : 'SCA.md'
+- SAST: 'SAST.md'
 theme: material
