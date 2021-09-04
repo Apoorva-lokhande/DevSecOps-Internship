@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#requirements" class="md-skip">
+        <a href="#configuring-production-vm" class="md-skip">
           Skip to content
         </a>
       
@@ -244,7 +244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setting-up-pipeline/" class="md-nav__link">
+      <a href="../setting-up-pipeline.md" class="md-nav__link">
         Setting up pipeline
       </a>
     </li>
@@ -265,6 +265,8 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Setting up DVNA
@@ -279,6 +281,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -295,8 +299,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#install-docker-nodejs-and-npm" class="md-nav__link">
+    Install Docker, NodeJS and NPM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-dvna" class="md-nav__link">
+    Setup DVNA
   </a>
   
 </li>
@@ -370,6 +381,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -385,8 +398,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#install-docker-nodejs-and-npm" class="md-nav__link">
+    Install Docker, NodeJS and NPM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-dvna" class="md-nav__link">
+    Setup DVNA
   </a>
   
 </li>
@@ -404,73 +424,68 @@
               
                 
                 
-                  <h1>Setting up DVNA</h1>
-                
-                <h2 id="requirements">Requirements</h2>
-<p>I've referred the official <a href="https://github.com/appsecco/dvna">documentation</a> for installation of DVNA.</p>
+                <h1 id="configuring-production-vm">Configuring Production VM</h1>
+<p>The aim of this section is to setup the production server for deploying DVNA.</p>
+<p>Damn Vulnerable NodeJS Application (DVNA) is a simple NodeJS application to demonstrate <a href="https://owasp.org/www-project-top-ten/2017/">OWASP Top 10 Vulnerabilities</a> and guide on fixing and avoiding these vulnerabilities</p>
+<h2 id="requirements">Requirements</h2>
+<p>To serve DVNA, there are some prerequisites:
+- VM running Ubuntu 18.04 LTS.
+- Docker, NodeJS and NPM</p>
+<h2 id="install-docker-nodejs-and-npm">Install Docker, NodeJS and NPM</h2>
 <ul>
-<li>Setup without Docker:</li>
-<li>NodeJS (Developed using NodeJS v6.11.4)</li>
-<li>MySQL Server (Developed using MySQL 5.7)</li>
-</ul>
-<h2 id="setup">Setup</h2>
-<ul>
-<li>For setup you need <a href="https://nodejs.org/en/download/package-manager/">NodeJS</a> setup on your system and access to a <a href="https://dev.mysql.com/doc/mysql-getting-started/en/">MySQL</a> database.</li>
 <li>
-<p>Once done with installing NodeJS and MySql, I cloned the repository into VM and configured the environment variables with database information as shown below:</p>
-<p>git clone https://github.com/appsecco/dvna; cd dvna</p>
-<p>export MYSQL_USER=dvna
-   export MYSQL_DATABASE=dvna
-   export MYSQL_PASSWORD=passw0rd
-   export MYSQL_HOST=127.0.0.1
-   export MYSQL_PORT=3306</p>
+<p>For Docker installation I referred the <a href="https://docs.docker.com/engine/install/">official documentation</a>, update the <code>apt</code> package index:</p>
+<p>sudo apt-get update</p>
 </li>
 <li>
-<p>Now, I installed the dependencies and started the application:</p>
-<p>npm install</p>
-<p>npm start</p>
+<p>Add Docker’s official GPG key:</p>
+<p>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</p>
 </li>
 <li>
-<p>But, while installing NPM I got an error because I had installed latest version of MySQL and NodeJS, ignoring the requirements mentioned. </p>
+<p>Use the following command to set up the stable repository:</p>
+<p>echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</p>
 </li>
 <li>
-<p>I uninstalled the latest version's of each and installed MySQL 5.7:</p>
-<p>sudo apt update</p>
-<p>sudo apt install wget -y</p>
-</li>
-<li>
-<p>Once downloaded, install the repository by running the below command:</p>
-<p>wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb        </p>
-</li>
-<li>
-<p>In the prompt choose <code>ubuntu bionic</code> and in the next prompt choose <code>MySQL server and cluster</code> and select the version <code>MySQL 5.7</code> hit <code>tab</code> and <code>enter</code>.</p>
-</li>
-<li>
-<p>Now, run the below command to update your system packages:</p>
+<p>Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:</p>
 <p>sudo apt-get update
-  sudo apt-cache policy mysql-server</p>
+  sudo apt-get install docker-ce docker-ce-cli containerd.io
+  sudo docker run hello-world # Test if docker installation is successful </p>
 </li>
 <li>
-<p>Having found MySQL 5.7 in our system, we are going to install MySQL 5.7 client, MySQL 5.7 server with the below command:</p>
-<p>sudo apt install -f mysql-client=5.7<em> mysql-community-server=5.7</em> mysql-server=5.7*</p>
+<p>Install NodeJS and NPM:</p>
+<p>sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - &amp;&amp;
+  sudo apt install -y nodejs </p>
+</li>
+</ul>
+<h2 id="setup-dvna">Setup DVNA</h2>
+<ul>
+<li>I followed the <a href="https://github.com/appsecco/dvna/blob/master/docs/setup.md">official documentation</a> for setup.</li>
+<li>
+<p>Create a file named vars.env with the following configuration:</p>
+<pre><code>MYSQL_USER=dvna
+MYSQL_DATABASE=dvna
+MYSQL_PASSWORD=passw0rd
+MYSQL_RANDOM_ROOT_PASSWORD=yes
+MYSQL_HOST=mysql-db
+MYSQL_PORT=3306
+</code></pre>
 </li>
 <li>
-<p>And, yet again I checked running NPM. It gave me an error saying  <code>MySQL ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)</code>, beacuse I had not created user and database in MySQL.</p>
+<p>Start a MySQL container, unless you want to use your own, in which case configure in the env file above.</p>
+<pre><code>docker run --name dvna-mysql --env-file vars.env -d mysql:5.7
+</code></pre>
 </li>
 <li>
-<p>Firstly, connected yo MySQL with the set root password and run the below command:</p>
-<p>mysql -u root -p </p>
+<p>Start the application using the official image:</p>
+<pre><code>docker run --name dvna-app --env-file vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna
+</code></pre>
 </li>
 <li>
-<p>While still connected to MySQL, run the following commands to create a user and database:</p>
-<p>CREATE USER 'user'@'%' IDENTIFIED BY 'MyStrongPass.';
-  GRANT ALL PRIVILEGES ON * . * TO 'user'@'%';<br />
-  CREATE DATABASE;
-  FLUSH PRIVILEGES;</p>
+<p>To test if the containers are running, run <code>docker ps -a</code> you will see two containers running <code>dvna-app</code> and <code>dvna-mysql</code> and <code>docker stop</code> for stopping the container.</p>
 </li>
-<li>
-<p>Now, I tried acesssing the application from http://localhost:9090 and it worked !</p>
-</li>
+<li>Access the application at http://your-ip-address:8080.</li>
 </ul>
                 
               
@@ -490,7 +505,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../setting-up-pipeline/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../setting-up-mkdocs/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -499,7 +514,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Setting up pipeline
+              Setting up mkDocs
             </div>
           </div>
         </a>

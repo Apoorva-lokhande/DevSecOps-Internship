@@ -1,61 +1,62 @@
+# Configuring Production VM
+
+The aim of this section is to setup the production server for deploying DVNA.
+
+Damn Vulnerable NodeJS Application (DVNA) is a simple NodeJS application to demonstrate [OWASP Top 10 Vulnerabilities](https://owasp.org/www-project-top-ten/2017/) and guide on fixing and avoiding these vulnerabilities
+
 ## Requirements
 
-I've referred the official [documentation](https://github.com/appsecco/dvna) for installation of DVNA.
-
-- Setup without Docker:
-  - NodeJS (Developed using NodeJS v6.11.4)
-  - MySQL Server (Developed using MySQL 5.7)
+To serve DVNA, there are some prerequisites:
+- VM running Ubuntu 18.04 LTS.
+- Docker, NodeJS and NPM
   
-## Setup
+## Install Docker, NodeJS and NPM
 
--  For setup you need [NodeJS](https://nodejs.org/en/download/package-manager/) setup on your system and access to a [MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/) database.
--  Once done with installing NodeJS and MySql, I cloned the repository into VM and configured the environment variables with database information as shown below:
-  
-       git clone https://github.com/appsecco/dvna; cd dvna
+- For Docker installation I referred the [official documentation](https://docs.docker.com/engine/install/), update the `apt` package index:
 
-       export MYSQL_USER=dvna
-       export MYSQL_DATABASE=dvna
-       export MYSQL_PASSWORD=passw0rd
-       export MYSQL_HOST=127.0.0.1
-       export MYSQL_PORT=3306
-
-- Now, I installed the dependencies and started the application:
-      
-      npm install
-
-      npm start
-
-- But, while installing NPM I got an error because I had installed latest version of MySQL and NodeJS, ignoring the requirements mentioned. 
-- I uninstalled the latest version's of each and installed MySQL 5.7:
-    
-      sudo apt update
-
-      sudo apt install wget -y
-
-- Once downloaded, install the repository by running the below command:
-            
-      wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb        
-
-- In the prompt choose `ubuntu bionic` and in the next prompt choose `MySQL server and cluster` and select the version `MySQL 5.7` hit `tab` and `enter`.
-- Now, run the below command to update your system packages:
-        
       sudo apt-get update
-      sudo apt-cache policy mysql-server
 
-- Having found MySQL 5.7 in our system, we are going to install MySQL 5.7 client, MySQL 5.7 server with the below command:
+- Add Docker’s official GPG key:
 
-      sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  
+- Use the following command to set up the stable repository:
 
-- And, yet again I checked running NPM. It gave me an error saying  `MySQL ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)`, beacuse I had not created user and database in MySQL.
-- Firstly, connected yo MySQL with the set root password and run the below command:
+      echo \
+      "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+      $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-      mysql -u root -p 
+- Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:
 
-- While still connected to MySQL, run the following commands to create a user and database:
+      sudo apt-get update
+      sudo apt-get install docker-ce docker-ce-cli containerd.io
+      sudo docker run hello-world # Test if docker installation is successful 
 
-      CREATE USER 'user'@'%' IDENTIFIED BY 'MyStrongPass.';
-      GRANT ALL PRIVILEGES ON * . * TO 'user'@'%';  
-      CREATE DATABASE;
-      FLUSH PRIVILEGES;
+- Install NodeJS and NPM:
 
-- Now, I tried acesssing the application from http://localhost:9090 and it worked !
+      sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - &&
+      sudo apt install -y nodejs 
+
+## Setup DVNA
+
+- I followed the [official documentation](https://github.com/appsecco/dvna/blob/master/docs/setup.md) for setup.
+- Create a file named vars.env with the following configuration:
+
+        MYSQL_USER=dvna
+        MYSQL_DATABASE=dvna
+        MYSQL_PASSWORD=passw0rd
+        MYSQL_RANDOM_ROOT_PASSWORD=yes
+        MYSQL_HOST=mysql-db
+        MYSQL_PORT=3306
+
+- Start a MySQL container, unless you want to use your own, in which case configure in the env file above.
+
+        docker run --name dvna-mysql --env-file vars.env -d mysql:5.7
+
+- Start the application using the official image:
+
+        docker run --name dvna-app --env-file vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna
+
+- To test if the containers are running, run `docker ps -a` you will see two containers running `dvna-app` and `dvna-mysql` and `docker stop` for stopping the container.
+- Access the application at http://your-ip-address:8080.
+  

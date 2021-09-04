@@ -14,7 +14,7 @@
     
     
       
-        <title>Setting up VM - DevSecOps-pipeline</title>
+        <title>Working of pipeline - DevSecOps-pipeline</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-is-virtual-machine" class="md-skip">
+        <a href="#working-of-pipeline" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Setting up VM
+              Working of pipeline
             
           </span>
         </div>
@@ -197,44 +197,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Setting up VM
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../setting-up-VM/" class="md-nav__link">
         Setting up VM
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -369,6 +336,55 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#jenkinsfile" class="md-nav__link">
+    Jenkinsfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stages" class="md-nav__link">
+    Stages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    Initialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    Build
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-and-dynamic-analysis" class="md-nav__link">
+    Static and Dynamic Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove-dvna-from-jenkins" class="md-nav__link">
+    Remove DVNA from Jenkins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    Deployment
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -382,95 +398,86 @@
               
                 
                 
-                <h1 id="what-is-virtual-machine">What is Virtual Machine?</h1>
-<p>For understanding Virtual machine (VM) we will have to understand what Virtualization is. </p>
+                <h1 id="working-of-pipeline">Working of pipeline</h1>
+<p>To start creating the Jenkins pipeline, login into the jenkin web interface.
+-  In the <code>Dashboard</code>, create a <code>New Item</code> and enter a <code>item name</code>(e.g. <code>dvna-pipeline</code>) and select <code>pipeline</code> and click <code>OK</code>.
+-  It was redirected to the <code>configuration</code> page. Here:
+    - Under <code>general</code> section:
+      - Gave description of the application being deployed.
+      - I checked the <code>Discard old builds</code> as they keep metadata related to old builds.
+    - Under <code>pipeline</code> section, I selected the defination dropdown to <code>Pipeline script from SCM</code>.
+     - In <code>SCM</code> dropdown I selected <code>GIT</code>, and gave the <code>repository URL</code>.
+      - Click <code>Save</code> to save and aplly the configurations. 
+- Go to <code>Dashboard</code> -&gt; <code>dvna-pipeline</code> -&gt; <code>build now</code> -&gt; <code>console output</code>.</p>
+<h2 id="jenkinsfile">Jenkinsfile</h2>
 <ul>
-<li>
-<p><strong>Virtualization</strong> is a software based or virtual version of something, that be compute, storage, networking, servers or applications. And Hypervisor makes Virtualization possible. </p>
-</li>
-<li>
-<p><strong>Hypervisor</strong> is a piece of software that runs above host or server. </p>
-</li>
-<li>
-<p>There are 2 types of hypervisors: </p>
-<ol>
-<li>
-<p>Type 1: It is installed directly on top of physical server. </p>
-</li>
-<li>
-<p>Type 2: Here there is a layer of Host operating system (OS) between the hardware and Hypervisor (as we are using here). </p>
-</li>
-</ol>
-</li>
+<li>Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline and is checked into source control.The following are the contents of the Jenkinsfile which implements a continuous delivery pipeline:</li>
 </ul>
-<p>A VM is an OS or application environment that is installed on software, which imitates dedicated physical server. A VM provides an isolated environment for running its own OS and applications independently from the underlying host system or from other VMs on that host. The VM's OS is commonly referred to as the guest OS, and it can be the same as or different from the host OS or the other VMs. </p>
-<h1 id="setting-up-vm">Setting up VM</h1>
-<p>Here I will be setting up two VMs:</p>
-<ol>
-<li>For Jenkins Deployment.</li>
-<li>For suiteCRM server.</li>
-</ol>
-<p>In virtual Box Click <code>NEW</code> icon to create a new machine.</p>
-<h2 id="name-and-operating-system">Name and operating system</h2>
-<p><img alt="image" src="/pictures/os.png" /></p>
+<p>``` pipeline {
+  agent any</p>
+<p>stages {
+    stage ('Initialization') {
+      steps {
+        sh 'echo "Starting the build!"'
+      }
+    }</p>
+<pre><code>stage ('Build') {
+  environment {
+    MYSQL_USER="dvna"
+    MYSQL_DATABASE="dvna"
+    MYSQL_PASSWORD=&lt;password&gt;
+    MYSQL_RANDOM_ROOT_PASSWORD=&lt;yes or no&gt;
+    MYSQL_HOST="mysql-db"
+    MYSQL_PORT=3306
+  }
+  steps {
+    sh 'echo "MYSQL_USER=$MYSQL_USER\nMYSQL_DATABASE=$MYSQL_DATABASE\nMYSQL_PASSWORD=$MYSQL_PASSWORD\nMYSQL_RANDOM_ROOT_PASSWORD=$MYSQL_RANDOM_ROOT_PASSWORD\nMYSQL_HOST=$MYSQL_HOST\nMYSQL_PORT=$MYSQL_PORT" &gt; ~/vars.env'
+    sh 'docker run --rm -d --name dvna-mysql --env-file ~/vars.env mysql:5.7 tail -f /dev/null'
+    sh 'docker run --rm -d --name dvna-app --env-file ~/vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna'
+    sh 'docker cp dvna-app:/app/ ~/'        
+  }
+}
+
+stage ('Remove DVNA from Jenkins') {
+  steps {
+    sh 'rm -rf ~/app'
+    sh 'docker stop dvna-app &amp;&amp; docker stop dvna-mysql'
+    sh 'docker rmi appsecco/dvna'
+  }
+}
+
+stage ('Deploy to DVNA') {
+  steps {
+    sh 'ssh -tt -o StrictHostKeyChecking=no prod-vm@192.168.1.55 "docker stop dvna-app &amp;&amp; docker stop dvna-mysql &amp;&amp; docker rm dvna-app &amp;&amp; docker rm dvna-mysql &amp;&amp; docker rmi appsecco/dvna || true"'
+    sh 'scp ~/vars.env prod-vm@192.168.1.55:~/'
+    sh 'ssh -tt -o StrictHostKeyChecking=no prod-vm@192.168.1.55 "docker run -d --name dvna-mysql --env-file ~/vars.env mysql:5.7 tail -f /dev/null"'
+    sh 'ssh -tt -o StrictHostKeyChecking=no prod-vm@192.168.1.55 "docker run -d --name dvna-app --env-file ~/vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna"'
+  }
+}
+</code></pre>
+<p>}
+}
+```</p>
 <ul>
-<li>Name : <code>Jenkins-deploy</code></li>
-<li>Type : <code>Linux</code></li>
-<li>Version : <code>Ubuntu (64-bit)</code></li>
+<li><code>pipeline</code> - Constitutes the entire definition of the pipeline.</li>
+<li><code>agent</code> - Is used to choose the way the Jenkins instance(s) are used to run the pipeline. The <code>any</code> keyword defines that Jenkins should - allocate any available agent (an instance of Jenkins/a slave/the master instance) to execute the pipeline.</li>
+<li><code>stages</code> - Consists of all the stages/jobs to be performed during the execution of the pipeline.</li>
+<li><code>stage</code> - Specify the task to be performed.</li>
+<li><code>steps</code> - This block defines actions to be performed within a particular stage.</li>
+<li><code>sh</code> - Used to execute shell commands through Jenkins.</li>
 </ul>
-<h2 id="memory-size">Memory size</h2>
-<p><img alt="image" src="/pictures/2.png" /> </p>
-<p>Select <code>2000 MB</code> and click on <code>create</code>.</p>
-<h2 id="hard-disk">Hard disk</h2>
-<p><img alt="image" src="/pictures/3.png" /> </p>
-<p>Select a <code>virtual hard disk now</code> and <code>Create</code> and Hard disk file type will open in that select <code>VDI (VirtualBox Disk Image)</code>and <code>NEXT</code>. </p>
-<p><img alt="image" src="/pictures/js.png" /> </p>
-<p>In storage on physical hard disk select <code>Dynamically allocated</code> File location and size will open hit <code>Create</code> and is done. </p>
-<p><img alt="image" src="/pictures/2021-06-29_19-41.png" /> </p>
-<h2 id="download-server-image-1804">Download server image 18.04</h2>
-<p>Downloaded the server image Ubuntu 18.04 on VirtualBox as it is an LTS version which is a desirable feature for a CI pipeline.  </p>
-<p>I followed the official <a href="https://releases.ubuntu.com/18.04/">link</a> to download the 64-bit PC(AMD64) desktop image  </p>
-<p><img alt="image" src="/pictures/desktop.png" /> </p>
-<p>In VM box I selected <code>Jenkins-deploy</code> to install the server and then clicked on <code>start</code>.</p>
-<p><img alt="image" src="/pictures/mark.png" /> </p>
-<p>Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on <code>start</code>.</p>
-<p><img alt="image" src="/pictures/optical.png" /> </p>
-<p><img alt="image" src="/pictures/8.png" /> </p>
-<p>Now Jenkin VM starts running! </p>
-<h2 id="language-selection">Language selection</h2>
-<p>Select the language English and click on done </p>
-<p><img alt="image" src="/pictures/9.png" /> </p>
-<h2 id="keyboard-configuration">Keyboard configuration</h2>
-<p>By default, English is selected for Layout and variant, pressed <code>Done</code>. </p>
-<p><img alt="image" src="/pictures/10.png" /> </p>
-<h2 id="network-connections">Network connections</h2>
-<p>I kept it as default and selected <code>Done</code>. </p>
-<p><img alt="image" src="/pictures/11.png" /> </p>
-<h2 id="configure-proxy">Configure proxy</h2>
-<p><img alt="image" src="/pictures/12.png" /> </p>
-<h2 id="configure-ubuntu-archive-mirror">Configure ubuntu archive mirror</h2>
-<p><img alt="image" src="/pictures/13.png" /> </p>
-<p>I kept it as default and pressed Done for both Configure proxy and configure ubuntu archive mirror  </p>
-<h2 id="storage-configuration">Storage configuration</h2>
-<p><img alt="image" src="/pictures/14.png" /> </p>
-<p>I did not make changes in the storage configuration I kept it as default and pressed <code>Done</code>. </p>
-<p><img alt="image" src="/pictures/15.png" /> </p>
-<p>I kept this too as default and hit <code>Done</code>. </p>
-<h2 id="profile-setup">Profile setup</h2>
-<p><img alt="image" src="/pictures/17.png" /> </p>
-<p>I provided all the details and pressed <code>Done</code>. </p>
-<h2 id="ssh-setup">SSH Setup</h2>
-<p><img alt="image" src="/pictures/18.png" /> </p>
-<p>In order to install the OpenSSH server I pressed Space button to select the <code>Install OpenSSH server</code> option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and pressed <code>Done</code>. </p>
-<h2 id="featured-server-snaps">Featured Server Snaps</h2>
-<p><img alt="image" src="/pictures/19.png" />  </p>
-<p>Selected the snaps which are useful in a server environment, once selected pressed <code>Done</code>. </p>
-<p><img alt="image" src="/pictures/20.png" /> </p>
-<h2 id="installation-complete">Installation complete</h2>
-<p>Installation complete window appeared, I waited until the <strong>Reboot</strong> button appeared on this window. Later, pressed <code>reboot</code>. </p>
-<p><img alt="image" src="/pictures/21.png" /> </p>
-<p>And the installation of Ubuntu 18.04 is completed! </p>
-<p>Repeat the same process in order to create another VM for suiteCRM deployment where I have specified the server name as <code>suitecrm-deploy</code>. </p>
+<h2 id="stages">Stages</h2>
+<p>The pipeline is divided into various stages based on the operations being performed, which are as follows:</p>
+<h2 id="initialization">Initialization</h2>
+<p>This is the first stage which is used to just display the start of the building stage.</p>
+<h2 id="build">Build</h2>
+<p>This stage contains the environment variables, in which <code>vars.env</code> file is created and for <code>dvna-mysql</code> container. <code>dvna-app</code> and <code>dvna-mysql</code> containers will run and will be copied into the home directory.</p>
+<h2 id="static-and-dynamic-analysis">Static and Dynamic Analysis</h2>
+<p>All the stages that follow the Build Stage, except for the last two stages, are for performing static analysis  and dynamic analysis on DVNA and later being stored in a folder <code>reports</code> in <code>jenkins</code> home directory.</p>
+<h2 id="remove-dvna-from-jenkins">Remove DVNA from Jenkins</h2>
+<p>After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local <code>appsecco/dvna</code> docker image to avoid running a container with older release of the application image. On the other hand, you don't need to remove the mysql:5.7 image, since we require v5.7 and not the latest version.</p>
+<h2 id="deployment">Deployment</h2>
+<p>Finally, the satge <code>deploy to dvna</code>, operations are performed on VM over SSH which was configured previously. The two containers, <code>dvna-app</code> and <code>dvna-mysql</code> are run and successfully deployed.</p>
                 
               
               
@@ -486,39 +493,6 @@
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../contents/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Contents
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../setting-up-jenkins/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Setting up Jenkins
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

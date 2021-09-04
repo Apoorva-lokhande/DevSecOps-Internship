@@ -4,13 +4,13 @@
 
 Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. 
 
-# Prerequisite 
+## Prerequisite 
 
 I have setup ubuntu 18.04 VM for installing Jenkins from [Documentation](https://www.jenkins.io/doc/book/installing/). 
 
 I have installed java 8 OpenJDK and JRE (Java Development Kit and Java Runtime Environment) which is used to develop and run the software, I have used this [Link](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk) to download the same. 
 
-# Installation steps for Jenkins  
+## Installation steps for Jenkins  
 
 Add the repository key to the terminal:  
 
