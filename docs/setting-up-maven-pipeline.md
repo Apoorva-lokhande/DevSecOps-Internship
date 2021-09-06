@@ -19,6 +19,8 @@ Jenkins provides a particular job type, which explicitly provides options for co
 ### Install Maven Plugin in Jenkins
 
 - Click on the Manage Jenkins as shown below.
+  
+![image](/pictures/1.png)
 
   ![image](/pictures/new_1.png)
 
