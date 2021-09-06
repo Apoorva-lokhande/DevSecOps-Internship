@@ -4,7 +4,7 @@ SAST is a testing methodology that analyses source code, byte code and binaries 
 
 SAST does not require a working application and can take place without code being executed. It helps developers identify vulnerabilities in the initial stages of development and quickly resolve issues without breaking builds or passing on vulnerabilities to the final release of the application.
 
-![image](/pictures/1.png)
+![image](pictures/1.png)
 ## SAST Tools for Node.js Applications
 
 As given the name Damn Vulnerable Nodejs Application, it is quite obvious to figure the tech stack used, Nodejs is the server-side language used along with a SQL database.  
