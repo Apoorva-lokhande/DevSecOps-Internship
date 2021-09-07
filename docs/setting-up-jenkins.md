@@ -8,7 +8,7 @@ This section aims to set up the required infrastructure of Jenkins to perform th
 
 Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. 
 
-## Prerequisite 
+### Prerequisite 
 
 I have setup ubuntu 18.04 VM for installing Jenkins from [Documentation](https://www.jenkins.io/doc/book/installing/). 
 
@@ -39,7 +39,7 @@ Now install Jenkins and it’s dependencies:
 
 ![image](pictures/installed.png) 
 
-# Starting Jenkins 
+## Starting Jenkins 
 
 The systemctl command is used to manage "systemd" services and service manager:  
 
@@ -53,7 +53,7 @@ Check the status of Jenkins service using the below command:
 
 If the Jenkins has installed successfully, then the output will show as Active: **active(excited)**. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. 
 
-# Set-up a Firewall with UFW 
+## Set-up a Firewall with UFW 
 
 Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports. 
 
@@ -77,7 +77,7 @@ To enable UFW, use this command:
 
     sudo ufw enable 
 
-# Setting up Jenkins 
+## Setting up Jenkins 
 
 
 To find your server's name or domain name enter the following command in your terminal: 
@@ -89,7 +89,7 @@ Using the server's name or domain name as shown in the following command, entere
 
 http://your_server_name_or_domain:8080 
 
-## Using that server name  
+### Using that server name  
 
 ![image](/pictures/unlock.png) 
 
@@ -99,13 +99,13 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 The 32-character alphanumeric password is displayed in the terminal, paste it onto Administrator password field, and then click **continue**.  
 
-## Customize Jenkins  
+### Customize Jenkins  
 
 ![image](/pictures/costumize.png) 
 
 In the Customize Jenkins select "install suggested plugins" which will start installation process directly and press **continue**. 
 
-## Create Admin User  
+### Create Admin User  
  
 ![image](/pictures/info.png) 
 
@@ -113,14 +113,14 @@ Add the required credentials, click on **save** and continue as admin.
 
 The "Instance configuration" page will be displayed which will ask to confirm the preferred URL for Jenkins instance, click on **save** and **finish**. 
 
-## Installation Starts 
+### Installation Starts 
 
 ![image](/pictures/started.png) 
 
 Once the process is over click on **Reboot** which will restart the Jenkins. 
 
 
-**Now, Jenkins is installed! ** 
+***Now, Jenkins is installed!*** 
 
  
  
