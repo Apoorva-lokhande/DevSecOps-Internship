@@ -1,3 +1,7 @@
+***Objective***
+
+The aim of this section is to explain the software composition of DVNA using SCA tools in a Jenkins pipeline and solve the 5th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+
 # What is SCA?
 
 Software composition analysis (SCA) is an automated process that identifies the open source software in a codebase. This analysis is performed to evaluate security, license compliance, and code quality.

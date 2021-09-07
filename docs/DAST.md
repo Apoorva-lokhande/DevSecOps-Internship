@@ -1,10 +1,8 @@
-#  Dynamic Analysis
-
 *** Objective***
 
-The aim of this section is to perform dynamic analysis using DAST tools on DVNA and solve the 6th point of the Problem Statement.
+The aim of this section is to perform dynamic analysis using DAST tools on DVNA and solve the 6th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
-
+#  Dynamic Analysis
 
 Dynamic analysis is the process of testing and evaluating a program while software is running. Also referred to as dynamic code scanning, dynamic analysis improves the diagnosis and correction of bugs, memory issues, and crashes of an application during its execution.
 

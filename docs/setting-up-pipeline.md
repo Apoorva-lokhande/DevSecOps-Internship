@@ -1,3 +1,6 @@
+***Objective***
+The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+
 # Jenkins Pipeline
 
 ## Why use Jenkins pipeline ?

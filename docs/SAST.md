@@ -1,3 +1,7 @@
+***Objective***
+
+The aim of this section is to perform static analysis on DVNA using SAST tools in a Jenkins pipeline and solve the 4th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+
 # Static Application Security Testing(SAST)
 
 SAST is a testing methodology that analyses source code, byte code and binaries for bugs and design errors to find [security vulnerabilities](https://www.synopsys.com/blogs/software-security/types-of-security-vulnerabilities/), before the application is compiled. 
@@ -55,4 +59,4 @@ Audits JavaScript is a SAST tool which uses [OSS Index v3 REST API](https://ossi
 
 ## SAST Pipeline
 
-sudo dhclient enp0s3
+
