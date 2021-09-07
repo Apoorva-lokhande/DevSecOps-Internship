@@ -23,15 +23,15 @@ Dynamic analysis adopts the opposite approach and is executed while a program is
   
 I followed the [official documentation](https://www.zaproxy.org/docs/docker/about/) and pulled the ZAP image from docker:
 
-        docker pull owasp/zap2docker-stable
+    docker pull owasp/zap2docker-stable
 
 I got an permission denied error, and resolved it by changing the permissions as below:
 
-        sudo chmod 666 /var/run/docker.sock
+    sudo chmod 666 /var/run/docker.sock
         
 We will be performing a [baseline-scan](https://www.zaproxy.org/docs/docker/baseline-scan/) in a CI/CD environment as it is ideal:
 
-        sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
+    sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
 
 - Docker files used:
   - `--rm` to  remove container after completion.
@@ -45,7 +45,7 @@ We will be performing a [baseline-scan](https://www.zaproxy.org/docs/docker/base
 
 To run a fullscan script, run the following command:
 
-        sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-full-scan.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
+    sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-full-scan.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
 
 The `report` created `zap-report.html` will be saved in the home directory after successfull completion!
 
@@ -56,12 +56,12 @@ The `report` created `zap-report.html` will be saved in the home directory after
 
 It was an DNS error, I went ahead and resolved it by the folleing command in the `<jenkins-home-dir>`:
 
-        sudo dhclient enp0s3
+    sudo dhclient enp0s3
 
 Finally, I added the script to the jenkins file to perform DAST on DVNA:
 
-        stage('ZAP Scan') {
-                steps {
-                sh 'docker run --rm -i -u zap --name owasp-zap -v ~/reports/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS || true'
-                }
+    stage('ZAP Scan') {
+        steps {
+        sh 'docker run --rm -i -u zap --name owasp-zap -v ~/reports/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS || true'
         }
+    }

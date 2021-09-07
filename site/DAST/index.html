@@ -516,13 +516,13 @@
 <li>ZAP creates a proxy server and makes your website traffic pass through that server. It comprises of auto scanners that help you intercept the vulnerabilities in your website.</li>
 </ul>
 <p>I followed the <a href="https://www.zaproxy.org/docs/docker/about/">official documentation</a> and pulled the ZAP image from docker:</p>
-<pre><code>    docker pull owasp/zap2docker-stable
+<pre><code>docker pull owasp/zap2docker-stable
 </code></pre>
 <p>I got an permission denied error, and resolved it by changing the permissions as below:</p>
-<pre><code>    sudo chmod 666 /var/run/docker.sock
+<pre><code>sudo chmod 666 /var/run/docker.sock
 </code></pre>
 <p>We will be performing a <a href="https://www.zaproxy.org/docs/docker/baseline-scan/">baseline-scan</a> in a CI/CD environment as it is ideal:</p>
-<pre><code>    sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
+<pre><code>sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
 </code></pre>
 <ul>
 <li>Docker files used:</li>
@@ -536,21 +536,21 @@
 <li><code>-l level</code> to minimum level to show: PASS, IGNORE, INFO, WARN or FAIL.</li>
 </ul>
 <p>To run a fullscan script, run the following command:</p>
-<pre><code>    sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-full-scan.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
+<pre><code>sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-full-scan.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
 </code></pre>
 <p>The <code>report</code> created <code>zap-report.html</code> will be saved in the home directory after successfull completion!</p>
 <h2 id="dast-pipeline">DAST Pipeline</h2>
 <p><strong><em>NOTE</em></strong>: While adding the script to the pipeline I got an error:
 <img alt="image" src="../pictures/error2.png" /></p>
 <p>It was an DNS error, I went ahead and resolved it by the folleing command in the <code>&lt;jenkins-home-dir&gt;</code>:</p>
-<pre><code>    sudo dhclient enp0s3
+<pre><code>sudo dhclient enp0s3
 </code></pre>
 <p>Finally, I added the script to the jenkins file to perform DAST on DVNA:</p>
-<pre><code>    stage('ZAP Scan') {
-            steps {
-            sh 'docker run --rm -i -u zap --name owasp-zap -v ~/reports/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS || true'
-            }
+<pre><code>stage('ZAP Scan') {
+    steps {
+    sh 'docker run --rm -i -u zap --name owasp-zap -v ~/reports/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS || true'
     }
+}
 </code></pre>
                 
               

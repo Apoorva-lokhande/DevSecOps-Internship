@@ -17,16 +17,16 @@ JSHint scans your program's source code and reports about commonly made mistakes
 
 - I installed it globally with NPM using the following command:
 
-    sudo npm install -g jshint
+      sudo npm install -g jshint
 
 
 - Run the jshint command with the aplication/project directory to scan all the `.js` files as given below:
   
-    jshint ~/app > ~/report/jshint-report
+      jshint ~/app > ~/report/jshint-report
 
 - The above command will scan all the files in the directory. To restrict the scan to only .js and .ejs files, use a find command. We will further exclude all files in the `node_modules` directory.
 
-    jshint $(find ~/app -type f -name "*.js" -o -name "*.ejs" | grep -v node_modules) > ~/reports/jshint-report
+      jshint $(find ~/app -type f -name "*.js" -o -name "*.ejs" | grep -v node_modules) > ~/reports/jshint-report
     
 ## JSHint Pipeline
 
@@ -77,7 +77,7 @@ To perform an eslint scan, run eslint command with the following flags:
 - `--ext` to specify the extensions of files to be scannned.
 - `-o` to specify file to write the report to a particular file. 
 
-        eslint -c ~/.eslintrc.json -f html --ext .js,.ejs -o ~/reports/eslint-report.html ~/app
+      eslint -c ~/.eslintrc.json -f html --ext .js,.ejs -o ~/reports/eslint-report.html ~/app
 
 ## ESLint Pipeline
 
