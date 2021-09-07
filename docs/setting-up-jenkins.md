@@ -16,7 +16,7 @@ Add the repository key to the terminal:
 
     wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - 
 
-![image](/home/apoorva/my-project/pictures/jenk.png) 
+![image](pictures/jenk.png) 
 
 The system will return **OK**  
 
@@ -27,13 +27,13 @@ Next, add the Debian package repository address:
 
     sudo apt update 
 
-![image](/last.png) 
+![image](pictures/last.png) 
 
 Now install Jenkins and it’s dependencies: 
 
     sudo apt install jenkins  
 
-![image](/pictures/installed.png) 
+![image](pictures/installed.png) 
 
 # Starting Jenkins 
 
@@ -45,7 +45,7 @@ Check the status of Jenkins service using the below command:
 
     sudo systemctl status jenkins 
 
-![image](/pictures/startandstatus.png)  
+![image](pictures/startandstatus.png)  
 
 If the Jenkins has installed successfully, then the output will show as Active: **active(excited)**. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. 
 
@@ -61,7 +61,7 @@ To check the status of the ufw:
 
     sudo ufw status 
 
-![image](/pictures/activee.png) 
+![image](pictures/activee.png) 
 
 If the status shows "Inactive". Then enable using following command 
 

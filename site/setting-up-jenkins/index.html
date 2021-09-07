@@ -298,7 +298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setting-up-pipeline.md" class="md-nav__link">
+      <a href="../setting-up-pipeline/" class="md-nav__link">
         Setting up pipeline
       </a>
     </li>
@@ -479,7 +479,7 @@
 <p>Add the repository key to the terminal:  </p>
 <pre><code>wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 </code></pre>
-<p><img alt="image" src="/home/apoorva/my-project/pictures/jenk.png" /> </p>
+<p><img alt="image" src="../pictures/jenk.png" /> </p>
 <p>The system will return <strong>OK</strong>  </p>
 <p>Next, add the Debian package repository address:   </p>
 <pre><code>sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \ 
@@ -487,11 +487,11 @@
 
 sudo apt update
 </code></pre>
-<p><img alt="image" src="/last.png" /> </p>
+<p><img alt="image" src="../pictures/last.png" /> </p>
 <p>Now install Jenkins and it’s dependencies: </p>
 <pre><code>sudo apt install jenkins
 </code></pre>
-<p><img alt="image" src="/pictures/installed.png" /> </p>
+<p><img alt="image" src="../pictures/installed.png" /> </p>
 <h1 id="starting-jenkins">Starting Jenkins</h1>
 <p>The systemctl command is used to manage "systemd" services and service manager:  </p>
 <pre><code>sudo systemctl start jenkins
@@ -499,7 +499,7 @@ sudo apt update
 <p>Check the status of Jenkins service using the below command:  </p>
 <pre><code>sudo systemctl status jenkins
 </code></pre>
-<p><img alt="image" src="/pictures/startandstatus.png" />  </p>
+<p><img alt="image" src="../pictures/startandstatus.png" />  </p>
 <p>If the Jenkins has installed successfully, then the output will show as Active: <strong>active(excited)</strong>. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. </p>
 <h1 id="set-up-a-firewall-with-ufw">Set-up a Firewall with UFW</h1>
 <p>Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports. </p>
@@ -509,7 +509,7 @@ sudo apt update
 <p>To check the status of the ufw: </p>
 <pre><code>sudo ufw status
 </code></pre>
-<p><img alt="image" src="/pictures/activee.png" /> </p>
+<p><img alt="image" src="../pictures/activee.png" /> </p>
 <p>If the status shows "Inactive". Then enable using following command </p>
 <p>To configure your server to allow incoming SSH connections, you can use this command: </p>
 <pre><code>sudo ufw allow ssh
