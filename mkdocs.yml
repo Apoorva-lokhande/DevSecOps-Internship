@@ -9,7 +9,7 @@ nav:
 - Setting up pipeline: 'setting-up-pipeline.md'
 - Setting up DVNA: 'setting-up-dvna.md'
 - Static Analysis: 'SAST.md'
-- Software Composition Analysis: 'Software-Composition-Analysis.md'
+- Software Composition Analysis: 'software-composition-analysis.md'
 - Dynamic Analysis: 'DAST.md'
 - Source Code Quality Analysis: 'Source-Code-Quality-Analysis.md'
 - Complete Pipeline: 'Complete-pipeline.md'

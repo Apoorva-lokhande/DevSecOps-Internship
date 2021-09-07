@@ -10,6 +10,6 @@
 * [Static Analysis](#SAST)
 * [Software Composition Analysis](#Software-Composition-Analysis)
 * [Dynamic Analysis](#DAST)
-* [Source Code Quality Analysis](#Source-Code-Quality-Analysis)
+* [Source Code Quality Analysis](#software-composition-analysis)
 * [Complete Pipeline](#Complete-pipeline)
 * [Resources](#Resources)

@@ -14,7 +14,7 @@
     
     
       
-        <title>Setting up VM - DevSecOps-pipeline</title>
+        <title>Software Composition Analysis - DevSecOps-pipeline</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-is-virtual-machine" class="md-skip">
+        <a href="#sca" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Setting up VM
+              Software Composition Analysis
             
           </span>
         </div>
@@ -212,149 +212,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Setting up VM
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../setting-up-VM/" class="md-nav__link">
         Setting up VM
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-vm" class="md-nav__link">
-    Setting up VM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#name-and-operating-system" class="md-nav__link">
-    Name and operating system
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-size" class="md-nav__link">
-    Memory size
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hard-disk" class="md-nav__link">
-    Hard disk
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#download-server-image-1804" class="md-nav__link">
-    Download server image 18.04
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#language-selection" class="md-nav__link">
-    Language selection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#keyboard-configuration" class="md-nav__link">
-    Keyboard configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#network-connections" class="md-nav__link">
-    Network connections
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-proxy" class="md-nav__link">
-    Configure proxy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-ubuntu-archive-mirror" class="md-nav__link">
-    Configure ubuntu archive mirror
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-configuration" class="md-nav__link">
-    Storage configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#profile-setup" class="md-nav__link">
-    Profile setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssh-setup" class="md-nav__link">
-    SSH Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#featured-server-snaps" class="md-nav__link">
-    Featured Server Snaps
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-complete" class="md-nav__link">
-    Installation complete
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -440,11 +302,65 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../software-composition-analysis/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Software Composition Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Software Composition Analysis
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#owasp-depedency-check" class="md-nav__link">
+    OWASP Depedency-Check
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performing-sca-in-dvna" class="md-nav__link">
+    Performing SCA in DVNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sca-pipeline" class="md-nav__link">
+    SCA Pipeline
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -535,106 +451,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-vm" class="md-nav__link">
-    Setting up VM
+  <a href="#owasp-depedency-check" class="md-nav__link">
+    OWASP Depedency-Check
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#name-and-operating-system" class="md-nav__link">
-    Name and operating system
+  <a href="#performing-sca-in-dvna" class="md-nav__link">
+    Performing SCA in DVNA
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-size" class="md-nav__link">
-    Memory size
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hard-disk" class="md-nav__link">
-    Hard disk
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#download-server-image-1804" class="md-nav__link">
-    Download server image 18.04
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#language-selection" class="md-nav__link">
-    Language selection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#keyboard-configuration" class="md-nav__link">
-    Keyboard configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#network-connections" class="md-nav__link">
-    Network connections
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-proxy" class="md-nav__link">
-    Configure proxy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-ubuntu-archive-mirror" class="md-nav__link">
-    Configure ubuntu archive mirror
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-configuration" class="md-nav__link">
-    Storage configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#profile-setup" class="md-nav__link">
-    Profile setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssh-setup" class="md-nav__link">
-    SSH Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#featured-server-snaps" class="md-nav__link">
-    Featured Server Snaps
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-complete" class="md-nav__link">
-    Installation complete
+  <a href="#sca-pipeline" class="md-nav__link">
+    SCA Pipeline
   </a>
   
 </li>
@@ -652,95 +484,31 @@
               
                 
                 
-                <h1 id="what-is-virtual-machine">What is Virtual Machine?</h1>
-<p>For understanding Virtual machine (VM) we will have to understand what Virtualization is. </p>
-<ul>
-<li>
-<p><strong>Virtualization</strong> is a software based or virtual version of something, that be compute, storage, networking, servers or applications. And Hypervisor makes Virtualization possible. </p>
-</li>
-<li>
-<p><strong>Hypervisor</strong> is a piece of software that runs above host or server. </p>
-</li>
-<li>
-<p>There are 2 types of hypervisors: </p>
-<ol>
-<li>
-<p>Type 1: It is installed directly on top of physical server. </p>
-</li>
-<li>
-<p>Type 2: Here there is a layer of Host operating system (OS) between the hardware and Hypervisor (as we are using here). </p>
-</li>
-</ol>
-</li>
-</ul>
-<p>A VM is an OS or application environment that is installed on software, which imitates dedicated physical server. A VM provides an isolated environment for running its own OS and applications independently from the underlying host system or from other VMs on that host. The VM's OS is commonly referred to as the guest OS, and it can be the same as or different from the host OS or the other VMs. </p>
-<h2 id="setting-up-vm">Setting up VM</h2>
-<p>Here I will be setting up two VMs:</p>
-<ol>
-<li>For Jenkins Deployment.</li>
-<li>For suiteCRM server.</li>
-</ol>
-<p>In virtual Box Click <code>NEW</code> icon to create a new machine.</p>
-<h2 id="name-and-operating-system">Name and operating system</h2>
-<p><img alt="image" src="/pictures/os.png" /></p>
-<ul>
-<li>Name : <code>Jenkins-deploy</code></li>
-<li>Type : <code>Linux</code></li>
-<li>Version : <code>Ubuntu (64-bit)</code></li>
-</ul>
-<h2 id="memory-size">Memory size</h2>
-<p><img alt="image" src="/pictures/2.png" /> </p>
-<p>Select <code>2000 MB</code> and click on <code>create</code>.</p>
-<h2 id="hard-disk">Hard disk</h2>
-<p><img alt="image" src="/pictures/3.png" /> </p>
-<p>Select a <code>virtual hard disk now</code> and <code>Create</code> and Hard disk file type will open in that select <code>VDI (VirtualBox Disk Image)</code>and <code>NEXT</code>. </p>
-<p><img alt="image" src="/pictures/js.png" /> </p>
-<p>In storage on physical hard disk select <code>Dynamically allocated</code> File location and size will open hit <code>Create</code> and is done. </p>
-<p><img alt="image" src="/pictures/2021-06-29_19-41.png" /> </p>
-<h2 id="download-server-image-1804">Download server image 18.04</h2>
-<p>Downloaded the server image Ubuntu 18.04 on VirtualBox as it is an LTS version which is a desirable feature for a CI pipeline.  </p>
-<p>I followed the official <a href="https://releases.ubuntu.com/18.04/">link</a> to download the 64-bit PC(AMD64) desktop image  </p>
-<p><img alt="image" src="/pictures/desktop.png" /> </p>
-<p>In VM box I selected <code>Jenkins-deploy</code> to install the server and then clicked on <code>start</code>.</p>
-<p><img alt="image" src="/pictures/mark.png" /> </p>
-<p>Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on <code>start</code>.</p>
-<p><img alt="image" src="/pictures/optical.png" /> </p>
-<p><img alt="image" src="/pictures/8.png" /> </p>
-<p>Now Jenkin VM starts running! </p>
-<h2 id="language-selection">Language selection</h2>
-<p>Select the language English and click on done </p>
-<p><img alt="image" src="/pictures/9.png" /> </p>
-<h2 id="keyboard-configuration">Keyboard configuration</h2>
-<p>By default, English is selected for Layout and variant, pressed <code>Done</code>. </p>
-<p><img alt="image" src="/pictures/10.png" /> </p>
-<h2 id="network-connections">Network connections</h2>
-<p>I kept it as default and selected <code>Done</code>. </p>
-<p><img alt="image" src="/pictures/11.png" /> </p>
-<h2 id="configure-proxy">Configure proxy</h2>
-<p><img alt="image" src="/pictures/12.png" /> </p>
-<h2 id="configure-ubuntu-archive-mirror">Configure ubuntu archive mirror</h2>
-<p><img alt="image" src="/pictures/13.png" /> </p>
-<p>I kept it as default and pressed Done for both Configure proxy and configure ubuntu archive mirror  </p>
-<h2 id="storage-configuration">Storage configuration</h2>
-<p><img alt="image" src="/pictures/14.png" /> </p>
-<p>I did not make changes in the storage configuration I kept it as default and pressed <code>Done</code>. </p>
-<p><img alt="image" src="/pictures/15.png" /> </p>
-<p>I kept this too as default and hit <code>Done</code>. </p>
-<h2 id="profile-setup">Profile setup</h2>
-<p><img alt="image" src="/pictures/17.png" /> </p>
-<p>I provided all the details and pressed <code>Done</code>. </p>
-<h2 id="ssh-setup">SSH Setup</h2>
-<p><img alt="image" src="/pictures/18.png" /> </p>
-<p>In order to install the OpenSSH server I pressed Space button to select the <code>Install OpenSSH server</code> option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and pressed <code>Done</code>. </p>
-<h2 id="featured-server-snaps">Featured Server Snaps</h2>
-<p><img alt="image" src="/pictures/19.png" />  </p>
-<p>Selected the snaps which are useful in a server environment, once selected pressed <code>Done</code>. </p>
-<p><img alt="image" src="/pictures/20.png" /> </p>
-<h2 id="installation-complete">Installation complete</h2>
-<p>Installation complete window appeared, I waited until the <strong>Reboot</strong> button appeared on this window. Later, pressed <code>reboot</code>. </p>
-<p><img alt="image" src="/pictures/21.png" /> </p>
-<p>And the installation of Ubuntu 18.04 is completed! </p>
-<p>Repeat the same process in order to create another VM for suiteCRM deployment where I have specified the server name as <code>suitecrm-deploy</code>. </p>
+                <h1 id="sca">SCA</h1>
+<p>Software composition analysis (SCA) identifies all the open source in a codebase and maps that inventory to a list of current known vulnerabilities. It helps identify vulnerabilities in open source code (dependencies) used in code.</p>
+<p>SCA is the process of automating the visibility into open source software (OSS) use for the purpose of risk management, security and license compliance. With the rise of open source (OS) use in software across all industries, the need to track components increases exponentially to protect companies from issues and open source vulnerabilities.</p>
+<h2 id="owasp-depedency-check">OWASP Depedency-Check</h2>
+<p>Dependency-Check is a Software Composition Analysis (SCA) tool that attempts to detect publicly disclosed vulnerabilities contained within a project’s dependencies. It does this by determining if there is a Common Platform Enumeration (CPE) identifier for a given dependency. If found, it will generate a report linking to the associated CVE entries.</p>
+<h2 id="performing-sca-in-dvna">Performing SCA in DVNA</h2>
+<p>I followed the <a href="https://github.com/jeremylong/DependencyCheck">official documentation</a> in order to download the Dependency-Check CLI and the associated GPG signature file which is given below:</p>
+<pre><code>wget -P ~/ https://github.com/jeremylong/DependencyCheck/releases/download/v6.2.2/dependency-check-6.2.2-release.zip
+
+wget -P ~/ https://github.com/jeremylong/DependencyCheck/releases/download/v6.2.2/dependency-check-6.2.2-release.zip.asc
+</code></pre>
+<p>Now, extract the files from <code>dependency-check</code> tool zip file:</p>
+<pre><code>unzip ~/dependency-check-6.2.2-release.zip
+</code></pre>
+<p>Perform the scan by specifying the path to the project, output report format and its location:</p>
+<pre><code>~/dependency-check/bin/dependency-check.sh --scan ~/app --out ~/report/dependency-check-report --format JSON --prettyPrint
+</code></pre>
+<h2 id="sca-pipeline">SCA Pipeline</h2>
+<p>Finally, I added the script to the jenkinsfile to perform SCA of DVNA:</p>
+<pre><code>stage ('OWASP Dependency-Check') {
+    steps {
+    sh '~/dependency-check/bin/dependency-check.sh --scan ~/app --out ~/reports/dependency-check-report --format JSON --prettyPrint || true'
+    }
+}
+</code></pre>
                 
               
               
@@ -759,7 +527,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../contents/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../SAST/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -768,19 +536,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Contents
+              Static Analysis
             </div>
           </div>
         </a>
       
       
-        <a href="../setting-up-jenkins/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../DAST/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Setting up Jenkins
+              Dynamic Analysis
             </div>
           </div>
           <div class="md-footer__button md-icon">
