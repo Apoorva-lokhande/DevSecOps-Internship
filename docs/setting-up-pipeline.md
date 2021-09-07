@@ -96,7 +96,13 @@ The structure of my jenkinsfile is as follows:
         }
     }
   
-
+- `pipeline` - Constitutes the entire definition of the pipeline.
+- `agent` - Is used to choose the way the Jenkins instance(s) are used to run the pipeline. The `any` keyword defines that Jenkins should - allocate any available agent (an instance of Jenkins/a slave/the master instance) to execute the pipeline.
+- `stages` - Consists of all the stages/jobs to be performed during the execution of the pipeline.
+- `stage` - Specify the task to be performed.
+- `steps` - This block defines actions to be performed within a particular stage.
+- `sh` - Used to execute shell commands through Jenkins.
+- 
 ## SSH Access Configuration
 
 - Secure Shell Protocol (SSH) provides a secure channel over an unsecured network by using a client–server architecture, connecting an SSH client application with an SSH server. The standard TCP port for SSH is 22.

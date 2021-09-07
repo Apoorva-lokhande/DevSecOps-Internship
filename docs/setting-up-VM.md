@@ -14,7 +14,7 @@ For understanding Virtual machine (VM) we will have to understand what Virtualiz
 
 A VM is an OS or application environment that is installed on software, which imitates dedicated physical server. A VM provides an isolated environment for running its own OS and applications independently from the underlying host system or from other VMs on that host. The VM's OS is commonly referred to as the guest OS, and it can be the same as or different from the host OS or the other VMs. 
    
-# Setting up VM
+## Setting up VM
 Here I will be setting up two VMs:
 
 1. For Jenkins Deployment.

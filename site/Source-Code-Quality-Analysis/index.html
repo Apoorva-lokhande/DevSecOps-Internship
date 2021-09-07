@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#source-code-quality-analysis" class="md-skip">
+        <a href="#software-code-quality-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -401,6 +401,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#eslint-pipeline" class="md-nav__link">
+    ESLint Pipeline
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -499,6 +506,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#eslint-pipeline" class="md-nav__link">
+    ESLint Pipeline
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -512,7 +526,7 @@
               
                 
                 
-                <h1 id="source-code-quality-analysis">Source Code Quality Analysis</h1>
+                <h1 id="software-code-quality-analysis">Software Code Quality Analysis</h1>
 <h2 id="source-code-linting">Source Code Linting</h2>
 <p>Lint, or a linter, is a source code analysis tool used to flag programming errors, bugs, stylistic errors, and suspicious constructs.</p>
 <p>Linter's are used to generate reports about the code quality by either invoking a built-in functionality or writing a reporting wrapper arround the tool to resolve the identified issues.</p>
@@ -526,18 +540,65 @@
 <p>sudo npm install -g jshint</p>
 </li>
 <li>
-<p>Run the jshint command with the aplication/project directory to scan all the .js files as given below:</p>
-<p>jshint ~/dvna &gt; ~/report/jshint-report</p>
+<p>Run the jshint command with the aplication/project directory to scan all the <code>.js</code> files as given below:</p>
+<p>jshint ~/app &gt; ~/report/jshint-report</p>
 </li>
 <li>
-<p>To restrict the scan to only .js and .ejs files, use a find command. We will further exclude all files in the <code>node_modules</code> directory.</p>
-<pre><code>jshint $(find ~/app -type f -name "*.js" -o -name "*.ejs" | grep -v node_modules) &gt; ~/reports/jshint-report
-</code></pre>
+<p>The above command will scan all the files in the directory. To restrict the scan to only .js and .ejs files, use a find command. We will further exclude all files in the <code>node_modules</code> directory.</p>
+<p>jshint $(find ~/app -type f -name "<em>.js" -o -name "</em>.ejs" | grep -v node_modules) &gt; ~/reports/jshint-report</p>
 </li>
 </ul>
 <h2 id="jshint-pipeline">JSHint Pipeline</h2>
+<pre><code>stage ('JSHint Analysis') {  
+    steps {
+        sh 'jshint $(find ~/app -type f \( -name "*.js" -o -name "*.ejs" \) | grep -v node_modules) &gt; ~/reports/jshint-report || true'
+    }
+}
+</code></pre>
 <h2 id="eslint">ESLint</h2>
-<p>ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code. ESLint covers both code quality and coding style issues.</p>
+<p>ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code. ESLint covers both code quality and coding style issues.Unlike JSHint, ESLint uses Espree for JavaScript parsing and an AST to evaluate patterns in code. It's completely pluggable, every single rule is a plugin and you can add more at runtime.</p>
+<p>I followed the <a href="https://eslint.org/docs/user-guide/getting-started">official documentation</a> to install ESLint using NPM:</p>
+<pre><code>npm install -g eslint
+</code></pre>
+<p>Now, to run the scan eslint requires a .eslintrc configuration file which contains environment variables, rules and other configuration details. To create this file, run <code>eslint --init</code> in the project's root folder you will be prompted with a few questions to create the config file, and the responses are as shown below:</p>
+<pre><code>✔ How would you like to use ESLint? · problems
+✔ What type of modules does your project use? · commonjs
+✔ Which framework does your project use? · none
+✔ Does your project use TypeScript? · No
+✔ Where does your code run? · browser
+✔ What format do you want your config file to be in? · JSON
+</code></pre>
+<p><strong><em>NOTE</em></strong>: The .eslintrc.json config file is required everytime I run an eslint scan on a file or directory.It's not possible to create the config file by running eslint --init as the command line waits for responses to file configuration questions. To resolve this problem, copy the configuration details shown above into <code>&lt;Jenkins-Home-Dir&gt;/.eslintrc.json</code> file. You can now specify eslint to use this config file during its execution.</p>
+<p>The contents of the .eslintrc.json file are as below:</p>
+<pre><code>{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+    }
+}
+</code></pre>
+<p>To perform an eslint scan, run eslint command with the following flags:
+- <code>-c</code>  to specify the config file.
+- <code>-f</code> to format of output report.
+- <code>--ext</code> to specify the extensions of files to be scannned.
+- <code>-o</code> to specify file to write the report to a particular file. </p>
+<pre><code>    eslint -c ~/.eslintrc.json -f html --ext .js,.ejs -o ~/reports/eslint-report.html ~/app
+</code></pre>
+<h2 id="eslint-pipeline">ESLint Pipeline</h2>
+<p>Finally, I added a stage in the pipeline to run the script after I made it executable. The stage that I added was as follows:</p>
+<pre><code>stage ('ESLint Analysis') {
+    steps {
+        sh 'eslint -c ~/.eslintrc.json -f html --ext .js,.ejs -o ~/reports/eslint-report.html ~/app || true'
+    }
+}
+</code></pre>
                 
               
               

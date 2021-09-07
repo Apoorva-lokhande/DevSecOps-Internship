@@ -14,7 +14,7 @@
     
     
       
-        <title>Source Code Quality Analysis - DevSecOps-pipeline</title>
+        <title>What is SBoM? - DevSecOps-pipeline</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#source-code-quality-analysis" class="md-skip">
+        <a href="#what-is-sbom" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Source Code Quality Analysis
+              What is SBoM?
             
           </span>
         </div>
@@ -397,36 +397,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#source-code-linting" class="md-nav__link">
-    Source Code Linting
+  <a href="#cyclonedx" class="md-nav__link">
+    CycloneDX
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#linting-tools-for-dvna" class="md-nav__link">
-    Linting tools for DVNA
+  <a href="#generating-sbom-for-dvna" class="md-nav__link">
+    Generating SBoM for DVNA
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#integrating-jshint-with-jenkins-pipeline" class="md-nav__link">
-    Integrating JSHint with Jenkins pipeline
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jshint-pipeline" class="md-nav__link">
-    JSHint Pipeline
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#eslint" class="md-nav__link">
-    ESLint
+  <a href="#sbom-pipeline" class="md-nav__link">
+    SBoM pipeline
   </a>
   
 </li>
@@ -444,32 +430,27 @@
               
                 
                 
-                <h1 id="source-code-quality-analysis">Source Code Quality Analysis</h1>
-<h2 id="source-code-linting">Source Code Linting</h2>
-<p>Lint, or a linter, is a source code analysis tool used to flag programming errors, bugs, stylistic errors, and suspicious constructs.</p>
-<p>Linter's are used to generate reports about the code quality by either invoking a built-in functionality or writing a reporting wrapper arround the tool to resolve the identified issues.</p>
-<h2 id="linting-tools-for-dvna">Linting tools for DVNA</h2>
-<p>DVNA is a Nodejs application and hence, I used <a href="https://jshint.com/install/">JSHint</a> and <a href="https://eslint.org/docs/2.13.1/user-guide/command-line-interface">ESLint</a> as the linter.</p>
-<p>JSHint scans your program's source code and reports about commonly made mistakes and potential bugs. The potential problem could be a syntax error, a bug due to implicit type conversion, a leaking variable, or any of the other problems that JSHint looks for and it is a command-line utility, I can easily integrate it into my CI pipeline with Jenkins. </p>
-<h2 id="integrating-jshint-with-jenkins-pipeline">Integrating JSHint with Jenkins pipeline</h2>
-<ul>
-<li>
-<p>I installed it globally with NPM using the following command:</p>
-<p>sudo npm install -g jshint</p>
-</li>
-<li>
-<p>Run the jshint command with the aplication/project directory to scan all the .js files as given below:</p>
-<p>jshint ~/dvna &gt; ~/report/jshint-report</p>
-</li>
-<li>
-<p>To restrict the scan to only .js and .ejs files, use a find command. We will further exclude all files in the <code>node_modules</code> directory.</p>
-<pre><code>jshint $(find ~/app -type f -name "*.js" -o -name "*.ejs" | grep -v node_modules) &gt; ~/reports/jshint-report
+                <h1 id="what-is-sbom">What is SBoM?</h1>
+<p>A software bill of materials is a list of all the open source and third-party components present in a codebase. A Bill of Materials is a list of components used to assemble/create a product. It gives out a specification about how each component was used in the making of the end product.</p>
+<h2 id="cyclonedx">CycloneDX</h2>
+<p>To generate the SBoM for DVNA, we are using a tool called CycloneDX. According to the <a href="https://github.com/CycloneDX/cyclonedx-node-module#cyclonedx-nodejs-module">documentation</a> CycloneDX is a module for Node.js creates a valid CycloneDX SBoM containing an aggregate of all project dependencies.</p>
+<p>SCA tools can discover all related components, their supporting libraries, and their direct and indirect dependencies. SCA tools can also detect software licenses, deprecated dependencies, as well as vulnerabilities and potential exploits. The scanning process generates a component inventory or  <a href="https://www.synopsys.com/blogs/software-security/software-bill-of-materials-bom/">software bill of materials (SBoM)</a>, providing a complete inventory of a project’s software assets which is then compared against a variety of databases, these databases hold information regarding known and common vulnerabilities.</p>
+<h2 id="generating-sbom-for-dvna">Generating SBoM for DVNA</h2>
+<p>Here, I installed CycloneDX's Node module with NPM by using the command:</p>
+<pre><code>sudo su
+npm install -g @cyclonedx/bom
 </code></pre>
-</li>
-</ul>
-<h2 id="jshint-pipeline">JSHint Pipeline</h2>
-<h2 id="eslint">ESLint</h2>
-<p>ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code. ESLint covers both code quality and coding style issues.</p>
+<p>Later, I generated SBoM report in an <code>.xml</code> format(you can either generate using <code>.xml</code> or <code>.json</code>) also use <code>-o</code> to specify filename and format(i.e., .xml)</p>
+<pre><code>cyclonedx-bom -o sbom.xml
+</code></pre>
+<h2 id="sbom-pipeline">SBoM pipeline</h2>
+<p>Lastly, I added a stage in the pipeline to run CycloneDX and store the SBoM (sbom.xml) in the local reports folder:</p>
+<pre><code>stage ('Generating Software Bill of Materials') {
+    steps {
+        sh 'cd ~/app &amp;&amp; cyclonedx-bom -o ~/reports/sbom.xml'
+    }
+}
+</code></pre>
                 
               
               
