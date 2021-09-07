@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sca" class="md-skip">
+        <a href="#software-composition-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -337,6 +337,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-is-sca" class="md-nav__link">
+    What is SCA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#owasp-depedency-check" class="md-nav__link">
     OWASP Depedency-Check
   </a>
@@ -451,6 +458,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-is-sca" class="md-nav__link">
+    What is SCA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#owasp-depedency-check" class="md-nav__link">
     OWASP Depedency-Check
   </a>
@@ -484,7 +498,10 @@
               
                 
                 
-                <h1 id="sca">SCA</h1>
+                <h1 id="software-composition-analysis">Software composition analysis</h1>
+<p><strong><em>Objective</em></strong></p>
+<p>The aim of this section is to configure DVNA in a Production server as mentioned in the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<h2 id="what-is-sca">What is SCA</h2>
 <p>Software composition analysis (SCA) identifies all the open source in a codebase and maps that inventory to a list of current known vulnerabilities. It helps identify vulnerabilities in open source code (dependencies) used in code.</p>
 <p>SCA is the process of automating the visibility into open source software (OSS) use for the purpose of risk management, security and license compliance. With the rise of open source (OS) use in software across all industries, the need to track components increases exponentially to protect companies from issues and open source vulnerabilities.</p>
 <h2 id="owasp-depedency-check">OWASP Depedency-Check</h2>
@@ -502,6 +519,11 @@ wget -P ~/ https://github.com/jeremylong/DependencyCheck/releases/download/v6.2.
 <pre><code>~/dependency-check/bin/dependency-check.sh --scan ~/app --out ~/report/dependency-check-report --format JSON --prettyPrint
 </code></pre>
 <h2 id="sca-pipeline">SCA Pipeline</h2>
+<p><strong><em>NOTE</em></strong>: While adding the script to the pipeline I got an error:
+<img alt="image" src="../pictures/error2.png" /></p>
+<p>It was an DNS error, I went ahead and resolved it by the folleing command in the <code>&lt;jenkins-home-dir&gt;</code>:</p>
+<pre><code>sudo dhclient enp0s3
+</code></pre>
 <p>Finally, I added the script to the jenkinsfile to perform SCA of DVNA:</p>
 <pre><code>stage ('OWASP Dependency-Check') {
     steps {

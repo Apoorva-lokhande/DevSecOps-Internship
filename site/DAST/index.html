@@ -352,6 +352,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-is-dast" class="md-nav__link">
+    What is DAST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-is-dynamic-analysis-needed" class="md-nav__link">
     Why is Dynamic Analysis Needed?
   </a>
@@ -458,6 +465,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-is-dast" class="md-nav__link">
+    What is DAST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-is-dynamic-analysis-needed" class="md-nav__link">
     Why is Dynamic Analysis Needed?
   </a>
@@ -501,10 +515,11 @@
                 <h1 id="dynamic-analysis">Dynamic Analysis</h1>
 <p><strong><em> Objective</em></strong></p>
 <p>The aim of this section is to perform dynamic analysis using DAST tools on DVNA and solve the 6th point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
-<p>Dynamic analysis is the process of testing and evaluating a program while software is running. Also referred to as dynamic code scanning, dynamic analysis improves the diagnosis and correction of bugs, memory issues, and crashes of an application during its execution.</p>
+<h2 id="what-is-dast">What is DAST</h2>
+<p>Dynamic application security testing (DAST) is the process of testing and evaluating a program while software is running. Also referred to as dynamic code scanning, dynamic analysis improves the diagnosis and correction of bugs, memory issues, and crashes of an application during its execution.</p>
 <h2 id="why-is-dynamic-analysis-needed">Why is Dynamic Analysis Needed?</h2>
 <ul>
-<li>Dynamic application security testing (DAST) is a method of AppSec testing that examines an application while it’s running, without knowledge of the application’s internal interactions or designs at the system level, and with no access or visibility into the source program.</li>
+<li>DAST is a method of AppSec testing that examines an application while it’s running, without knowledge of the application’s internal interactions or designs at the system level, and with no access or visibility into the source program.</li>
 <li>This “black box” testing looks at an application from the outside in, examines its running state, and observes its responses to simulated attacks made by the tool. An application’s responses to these simulations help determine whether the application is vulnerable and could be susceptible to a real malicious attack. </li>
 </ul>
 <h2 id="static-vs-dynamic-analysis">Static Vs Dynamic Analysis</h2>
@@ -540,11 +555,6 @@
 </code></pre>
 <p>The <code>report</code> created <code>zap-report.html</code> will be saved in the home directory after successfull completion!</p>
 <h2 id="dast-pipeline">DAST Pipeline</h2>
-<p><strong><em>NOTE</em></strong>: While adding the script to the pipeline I got an error:
-<img alt="image" src="../pictures/error2.png" /></p>
-<p>It was an DNS error, I went ahead and resolved it by the folleing command in the <code>&lt;jenkins-home-dir&gt;</code>:</p>
-<pre><code>sudo dhclient enp0s3
-</code></pre>
 <p>Finally, I added the script to the jenkins file to perform DAST on DVNA:</p>
 <pre><code>stage('ZAP Scan') {
     steps {

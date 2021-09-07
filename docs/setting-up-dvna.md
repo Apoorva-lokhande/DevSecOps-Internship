@@ -1,11 +1,10 @@
+# Configuring Production VM
+
 ***Objective***
 
 The aim of this section is to configure DVNA in a Production server as mentioned in the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
-# Configuring Production VM
-
-The aim of this section is to setup the production server for deploying DVNA.
-
+## What is DVNA
 Damn Vulnerable NodeJS Application (DVNA) is a simple NodeJS application to demonstrate [OWASP Top 10 Vulnerabilities](https://owasp.org/www-project-top-ten/2017/) and guide on fixing and avoiding these vulnerabilities
 
 ## Requirements

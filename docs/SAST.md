@@ -1,10 +1,12 @@
-# Working of pipeline
+# Static Analysis
 
 ***Objective***
 
 The aim of this section is to perform static analysis on DVNA using SAST tools in a Jenkins pipeline and solve the 4th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+
 To start creating the Jenkins pipeline, login into the jenkin web interface.
 
+## Working of pipeline
 -  In the `Dashboard`, create a `New Item` and enter a `item name`(e.g. `dvna-pipeline`) and select `pipeline` and click `OK`.
   
 -  It was redirected to the `configuration` page. Here:

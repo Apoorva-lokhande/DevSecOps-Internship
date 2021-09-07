@@ -4,10 +4,11 @@
 
 The aim of this section is to perform dynamic analysis using DAST tools on DVNA and solve the 6th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
-Dynamic analysis is the process of testing and evaluating a program while software is running. Also referred to as dynamic code scanning, dynamic analysis improves the diagnosis and correction of bugs, memory issues, and crashes of an application during its execution.
+## What is DAST
+Dynamic application security testing (DAST) is the process of testing and evaluating a program while software is running. Also referred to as dynamic code scanning, dynamic analysis improves the diagnosis and correction of bugs, memory issues, and crashes of an application during its execution.
 
 ## Why is Dynamic Analysis Needed?
-- Dynamic application security testing (DAST) is a method of AppSec testing that examines an application while it’s running, without knowledge of the application’s internal interactions or designs at the system level, and with no access or visibility into the source program.
+- DAST is a method of AppSec testing that examines an application while it’s running, without knowledge of the application’s internal interactions or designs at the system level, and with no access or visibility into the source program.
 - This “black box” testing looks at an application from the outside in, examines its running state, and observes its responses to simulated attacks made by the tool. An application’s responses to these simulations help determine whether the application is vulnerable and could be susceptible to a real malicious attack. 
 
 ## Static Vs Dynamic Analysis 
@@ -50,13 +51,6 @@ To run a fullscan script, run the following command:
 The `report` created `zap-report.html` will be saved in the home directory after successfull completion!
 
 ## DAST Pipeline
-
-***NOTE***: While adding the script to the pipeline I got an error:
-![image](pictures/error2.png)
-
-It was an DNS error, I went ahead and resolved it by the folleing command in the `<jenkins-home-dir>`:
-
-    sudo dhclient enp0s3
 
 Finally, I added the script to the jenkins file to perform DAST on DVNA:
 

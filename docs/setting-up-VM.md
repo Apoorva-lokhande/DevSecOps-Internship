@@ -1,5 +1,8 @@
 # What is Virtual Machine? 
 
+***Objective***
+The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+
 For understanding Virtual machine (VM) we will have to understand what Virtualization is. 
 
 - **Virtualization** is a software based or virtual version of something, that be compute, storage, networking, servers or applications. And Hypervisor makes Virtualization possible. 

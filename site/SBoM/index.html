@@ -446,6 +446,11 @@ npm install -g @cyclonedx/bom
 <pre><code>cyclonedx-bom -o sbom.xml
 </code></pre>
 <h2 id="sbom-pipeline">SBoM pipeline</h2>
+<p><strong><em>NOTE</em></strong>: While adding the script to the pipeline I got an error:
+<img alt="image" src="../pictures/error2.png" /></p>
+<p>It was an DNS error, I went ahead and resolved it by the folleing command in the <code>&lt;jenkins-home-dir&gt;</code>:</p>
+<pre><code>sudo dhclient enp0s3
+</code></pre>
 <p>Lastly, I added a stage in the pipeline to run CycloneDX and store the SBoM (sbom.xml) in the local reports folder:</p>
 <pre><code>stage ('Generating Software Bill of Materials') {
     steps {
