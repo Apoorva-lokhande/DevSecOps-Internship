@@ -55,3 +55,4 @@ Audits JavaScript is a SAST tool which uses [OSS Index v3 REST API](https://ossi
 
 ## SAST Pipeline
 
+sudo dhclient enp0s3
