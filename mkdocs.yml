@@ -2,6 +2,7 @@ site_name: 'DevSecOps-pipeline'
 nav:
 - Introduction: 'index.md'
 - Contents: 'contents.md'
+- Problem Statements: 'Problem-statements'
 - Setting up VM: 'setting-up-VM.md'
 - Setting up Jenkins: 'setting-up-jenkins.md'
 - Setting up mkDocs: 'setting-up-mkdocs.md'
