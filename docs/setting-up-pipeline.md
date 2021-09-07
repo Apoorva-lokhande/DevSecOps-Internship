@@ -1,7 +1,7 @@
+# Jenkins Pipeline
+
 ***Objective***
 The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
-
-# Jenkins Pipeline
 
 ## Why use Jenkins pipeline ?
 Jenkins is an open continuous integration server which has the ability to support the automation of software development processes. You can create multiple automation jobs with the help of use cases, and run them as a Jenkins pipeline.
@@ -21,19 +21,9 @@ Jenkins provides a particular job type, which explicitly provides options for co
 
 ### Install Maven Plugin in Jenkins
 
-- Click on the Manage Jenkins as shown below.
-  
-![image](/pictures/1.png)
-
-  ![image](/pictures/new_1.png)
-
--  Under the System Configuration section, click on the Manage Plugins options.
+- Click on the `Manage Jenkins` -> `System Configuration` -> `Manage Plugins` options.
  
-   ![image](/pictures/manage-plugin.png)
-
 - Under the Plugin Manager, click on the Available tab and search for the maven plugin. It will show the Maven Integration plugin as a result and check the checkbox and select `install without restart`.
-
-  ![image](/pictures/maven-install.png)
 
 - Once the plugin installs successfully, click the checkbox to restart Jenkins.
 
@@ -45,7 +35,6 @@ Jenkins provides a particular job type, which explicitly provides options for co
   
 - Now, enter `item name` as Jenkin-Maven and selct Maven project as shown below and click on **OK**.
 
-  ![image](/pictures/jenkin-maven.png)
 - Here, under `general` section:
     - I gave the description of the project.
     - Under `Source Code Management` I checked the `Git` option and provided the [Github URl](https://github.com/jenkins-docs/simple-java-maven-app). This helps jenkins to know where to fetch the project from.
@@ -124,67 +113,46 @@ The structure of my jenkinsfile is as follows:
     
 ## SSH into VM
 
-- Goto VM - Settings > Network > Advanced > Port Forwarding
-
-![image](/pictures/vm-box.png)
-
 - After installing SSH, create a key pair on a client machine.
    
-        ssh-keygen -t ed25519 
+      ssh-keygen -t ed25519 
 
 - The first prompt from the ssh-keygen command will ask you where to save the keys, I pressed `enter` to save as it was.
 - Similarly, `Creating passphrase` just pressed `enter`.
-- once the key is generated, place the public key on the server which you want to connect to. Following the command below:
-  
-        ssh-copy-id username@your_server_address
-
-- While copying the id I got an error "cannot create .ssh/ authorized keys permission denied", so I changed the permissions of the authorized_keys file and the folder/parent folders in which it is located.
- 
-        chmod 700 ~/.ssh
-        chmod 600 ~/.ssh/authorized_keys
-- Also, I changed the permissions of home directory to remove write access for the group and others.
-- 
-        chmod go-w ~
-
-- Provide the information as shown above.
-
-        ssh username@server_ip_address
-
-- I got an error saying permission denied, I refered this  [documentation](https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again) and did the necessary changes which are:
-    - Type the below command in your termianl:
-                
-          sudo nano /etc/ssh/sshd_config
-
-    - And change permissions as given below:
-
-          PermitRootLogin yes
-          PasswordAuthentication yes
-   
-- And don't forget to reload:
-       sudo systemctl restart ssh.service
-
-- 
-- After installing SSH, create a key pair on a client machine.
-   
-      ssh-keygen -t rsa
-- The first prompt from the ssh-keygen command will ask you where to save the keys, I pressed `enter` to save as it was.
-- Similarly, `Creating passphrase` just pressed `enter`.
-- once the key is generated, place the public key on the server which you want to connect to. Following the command below:
+- Once the key is generated, place the public key on the server which you want to connect to. Following the command below:
   
       ssh-copy-id username@your_server_address
 
+- While copying the id I got an error "cannot create .ssh/ authorized keys permission denied", so I changed the permissions of the authorized_keys file and the folder/parent folders in which it is located.
+ 
+      chmod 700 ~/.ssh
+      chmod 600 ~/.ssh/authorized_keys
+- Also, I changed the permissions of home directory to remove write access for the group and others.
+ 
+      chmod go-w ~
 
+- Now, I tried ssh'ing into the VM and it worked!
 
-## Setup SSH keys for Jenkins 
-- You will need to create a public/private key as the Jenkins user on your Jenkins server, then copy the public key to the user you want to do the deployment with on your target server.
-  
-- Generate public and private key on build server as user jenkins and paste the pub file contents onto the target server.
-  
-- Make sure your .ssh dir has permissoins 700 and your authorized_keys file has permissions 644.
-  
-- In the jenkins web control panel, install the plugin [Publish Over SSH](https://plugins.jenkins.io/publish-over-ssh/ and nagivate to "Manage Jenkins" -> "Configure System" -> "Publish over SSH".
-  
-- Either enter the path of the file e.g. "var/lib/jenkins/.ssh/id_rsa", or paste in the same content as on the target server.
-  
-- Enter your passphrase, server and user details, and you are good to go!
+      ssh username@server_ip_address
 
+- I got an error saying permission denied, I refered this  [documentation](https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again) and did the necessary changes which are:
+                
+      sudo nano /etc/ssh/sshd_config
+- Changed the permissions as below:
+
+      PermitRootLogin yes
+      PasswordAuthentication yes
+   
+- And don't forget to reload:
+
+      sudo systemctl restart ssh.service
+
+## Setup SSH keys for Jenkins   
+- In the jenkins web control panel, install the plugin [Publish Over SSH](https://plugins.jenkins.io/publish-over-ssh/) and nagivate to `Manage Jenkins` -> `Configure System` -> `Publish over SSH`.
+  
+- Either enter the path of the file e.g. `var/lib/jenkins/.ssh/id_rsa`, or add the private SSH key to the input field.
+![image](pictures/sshs.png)
+
+- Add SSH server details. Give the Production servers hostname (IP address), username for logging in and remote directory (/home/prod-vm)
+
+![image](pictures/ssh-server.png)

@@ -360,13 +360,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-also-i-changed-the-permissions-of-home-directory-to-remove-write-access-for-the-group-and-others" class="md-nav__link">
-    - Also, I changed the permissions of home directory to remove write access for the group and others.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#setup-ssh-keys-for-jenkins" class="md-nav__link">
     Setup SSH keys for Jenkins
   </a>
@@ -580,13 +573,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-also-i-changed-the-permissions-of-home-directory-to-remove-write-access-for-the-group-and-others" class="md-nav__link">
-    - Also, I changed the permissions of home directory to remove write access for the group and others.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#setup-ssh-keys-for-jenkins" class="md-nav__link">
     Setup SSH keys for Jenkins
   </a>
@@ -606,9 +592,9 @@
               
                 
                 
-                <p><strong><em>Objective</em></strong>
+                <h1 id="jenkins-pipeline">Jenkins Pipeline</h1>
+<p><strong><em>Objective</em></strong>
 The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
-<h1 id="jenkins-pipeline">Jenkins Pipeline</h1>
 <h2 id="why-use-jenkins-pipeline">Why use Jenkins pipeline ?</h2>
 <p>Jenkins is an open continuous integration server which has the ability to support the automation of software development processes. You can create multiple automation jobs with the help of use cases, and run them as a Jenkins pipeline.</p>
 <p>Here are the reasons why you use should use Jenkins pipeline:</p>
@@ -623,19 +609,12 @@ The aim of this section is to understand the Jenkins pipeline to deploy DVNA and
 <p>Jenkins provides a particular job type, which explicitly provides options for configuring and executing a Maven project. This job type is called the <code>Maven project</code> Let’s see how we can create a Maven project in Jenkins and run the same.</p>
 <h3 id="install-maven-plugin-in-jenkins">Install Maven Plugin in Jenkins</h3>
 <ul>
-<li>Click on the Manage Jenkins as shown below.</li>
-</ul>
-<p><img alt="image" src="/pictures/1.png" /></p>
-<p><img alt="image" src="/pictures/new_1.png" /></p>
-<ul>
-<li>Under the System Configuration section, click on the Manage Plugins options.</li>
-</ul>
-<p><img alt="image" src="/pictures/manage-plugin.png" /></p>
-<ul>
-<li>Under the Plugin Manager, click on the Available tab and search for the maven plugin. It will show the Maven Integration plugin as a result and check the checkbox and select <code>install without restart</code>.</li>
-</ul>
-<p><img alt="image" src="/pictures/maven-install.png" /></p>
-<ul>
+<li>
+<p>Click on the <code>Manage Jenkins</code> -&gt; <code>System Configuration</code> -&gt; <code>Manage Plugins</code> options.</p>
+</li>
+<li>
+<p>Under the Plugin Manager, click on the Available tab and search for the maven plugin. It will show the Maven Integration plugin as a result and check the checkbox and select <code>install without restart</code>.</p>
+</li>
 <li>
 <p>Once the plugin installs successfully, click the checkbox to restart Jenkins.</p>
 </li>
@@ -651,13 +630,16 @@ The aim of this section is to understand the Jenkins pipeline to deploy DVNA and
 <li>
 <p>Now, enter <code>item name</code> as Jenkin-Maven and selct Maven project as shown below and click on <strong>OK</strong>.</p>
 </li>
-</ul>
-<p><img alt="image" src="/pictures/jenkin-maven.png" />
-- Here, under <code>general</code> section:
-    - I gave the description of the project.
-    - Under <code>Source Code Management</code> I checked the <code>Git</code> option and provided the <a href="https://github.com/jenkins-docs/simple-java-maven-app">Github URl</a>. This helps jenkins to know where to fetch the project from.</p>
+<li>
+<p>Here, under <code>general</code> section:</p>
 <ul>
-<li>Under <code>Build Triggers</code>:<ul>
+<li>I gave the description of the project.</li>
+<li>Under <code>Source Code Management</code> I checked the <code>Git</code> option and provided the <a href="https://github.com/jenkins-docs/simple-java-maven-app">Github URl</a>. This helps jenkins to know where to fetch the project from.</li>
+</ul>
+</li>
+<li>
+<p>Under <code>Build Triggers</code>:</p>
+<ul>
 <li>I checked <code>Build whenever a SNAPSHOT dependency is built</code> this is convenient for automatically performing continuous integration. Jenkins will check the snapshot dependencies from the dependency element in the POM, as well as plugins and extensions used in POMs.</li>
 <li>Later, clicked on <code>save</code> button.</li>
 </ul>
@@ -730,87 +712,55 @@ A JenkinsFile stores the entire CI/CD process as code on the local machine. As s
 </ul>
 <h2 id="ssh-into-vm">SSH into VM</h2>
 <ul>
-<li>Goto VM - Settings &gt; Network &gt; Advanced &gt; Port Forwarding</li>
-</ul>
-<p><img alt="image" src="/pictures/vm-box.png" /></p>
-<ul>
 <li>
 <p>After installing SSH, create a key pair on a client machine.</p>
-<pre><code>ssh-keygen -t ed25519
-</code></pre>
+<p>ssh-keygen -t ed25519 </p>
 </li>
 <li>
 <p>The first prompt from the ssh-keygen command will ask you where to save the keys, I pressed <code>enter</code> to save as it was.</p>
 </li>
 <li>Similarly, <code>Creating passphrase</code> just pressed <code>enter</code>.</li>
 <li>
-<p>once the key is generated, place the public key on the server which you want to connect to. Following the command below:</p>
-<pre><code>ssh-copy-id username@your_server_address
-</code></pre>
+<p>Once the key is generated, place the public key on the server which you want to connect to. Following the command below:</p>
+<p>ssh-copy-id username@your_server_address</p>
 </li>
 <li>
 <p>While copying the id I got an error "cannot create .ssh/ authorized keys permission denied", so I changed the permissions of the authorized_keys file and the folder/parent folders in which it is located.</p>
-<pre><code>chmod 700 ~/.ssh
-chmod 600 ~/.ssh/authorized_keys
-</code></pre>
-<h2 id="-also-i-changed-the-permissions-of-home-directory-to-remove-write-access-for-the-group-and-others">- Also, I changed the permissions of home directory to remove write access for the group and others.</h2>
-<pre><code>chmod go-w ~
-</code></pre>
+<p>chmod 700 ~/.ssh
+  chmod 600 ~/.ssh/authorized_keys
+- Also, I changed the permissions of home directory to remove write access for the group and others.</p>
+<p>chmod go-w ~</p>
 </li>
 <li>
-<p>Provide the information as shown above.</p>
-<pre><code>ssh username@server_ip_address
-</code></pre>
+<p>Now, I tried ssh'ing into the VM and it worked!</p>
+<p>ssh username@server_ip_address</p>
 </li>
 <li>
 <p>I got an error saying permission denied, I refered this  <a href="https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again">documentation</a> and did the necessary changes which are:</p>
-<ul>
-<li>
-<p>Type the below command in your termianl:</p>
-<p>sudo nano /etc/ssh/sshd_config</p>
-</li>
-<li>
-<p>And change permissions as given below:</p>
+<p>sudo nano /etc/ssh/sshd_config
+- Changed the permissions as below:</p>
 <p>PermitRootLogin yes
   PasswordAuthentication yes</p>
 </li>
-</ul>
-</li>
 <li>
-<p>And don't forget to reload:
-       sudo systemctl restart ssh.service</p>
-</li>
-<li></li>
-<li>
-<p>After installing SSH, create a key pair on a client machine.</p>
-<p>ssh-keygen -t rsa
-- The first prompt from the ssh-keygen command will ask you where to save the keys, I pressed <code>enter</code> to save as it was.
-- Similarly, <code>Creating passphrase</code> just pressed <code>enter</code>.
-- once the key is generated, place the public key on the server which you want to connect to. Following the command below:</p>
-<p>ssh-copy-id username@your_server_address</p>
+<p>And don't forget to reload:</p>
+<p>sudo systemctl restart ssh.service</p>
 </li>
 </ul>
 <h2 id="setup-ssh-keys-for-jenkins">Setup SSH keys for Jenkins</h2>
 <ul>
 <li>
-<p>You will need to create a public/private key as the Jenkins user on your Jenkins server, then copy the public key to the user you want to do the deployment with on your target server.</p>
+<p>In the jenkins web control panel, install the plugin <a href="https://plugins.jenkins.io/publish-over-ssh/">Publish Over SSH</a> and nagivate to <code>Manage Jenkins</code> -&gt; <code>Configure System</code> -&gt; <code>Publish over SSH</code>.</p>
 </li>
 <li>
-<p>Generate public and private key on build server as user jenkins and paste the pub file contents onto the target server.</p>
+<p>Either enter the path of the file e.g. <code>var/lib/jenkins/.ssh/id_rsa</code>, or add the private SSH key to the input field.
+<img alt="image" src="../pictures/sshs.png" /></p>
 </li>
 <li>
-<p>Make sure your .ssh dir has permissoins 700 and your authorized_keys file has permissions 644.</p>
-</li>
-<li>
-<p>In the jenkins web control panel, install the plugin [Publish Over SSH](https://plugins.jenkins.io/publish-over-ssh/ and nagivate to "Manage Jenkins" -&gt; "Configure System" -&gt; "Publish over SSH".</p>
-</li>
-<li>
-<p>Either enter the path of the file e.g. "var/lib/jenkins/.ssh/id_rsa", or paste in the same content as on the target server.</p>
-</li>
-<li>
-<p>Enter your passphrase, server and user details, and you are good to go!</p>
+<p>Add SSH server details. Give the Production servers hostname (IP address), username for logging in and remote directory (/home/prod-vm)</p>
 </li>
 </ul>
+<p><img alt="image" src="../pictures/ssh-server.png" /></p>
                 
               
               

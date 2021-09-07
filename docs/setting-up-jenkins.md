@@ -1,9 +1,8 @@
+# Installation of Jenkins 
+
 ***Objective***
 
 This section aims to set up the required infrastructure of Jenkins to perform the task and solve the 2nd point of the[Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
-
-# Installation of Jenkins 
-
 ## What is Jenkins? 
 
 Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. 

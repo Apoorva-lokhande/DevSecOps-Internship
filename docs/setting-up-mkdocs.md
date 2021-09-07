@@ -1,7 +1,7 @@
+# Setting up MKDocs
+
 ***Objective***
 This section aims to create documentation in Markdown and use MkDocs to deploy the documentation generated as a static site and solve the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
-
-# Setting up MKDocs
 
 MkDocs is a static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file. MkDocs will build your docs and used to commit and push them to GitHub.
 
