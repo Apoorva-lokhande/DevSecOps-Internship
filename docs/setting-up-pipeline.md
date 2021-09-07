@@ -41,9 +41,10 @@ Jenkins provides a particular job type, which explicitly provides options for co
 
 ## Create A Maven project in Jenkins.
 
-- Firstly, we need to create a job. To create this, click on `New Item` option.
+- In the `Dashboard`, create a `New Item`.
   
-- Now, enter item name as Jenkin-Maven and selct Maven project as shown below and click on **OK**.
+- Now, enter `item name` as Jenkin-Maven and selct Maven project as shown below and click on **OK**.
+
   ![image](/pictures/jenkin-maven.png)
 - Here, under `general` section:
     - I gave the description of the project.

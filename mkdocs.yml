@@ -12,6 +12,6 @@ nav:
 - Software Composition Analysis: 'software-composition-analysis.md'
 - Dynamic Analysis: 'DAST.md'
 - Source Code Quality Analysis: 'Source-Code-Quality-Analysis.md'
-- Complete Pipeline: 'Complete-pipeline.md'
+- Complete Pipeline  Structure: 'Complete-pipeline.md'
 - Resources: 'Resources.md'
 theme: material

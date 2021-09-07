@@ -465,7 +465,7 @@
   
     <li class="md-nav__item">
       <a href="../Complete-pipeline/" class="md-nav__link">
-        Complete Pipeline
+        Complete Pipeline  Structure
       </a>
     </li>
   
@@ -646,22 +646,18 @@ The aim of this section is to understand the Jenkins pipeline to deploy DVNA and
 <h2 id="create-a-maven-project-in-jenkins">Create A Maven project in Jenkins.</h2>
 <ul>
 <li>
-<p>Firstly, we need to create a job. To create this, click on <code>New Item</code> option.</p>
+<p>In the <code>Dashboard</code>, create a <code>New Item</code>.</p>
 </li>
 <li>
-<p>Now, enter item name as Jenkin-Maven and selct Maven project as shown below and click on <strong>OK</strong>.
-  <img alt="image" src="/pictures/jenkin-maven.png" /></p>
+<p>Now, enter <code>item name</code> as Jenkin-Maven and selct Maven project as shown below and click on <strong>OK</strong>.</p>
 </li>
-<li>
-<p>Here, under <code>general</code> section:</p>
-<ul>
-<li>I gave the description of the project.</li>
-<li>Under <code>Source Code Management</code> I checked the <code>Git</code> option and provided the <a href="https://github.com/jenkins-docs/simple-java-maven-app">Github URl</a>. This helps jenkins to know where to fetch the project from.</li>
 </ul>
-</li>
-<li>
-<p>Under <code>Build Triggers</code>:</p>
+<p><img alt="image" src="/pictures/jenkin-maven.png" />
+- Here, under <code>general</code> section:
+    - I gave the description of the project.
+    - Under <code>Source Code Management</code> I checked the <code>Git</code> option and provided the <a href="https://github.com/jenkins-docs/simple-java-maven-app">Github URl</a>. This helps jenkins to know where to fetch the project from.</p>
 <ul>
+<li>Under <code>Build Triggers</code>:<ul>
 <li>I checked <code>Build whenever a SNAPSHOT dependency is built</code> this is convenient for automatically performing continuous integration. Jenkins will check the snapshot dependencies from the dependency element in the POM, as well as plugins and extensions used in POMs.</li>
 <li>Later, clicked on <code>save</code> button.</li>
 </ul>
