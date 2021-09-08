@@ -1,7 +1,8 @@
 # What is Virtual Machine? 
 
 ***Objective***
-The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+
+The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the 1st point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
 For understanding Virtual machine (VM) we will have to understand what Virtualization is. 
 
@@ -9,11 +10,11 @@ For understanding Virtual machine (VM) we will have to understand what Virtualiz
 
 - **Hypervisor** is a piece of software that runs above host or server. 
 
-- There are 2 types of hypervisors: 
+    - There are 2 types of hypervisors: 
 
-    1. Type 1: It is installed directly on top of physical server. 
+        1. Type 1: It is installed directly on top of physical server. 
 
-    2. Type 2: Here there is a layer of Host operating system (OS) between the hardware and Hypervisor (as we are using here). 
+        2. Type 2: Here there is a layer of Host operating system (OS) between the hardware and Hypervisor (as we are using here). 
 
 A VM is an OS or application environment that is installed on software, which imitates dedicated physical server. A VM provides an isolated environment for running its own OS and applications independently from the underlying host system or from other VMs on that host. The VM's OS is commonly referred to as the guest OS, and it can be the same as or different from the host OS or the other VMs. 
    
@@ -21,40 +22,40 @@ A VM is an OS or application environment that is installed on software, which im
 Here I will be setting up two VMs:
 
 1. For Jenkins Deployment.
-2. For suiteCRM server.
+2. For DVNA server.
 
-In virtual Box Click `NEW` icon to create a new machine.
+In virtual Box Click on `NEW` icon to create a new machine. Later follow the steps as given below:
 
-## Name and operating system 
+### Name and operating system 
 
 ![image](/pictures/os.png)
 
 - Name : `Jenkins-deploy`
 - Type : `Linux`
 - Version : `Ubuntu (64-bit)`
-## Memory size 
+### Memory size 
 
 ![image](/pictures/2.png) 
 
 Select `2000 MB` and click on `create`.
 
-## Hard disk 
+### Hard disk 
 
 ![image](/pictures/3.png) 
 
-Select a `virtual hard disk now` and `Create` and Hard disk file type will open in that select `VDI (VirtualBox Disk Image) `and `NEXT`. 
+Select a `virtual hard disk now` and `Create` and `Hard disk file type` will open in that select `VDI (VirtualBox Disk Image) `and `NEXT`. 
 
 ![image](/pictures/js.png) 
 
-In storage on physical hard disk select `Dynamically allocated` File location and size will open hit `Create` and is done. 
+In storage on physical hard disk select `Dynamically allocated` file location and size will open hit `Create` and is done. 
 
 ![image](/pictures/2021-06-29_19-41.png) 
 
-## Download server image 18.04 
+### Download server image 18.04 
 
 Downloaded the server image Ubuntu 18.04 on VirtualBox as it is an LTS version which is a desirable feature for a CI pipeline.  
 
-I followed the official [link](https://releases.ubuntu.com/18.04/) to download the 64-bit PC(AMD64) desktop image  
+I followed the official [link](https://releases.ubuntu.com/18.04/) to download the 64-bit PC(AMD64) desktop image.  
 
 ![image](/pictures/desktop.png) 
 
@@ -62,81 +63,76 @@ In VM box I selected `Jenkins-deploy` to install the server and then clicked on 
 
 ![image](/pictures/mark.png) 
 
-Then the Select start-up disk window opened and I clicked on the folder which gave a new screen Optical Disk Selector. I selected the server image and clicked on Choose after that click on `start`.
+Then the `Select start-up disk` window opened and I clicked on the folder which gave a new screen `Optical Disk Selector`. I selected the server image and clicked on `Choose`.
 
 ![image](/pictures/optical.png) 
 
+Here, I clicked on `start`. Now Jenkins VM starts running! 
+
 ![image](/pictures/8.png) 
 
-Now Jenkin VM starts running! 
+### Language selection 
 
-## Language selection 
-
-Select the language English and click on done 
+Select the language `English` and click on `done`.
 
 ![image](/pictures/9.png) 
 
-## Keyboard configuration 
+### Keyboard configuration 
 
-By default, English is selected for Layout and variant, pressed `Done`. 
+By default, English is selected for Layout and variant, clicked on  `Done`. 
 
 ![image](/pictures/10.png) 
 
-## Network connections 
+### Network connections 
 
 I kept it as default and selected `Done`. 
 
 ![image](/pictures/11.png) 
 
-## Configure proxy  
-
+### Configure proxy  
+The proxy configured on this screen is used for accessing the package repository and the snap store both in the installer environment and in the installed system. I did not provide any Proxy address, kept it default and selected `Done`.
 ![image](/pictures/12.png) 
 
-## Configure ubuntu archive mirror 
+### Configure ubuntu archive mirror 
+The installer will attempt to use GeoIP to lookup an appropriate default package mirror for your location. I kept this too as default and selected `Done`.
 
 ![image](/pictures/13.png) 
 
-I kept it as default and pressed Done for both Configure proxy and configure ubuntu archive mirror  
+### Storage configuration 
 
-## Storage configuration 
+I did not make changes in the storage configuration I kept it as default and clicked on `Done`. 
 
 ![image](/pictures/14.png) 
 
-I did not make changes in the storage configuration I kept it as default and pressed `Done`. 
-
-![image](/pictures/15.png) 
 
 I kept this too as default and hit `Done`. 
 
-## Profile setup 
 
+![image](/pictures/15.png) 
+
+### Profile setup 
+I provided all the details and clicked on `Done`. 
 ![image](/pictures/17.png) 
 
-I provided all the details and pressed `Done`. 
-
 ## SSH Setup 
-
+In order to install the OpenSSH server I pressed Space button to select the `Install OpenSSH server` option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and clicked on `Done`. 
 ![image](/pictures/18.png) 
 
-In order to install the OpenSSH server I pressed Space button to select the `Install OpenSSH server` option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and pressed `Done`. 
-
-## Featured Server Snaps 
-
-![image](/pictures/19.png)  
-
-Selected the snaps which are useful in a server environment, once selected pressed `Done`. 
+### Featured Server Snaps 
+Selected the snaps which are useful in a server environment, once selected clicked on `Done`.
+![image](/pictures/19.png)   
 
 ![image](/pictures/20.png) 
 
-## Installation complete 
+### Installation complete 
 
-Installation complete window appeared, I waited until the **Reboot** button appeared on this window. Later, pressed `reboot`. 
+Installation complete window appeared, I waited until the **Reboot** button appeared on this window. Later, selected `reboot`. 
 
 ![image](/pictures/21.png) 
 
 And the installation of Ubuntu 18.04 is completed! 
 
-Repeat the same process in order to create another VM for suiteCRM deployment where I have specified the server name as `suitecrm-deploy`. 
+Repeat the same process in order to create another VM for DVNA deployment where I have specified the server name as `DVNA-deploy`. 
 
  
  

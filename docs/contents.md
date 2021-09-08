@@ -1,12 +1,12 @@
 # Table of contents
 
-* [Introduction](https://devsecops-pipeline.netlify.app/)
+* [Introduction](#Introduction)
 * [Problem Statements](#Problem-statements)
-* [setting-up-VM](https://devsecops-internship.netlify.app/setting-up-vm/)
-* [setting up jenkins](#setting-up-jenkins)
-* [setting up mkdocs](#setting-up-mkdocs)
-* [setting up pipeline](#setting-up-pipeline)
-* [setting up dvna](#setting-up-dvna)
+* [Setting up VMs](#setting-up-VM)
+* [Setting up jenkins](#setting-up-jenkins)
+* [Setting up mkdocs](#setting-up-mkdocs)
+* [Setting up pipeline](#setting-up-pipeline)
+* [Setting up dvna](#setting-up-dvna)
 * [Static Analysis](#SAST)
 * [Software Composition Analysis](#Software-Composition-Analysis)
 * [Dynamic Analysis](#DAST)
