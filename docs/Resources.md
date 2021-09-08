@@ -2,7 +2,7 @@
 
 These are some references I used along with the ones mentioned implicitly in the report:
 
-* https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04
+* Ubuntu - https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04
 * OpenJDK (https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk)
 * MKDocs (https://www.mkdocs.org/user-guide/installation/)
 * Apache Maven (https://maven.apache.org/)

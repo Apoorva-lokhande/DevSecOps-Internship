@@ -26,12 +26,6 @@ Later, I generated SBoM report in an `.xml` format(you can either generate using
 
 ## SBoM pipeline
 
-***NOTE***: While adding the script to the pipeline I got an error:
-![image](pictures/error2.png)
-
-It was an DNS error, I went ahead and resolved it by the folleing command in the `<jenkins-home-dir>`:
-
-    sudo dhclient enp0s3
 
 Lastly, I added a stage in the pipeline to run CycloneDX and store the SBoM (sbom.xml) in the local reports folder:
 

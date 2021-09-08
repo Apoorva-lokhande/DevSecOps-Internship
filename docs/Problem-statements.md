@@ -1,8 +1,8 @@
 # Problem Statements
 
 1. Setup the infrastructure, required for the task, on two virtual machines running locally on a laptop. One VM contains the Jenkins and related infrastructure, and the second VM is for deploying DVNA using the pipeline.
-2. Setup the MKDocs and Netlify; connect it to the github repository.
-3. Setup the Jenkins server and get to know Jenkins pipeline.
+2. Setup the Jenkins server and to know about Jenkins pipeline.
+3. Setup the MKDocs and Netlify; connect it to the github repository.
 4. Deploy the DVNA in the production server.
 5. Perform static analysis by using suitable SAST tools on DVNA and generate a report.
 6. Getting to know Software Composition Analysis.
