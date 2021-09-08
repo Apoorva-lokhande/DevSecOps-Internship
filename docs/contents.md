@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Introduction](https://devsecops-report.netlify.app/)
-* [Problem Statements](https://devsecops-report.netlify.app/problem-statements/)
+* [Problem Statement](https://devsecops-report.netlify.app/problem-statements/)
 * [Setting up VMs](https://devsecops-report.netlify.app/setting-up-vm/)
 * [Setting up jenkins](https://devsecops-report.netlify.app/setting-up-jenkins/)
 * [Setting up mkdocs](https://devsecops-report.netlify.app/setting-up-mkdocs/)
