@@ -2,7 +2,7 @@
 
 ***Objective***
 
-The aim of this section is to understand the tech stack used for the project (DVNA), identify suitable tools to perform SAST and generate a report to provide a solution to the 2nd, 4th and 5th points of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+The aim of this section is to understand the tech stack used for the project (DVNA), identify suitable tools to perform SAST and generate a report to provide a solution to the 4th and 5th and 6th points of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
 ## Working of pipeline
 To start creating the Jenkins pipeline, login into the jenkin web interface.
@@ -101,7 +101,7 @@ After the scans are complete, the containers running in Jenkins VM are stopped a
 
 Finally, the satge `deploy to dvna`, operations are performed on VM over SSH which was configured previously. The two containers, `dvna-app` and `dvna-mysql` are run and successfully deployed.
 
-## Static Application Security Testing(SAST)
+## Static Application Security Testing
 
 SAST is a testing methodology that analyses source code, byte code and binaries for bugs and design errors to find [security vulnerabilities](https://www.synopsys.com/blogs/software-security/types-of-security-vulnerabilities/), before the application is compiled. 
 
@@ -133,7 +133,7 @@ I referred the documentation which provides us [command line options](https://gi
     mkdir reports
     njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
 
-### njsscan pipeline
+#### njsscan pipeline
 
 I added the following stage in the Jenkinsfile to perform the scan, and store the report in JSON format on the Jenkins machine:
 
@@ -142,7 +142,7 @@ I added the following stage in the Jenkinsfile to perform the scan, and store th
             sh 'njsscan --json -o ~/reports/nodejsscan-report ~/app || true'
         }
     }
-### AuditJS
+#### AuditJS
 
 Audits JavaScript is a SAST tool which uses [OSS Index v3 REST API](https://ossindex.sonatype.org/rest) to identify known vulnerabilities and outdated package versions.
 
@@ -160,7 +160,7 @@ Audits JavaScript is a SAST tool which uses [OSS Index v3 REST API](https://ossi
 
         auditjs ossi > ~/reports/auditjs-report ./app
 
-### AuditJS pipeline
+#### AuditJS pipeline
 
 Finally, I added the following stage to the Jenkinsfile to execute the script I wrote:
 
@@ -170,7 +170,7 @@ Finally, I added the following stage to the Jenkinsfile to execute the script I 
         }
     }
 
-## SAST Pipeline
+### SAST Pipeline
 
 Add the following stages to the Jenkinsfile for performing SAST of DVNA:
 

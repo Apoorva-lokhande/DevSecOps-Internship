@@ -10,6 +10,7 @@
 * [Static Analysis](https://devsecops-report.netlify.app/sast/)
 * [Software Composition Analysis](https://devsecops-report.netlify.app/software-composition-analysis/)
 * [Dynamic Analysis](https://devsecops-report.netlify.app/dast/)
+* [Generating Software Bill of Materials]
 * [Source Code Quality Analysis](https://devsecops-report.netlify.app/source-code-quality-analysis/)
 * [Complete Pipeline](https://devsecops-report.netlify.app/complete-pipeline/)
 * [Resources](https://devsecops-report.netlify.app/resources/)

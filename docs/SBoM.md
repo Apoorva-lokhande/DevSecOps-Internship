@@ -2,7 +2,7 @@
 
 *** Objective***
 
-The aim of this section is to perform dynamic analysis using DAST tools on DVNA and solve the 6th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+The aim of this section is to generate a Software Bill of Materials for DVNA and provide a solution to the 9th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
 A software bill of materials is a list of all the open source and third-party components present in a codebase. A Bill of Materials is a list of components used to assemble/create a product. It gives out a specification about how each component was used in the making of the end product.
 

@@ -359,8 +359,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-is-dynamic-analysis-needed" class="md-nav__link">
-    Why is Dynamic Analysis Needed?
+  <a href="#why-dynamic-analysis-is-needed" class="md-nav__link">
+    Why Dynamic Analysis is needed?
   </a>
   
 </li>
@@ -390,6 +390,21 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SBoM/" class="md-nav__link">
+        Generating Software Bill of Materials
+      </a>
     </li>
   
 
@@ -472,8 +487,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-is-dynamic-analysis-needed" class="md-nav__link">
-    Why is Dynamic Analysis Needed?
+  <a href="#why-dynamic-analysis-is-needed" class="md-nav__link">
+    Why Dynamic Analysis is needed?
   </a>
   
 </li>
@@ -514,13 +529,13 @@
                 
                 <h1 id="dynamic-analysis">Dynamic Analysis</h1>
 <p><strong><em> Objective</em></strong></p>
-<p>The aim of this section is to perform dynamic analysis using DAST tools on DVNA and solve the 6th point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<p>The aim of this section is to perform dynamic analysis using DAST tools on DVNA and solve the 8th point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
 <h2 id="what-is-dast">What is DAST</h2>
 <p>Dynamic application security testing (DAST) is the process of testing and evaluating a program while software is running. Also referred to as dynamic code scanning, dynamic analysis improves the diagnosis and correction of bugs, memory issues, and crashes of an application during its execution.</p>
-<h2 id="why-is-dynamic-analysis-needed">Why is Dynamic Analysis Needed?</h2>
+<h2 id="why-dynamic-analysis-is-needed">Why Dynamic Analysis is needed?</h2>
 <ul>
 <li>DAST is a method of AppSec testing that examines an application while it’s running, without knowledge of the application’s internal interactions or designs at the system level, and with no access or visibility into the source program.</li>
-<li>This “black box” testing looks at an application from the outside in, examines its running state, and observes its responses to simulated attacks made by the tool. An application’s responses to these simulations help determine whether the application is vulnerable and could be susceptible to a real malicious attack. </li>
+<li>This <code>black box</code> testing looks at an application from the outside in, examines its running state, and observes its responses to simulated attacks made by the tool. An application’s responses to these simulations help determine whether the application is vulnerable and could be susceptible to a real malicious attack. </li>
 </ul>
 <h2 id="static-vs-dynamic-analysis">Static Vs Dynamic Analysis</h2>
 <p>Static code analysis is done by examining the code without the need to execute the program. The process provides an understanding of the code structure and can help ensure that the code adheres to industry standards. All code is scanned to check for any vulnerabilities and ensure the code is validated.  </p>
@@ -539,7 +554,7 @@
 <p>We will be performing a <a href="https://www.zaproxy.org/docs/docker/baseline-scan/">baseline-scan</a> in a CI/CD environment as it is ideal:</p>
 <pre><code>sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
 </code></pre>
-<ul>
+<ol>
 <li>Docker files used:</li>
 <li><code>--rm</code> to  remove container after completion.</li>
 <li><code>-d</code>to run as a background job.</li>
@@ -549,7 +564,7 @@
 <li><code>-t 'target'</code> to specify target to scan.</li>
 <li><code>-r 'file.html'</code> to generate an HTML output report.</li>
 <li><code>-l level</code> to minimum level to show: PASS, IGNORE, INFO, WARN or FAIL.</li>
-</ul>
+</ol>
 <p>To run a fullscan script, run the following command:</p>
 <pre><code>sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-full-scan.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
 </code></pre>
@@ -595,13 +610,13 @@
         </a>
       
       
-        <a href="../Source-Code-Quality-Analysis/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../SBoM/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Source Code Quality Analysis
+              Generating Software Bill of Materials
             </div>
           </div>
           <div class="md-footer__button md-icon">

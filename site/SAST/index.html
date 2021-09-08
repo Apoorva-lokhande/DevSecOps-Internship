@@ -384,11 +384,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#static-application-security-testingsast" class="md-nav__link">
-    Static Application Security Testing(SAST)
+  <a href="#static-application-security-testing" class="md-nav__link">
+    Static Application Security Testing
   </a>
   
-    <nav class="md-nav" aria-label="Static Application Security Testing(SAST)">
+    <nav class="md-nav" aria-label="Static Application Security Testing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -403,11 +403,6 @@
   <a href="#njsscan" class="md-nav__link">
     njsscan
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -436,11 +431,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#sast-pipeline" class="md-nav__link">
     SAST Pipeline
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -477,6 +477,21 @@
     <li class="md-nav__item">
       <a href="../DAST/" class="md-nav__link">
         Dynamic Analysis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SBoM/" class="md-nav__link">
+        Generating Software Bill of Materials
       </a>
     </li>
   
@@ -615,11 +630,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#static-application-security-testingsast" class="md-nav__link">
-    Static Application Security Testing(SAST)
+  <a href="#static-application-security-testing" class="md-nav__link">
+    Static Application Security Testing
   </a>
   
-    <nav class="md-nav" aria-label="Static Application Security Testing(SAST)">
+    <nav class="md-nav" aria-label="Static Application Security Testing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -634,11 +649,6 @@
   <a href="#njsscan" class="md-nav__link">
     njsscan
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -667,11 +677,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#sast-pipeline" class="md-nav__link">
     SAST Pipeline
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -690,7 +705,7 @@
                 
                 <h1 id="static-analysis">Static Analysis</h1>
 <p><strong><em>Objective</em></strong></p>
-<p>The aim of this section is to understand the tech stack used for the project (DVNA), identify suitable tools to perform SAST and generate a report to provide a solution to the 2nd, 4th and 5th points of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<p>The aim of this section is to understand the tech stack used for the project (DVNA), identify suitable tools to perform SAST and generate a report to provide a solution to the 4th and 5th and 6th points of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
 <h2 id="working-of-pipeline">Working of pipeline</h2>
 <p>To start creating the Jenkins pipeline, login into the jenkin web interface.</p>
 <ul>
@@ -787,7 +802,7 @@
 <p>After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local <code>appsecco/dvna</code> docker image to avoid running a container with older release of the application image. On the other hand, you don't need to remove the mysql:5.7 image, since we require v5.7 and not the latest version.</p>
 <h3 id="deployment">Deployment</h3>
 <p>Finally, the satge <code>deploy to dvna</code>, operations are performed on VM over SSH which was configured previously. The two containers, <code>dvna-app</code> and <code>dvna-mysql</code> are run and successfully deployed.</p>
-<h2 id="static-application-security-testingsast">Static Application Security Testing(SAST)</h2>
+<h2 id="static-application-security-testing">Static Application Security Testing</h2>
 <p>SAST is a testing methodology that analyses source code, byte code and binaries for bugs and design errors to find <a href="https://www.synopsys.com/blogs/software-security/types-of-security-vulnerabilities/">security vulnerabilities</a>, before the application is compiled. </p>
 <p>SAST does not require a working application and can take place without code being executed. It helps developers identify vulnerabilities in the initial stages of development and quickly resolve issues without breaking builds or passing on vulnerabilities to the final release of the application.</p>
 <h3 id="sast-tools-for-nodejs-applications">SAST Tools for Node.js Applications</h3>
@@ -806,7 +821,7 @@
 <pre><code>mkdir reports
 njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
 </code></pre>
-<h3 id="njsscan-pipeline">njsscan pipeline</h3>
+<h4 id="njsscan-pipeline">njsscan pipeline</h4>
 <p>I added the following stage in the Jenkinsfile to perform the scan, and store the report in JSON format on the Jenkins machine:</p>
 <pre><code>stage('NodeJsScan') {
     steps {
@@ -814,7 +829,7 @@ njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
     }
 }
 </code></pre>
-<h3 id="auditjs">AuditJS</h3>
+<h4 id="auditjs">AuditJS</h4>
 <p>Audits JavaScript is a SAST tool which uses <a href="https://ossindex.sonatype.org/rest">OSS Index v3 REST API</a> to identify known vulnerabilities and outdated package versions.</p>
 <ul>
 <li>
@@ -834,7 +849,7 @@ sudo apt install -y nodejs</p>
 </code></pre>
 </li>
 </ul>
-<h3 id="auditjs-pipeline">AuditJS pipeline</h3>
+<h4 id="auditjs-pipeline">AuditJS pipeline</h4>
 <p>Finally, I added the following stage to the Jenkinsfile to execute the script I wrote:</p>
 <pre><code>stage('Auditjs') {
     steps {
@@ -842,7 +857,7 @@ sudo apt install -y nodejs</p>
     }
 }
 </code></pre>
-<h2 id="sast-pipeline">SAST Pipeline</h2>
+<h3 id="sast-pipeline">SAST Pipeline</h3>
 <p>Add the following stages to the Jenkinsfile for performing SAST of DVNA:</p>
 <pre><code>stage('NodeJsScan') {
     steps {
