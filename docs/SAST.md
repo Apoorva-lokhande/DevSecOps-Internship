@@ -2,11 +2,11 @@
 
 ***Objective***
 
-The aim of this section is to perform static analysis on DVNA using SAST tools in a Jenkins pipeline and solve the 4th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
-
-To start creating the Jenkins pipeline, login into the jenkin web interface.
+The aim of this section is to understand the tech stack used for the project (DVNA), identify suitable tools to perform SAST and generate a report to provide a solution to the 2nd, 4th and 5th points of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
 ## Working of pipeline
+To start creating the Jenkins pipeline, login into the jenkin web interface.
+
 -  In the `Dashboard`, create a `New Item` and enter a `item name`(e.g. `dvna-pipeline`) and select `pipeline` and click `OK`.
   
 -  It was redirected to the `configuration` page. Here:
@@ -77,45 +77,44 @@ To start creating the Jenkins pipeline, login into the jenkin web interface.
             }
         }
 
-## Stages
+### Stages
 
 The pipeline is divided into various stages based on the operations being performed, which are as follows:
 
-## Initialization
+### Initialization
 
 This is the first stage which is used to just display the start of the building stage.
 
-## Build
+### Build
 
 This stage contains the environment variables, in which `vars.env` file is created and for `dvna-mysql` container. `dvna-app` and `dvna-mysql` containers will run and will be copied into the home directory.
 
-## Static and Dynamic Analysis
+### Static and Dynamic Analysis
 
 All the stages that follow the Build Stage, except for the last two stages, are for performing static analysis  and dynamic analysis on DVNA and later being stored in a folder `reports` in `jenkins` home directory.
 
-## Remove DVNA from Jenkins
+### Remove DVNA from Jenkins
 
 After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local `appsecco/dvna` docker image to avoid running a container with older release of the application image. On the other hand, you don't need to remove the mysql:5.7 image, since we require v5.7 and not the latest version.
 
-## Deployment
+### Deployment
 
 Finally, the satge `deploy to dvna`, operations are performed on VM over SSH which was configured previously. The two containers, `dvna-app` and `dvna-mysql` are run and successfully deployed.
 
-# Static Application Security Testing(SAST)
+## Static Application Security Testing(SAST)
 
 SAST is a testing methodology that analyses source code, byte code and binaries for bugs and design errors to find [security vulnerabilities](https://www.synopsys.com/blogs/software-security/types-of-security-vulnerabilities/), before the application is compiled. 
 
 SAST does not require a working application and can take place without code being executed. It helps developers identify vulnerabilities in the initial stages of development and quickly resolve issues without breaking builds or passing on vulnerabilities to the final release of the application.
 
-![image](pictures/1.png)
-## SAST Tools for Node.js Applications
+### SAST Tools for Node.js Applications
 
 As given the name Damn Vulnerable Nodejs Application, it is quite obvious to figure the tech stack used, Nodejs is the server-side language used along with a SQL database.  
 
 The following are the tools used to perform static analysis on Nodejs applications with steps to install and configure them with Jenkins.
 
 
-### njsscan
+#### njsscan
 
 njsscan is a open source static security code scanner for Node.js applications. Finds insecure paatterns in Node.js code and HTML templates.
 
@@ -134,7 +133,7 @@ I referred the documentation which provides us [command line options](https://gi
     mkdir reports
     njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
 
-## njsscan pipeline
+### njsscan pipeline
 
 I added the following stage in the Jenkinsfile to perform the scan, and store the report in JSON format on the Jenkins machine:
 
@@ -143,7 +142,7 @@ I added the following stage in the Jenkinsfile to perform the scan, and store th
             sh 'njsscan --json -o ~/reports/nodejsscan-report ~/app || true'
         }
     }
-## AuditJS
+### AuditJS
 
 Audits JavaScript is a SAST tool which uses [OSS Index v3 REST API](https://ossindex.sonatype.org/rest) to identify known vulnerabilities and outdated package versions.
 
@@ -161,7 +160,7 @@ Audits JavaScript is a SAST tool which uses [OSS Index v3 REST API](https://ossi
 
         auditjs ossi > ~/reports/auditjs-report ./app
 
-## AuditJS pipeline
+### AuditJS pipeline
 
 Finally, I added the following stage to the Jenkinsfile to execute the script I wrote:
 
