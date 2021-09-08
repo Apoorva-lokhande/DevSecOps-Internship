@@ -1,5 +1,5 @@
 # Software Code Quality Analysis
-***Objective***
+## Objective
 
 The aim of this section is to perform linting checks on the source code of DVNA and generate a code quality report to provide a solution to the 9th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 ## Source Code Linting

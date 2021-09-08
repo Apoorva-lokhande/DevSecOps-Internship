@@ -1,6 +1,6 @@
 # Software composition analysis
 
-***Objective***
+## Objective
 
 The aim of this section is to explain the software composition of DVNA using SCA tools in a Jenkins pipeline and solve the 7th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
@@ -25,12 +25,12 @@ Perform the scan by specifying the path to the project, output report format and
 
     ~/dependency-check/bin/dependency-check.sh --scan ~/app --out ~/report/dependency-check-report --format JSON --prettyPrint
 
-## SCA Pipeline
+### SCA Pipeline
 
 ***NOTE***: While adding the script to the pipeline I got an error:
 ![image](pictures/error2.png)
 
-It was an DNS error, I went ahead and resolved it by initialising the following command in the `<jenkins-home-dir>`:
+It was a DNS error, I went ahead and resolved it by initialising the following command in the `<jenkins-home-dir>`:
 
     sudo dhclient enp0s3
     

@@ -1,6 +1,6 @@
 # Setting up VMs
 
-***Objective***
+## Objective
 
 This section aims to set up the required infrastructure to perform the task and solve the 1st point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 

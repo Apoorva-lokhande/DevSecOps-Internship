@@ -337,6 +337,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-is-sca" class="md-nav__link">
     What is SCA
   </a>
@@ -358,15 +365,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#sca-pipeline" class="md-nav__link">
     SCA Pipeline
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -479,6 +486,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-is-sca" class="md-nav__link">
     What is SCA
   </a>
@@ -500,15 +514,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#sca-pipeline" class="md-nav__link">
     SCA Pipeline
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -526,7 +540,7 @@
                 
                 
                 <h1 id="software-composition-analysis">Software composition analysis</h1>
-<p><strong><em>Objective</em></strong></p>
+<h2 id="objective">Objective</h2>
 <p>The aim of this section is to explain the software composition of DVNA using SCA tools in a Jenkins pipeline and solve the 7th point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
 <h2 id="what-is-sca">What is SCA</h2>
 <p>Software composition analysis (SCA) identifies all the open source in a codebase and maps that inventory to a list of current known vulnerabilities. It helps identify vulnerabilities in open source code (dependencies) used in code.</p>
@@ -545,10 +559,10 @@ wget -P ~/ https://github.com/jeremylong/DependencyCheck/releases/download/v6.2.
 <p>Perform the scan by specifying the path to the project, output report format and its location:</p>
 <pre><code>~/dependency-check/bin/dependency-check.sh --scan ~/app --out ~/report/dependency-check-report --format JSON --prettyPrint
 </code></pre>
-<h2 id="sca-pipeline">SCA Pipeline</h2>
+<h3 id="sca-pipeline">SCA Pipeline</h3>
 <p><strong><em>NOTE</em></strong>: While adding the script to the pipeline I got an error:
 <img alt="image" src="../pictures/error2.png" /></p>
-<p>It was an DNS error, I went ahead and resolved it by initialising the following command in the <code>&lt;jenkins-home-dir&gt;</code>:</p>
+<p>It was a DNS error, I went ahead and resolved it by initialising the following command in the <code>&lt;jenkins-home-dir&gt;</code>:</p>
 <pre><code>sudo dhclient enp0s3
 </code></pre>
 <p>Finally, I added the script to the jenkinsfile to perform SCA of DVNA:</p>

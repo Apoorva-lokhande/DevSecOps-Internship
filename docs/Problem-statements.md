@@ -4,7 +4,7 @@
 2. Setup the Jenkins server and to know about Jenkins pipeline.
 3. Setup the MKDocs and Netlify, connect it to github repository.
 4. Setup a Maven-Jenkins pipeline.
-5. Deploy the DVNA in the production server.
+5. Setting up the DVNA in the production server.
 6. Perform static analysis by using suitable SAST tools on DVNA and generate a report.
 7. Getting to know Software Composition Analysis.
 8. Perform dynamic analysis by using suitable DAST tools on DVNA and generate a report.

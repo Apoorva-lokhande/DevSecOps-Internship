@@ -1,6 +1,6 @@
 # Setting up MKDocs
 
-***Objective***
+## Objective
 
 This section aims to create documentation in Markdown and use MkDocs to deploy the documentation generated as a static site and solve the 3rd point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 

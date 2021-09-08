@@ -1,6 +1,6 @@
 # What is SBoM?
 
-*** Objective***
+## Objective
 
 The aim of this section is to generate a Software Bill of Materials for DVNA and provide a solution to the 10th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
