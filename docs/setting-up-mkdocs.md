@@ -57,7 +57,7 @@ Here we have mentioned the site name as `DevSecOps-pipeline` which is the title 
 
 ### Push code to GitHub
 
-Here, I made a repository initially as `DevSecOps-Internship` also checked the option `private repository` and then `create repository`.
+Here, I made a repository initially as `DevSecOps-pipeline` also checked the option `private repository` and then `create repository`.
 
 In a terminal, I ran:
 
@@ -83,10 +83,10 @@ In the terminal I ran a following command from parent directory:
 - Selected `Add a new project` option.
 - A window will open which asks for `Connect to git provider`.
 - Select `Create a new site` and later select `Github`.
-- Select the repository you need to publish, I selected DevSecOps-pipeline.
-- later select the repository and a window will appear under that add `site/` in publish directory.
+- Select the repository you need to publish, I selected `DevSecOps-pipeline`.
+- later select the repository and a window will appear, under that add `site/` in `publish directory`.
 
-  ![image](/pictures/github-site.png)
+![image](/pictures/github-site.png)
 
 - Click on Deploy site and the site will be deployed and the link will be available on top of the screen.
 

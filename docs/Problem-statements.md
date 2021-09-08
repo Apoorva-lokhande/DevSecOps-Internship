@@ -11,5 +11,4 @@
 9. Perform Source Code Quality Analysis for linting errors to improve code quality and generate quality report.
 10. Generate Software Bill of Materials of DVNA for all its dependencies.
 11. Create a complete pipeline structure combining all the segments together.
-12. Do extensive documentation in markdown and deploy it as a MkDocs website.
  

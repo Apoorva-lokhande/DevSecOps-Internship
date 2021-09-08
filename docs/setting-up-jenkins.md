@@ -2,7 +2,7 @@
 
 ***Objective***
 
-This section aims to set up the required infrastructure of Jenkins to perform the task and solve the 2nd point of the[Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+This section aims to set up the required infrastructure of Jenkins to perform the task and solve the 2nd point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 ## What is Jenkins? 
 
 Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.  
@@ -39,7 +39,7 @@ Now install Jenkins and it’s dependencies:
 
 ### Starting Jenkins 
 
-The systemctl command is used to manage "systemd" services and service manager:  
+The systemctl command is used to manage `systemd` services and service manager:  
 
     sudo systemctl start jenkins 
 
@@ -47,9 +47,8 @@ Check the status of Jenkins service using the below command:
 
     sudo systemctl status jenkins 
 
-![image](pictures/startandstatus.png)  
-
-And the Jenkins has installed successfully, the output is showing as Active: **active(excited)**. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. 
+And the Jenkins has installed successfully, the output is showing as Active: **active(excited)**. To reach it from a web browser I will adjust the firewall rules to complete the initial setup.
+![image](pictures/startandstatus.png)   
 
 ### Set-up a Firewall with UFW 
 
@@ -92,12 +91,12 @@ The 32-character alphanumeric password is displayed in the terminal, paste it on
 ![image](/pictures/unlock.png) 
  
 
-### Customize Jenkins  
+#### Customize Jenkins  
 
 In the Customize Jenkins select `install suggested plugins` which will start installation process directly and click on `continue`.
 ![image](/pictures/costumize.png) 
 
-### Create Admin User  
+#### Create Admin User  
 
 Add the required credentials, click on `save` and continue as admin. 
 
@@ -105,7 +104,7 @@ The `Instance configuration` page will be displayed which will ask to confirm th
 ![image](/pictures/info.png) 
 
 
-### Installation Starts 
+#### Installation Starts 
 Once the process is over click on `Reboot` which will restart the Jenkins.
 ![image](/pictures/started.png) 
 

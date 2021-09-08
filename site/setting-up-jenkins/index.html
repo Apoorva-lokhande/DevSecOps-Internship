@@ -309,7 +309,8 @@
     Unlock Jenkins
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Unlock Jenkins">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#customize-jenkins" class="md-nav__link">
@@ -329,6 +330,11 @@
   <a href="#installation-starts" class="md-nav__link">
     Installation Starts
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -568,7 +574,8 @@
     Unlock Jenkins
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Unlock Jenkins">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#customize-jenkins" class="md-nav__link">
@@ -595,6 +602,11 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
@@ -611,7 +623,7 @@
                 
                 <h1 id="setting-up-jenkins">Setting up Jenkins</h1>
 <p><strong><em>Objective</em></strong></p>
-<p>This section aims to set up the required infrastructure of Jenkins to perform the task and solve the 2nd point of the<a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<p>This section aims to set up the required infrastructure of Jenkins to perform the task and solve the 2nd point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
 <h2 id="what-is-jenkins">What is Jenkins?</h2>
 <p>Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.  </p>
 <h2 id="installation-steps-for-jenkins">Installation steps for Jenkins</h2>
@@ -640,14 +652,14 @@ sudo apt update
 </code></pre>
 <p><img alt="image" src="../pictures/installed.png" /> </p>
 <h3 id="starting-jenkins">Starting Jenkins</h3>
-<p>The systemctl command is used to manage "systemd" services and service manager:  </p>
+<p>The systemctl command is used to manage <code>systemd</code> services and service manager:  </p>
 <pre><code>sudo systemctl start jenkins
 </code></pre>
 <p>Check the status of Jenkins service using the below command:  </p>
 <pre><code>sudo systemctl status jenkins
 </code></pre>
-<p><img alt="image" src="../pictures/startandstatus.png" />  </p>
-<p>And the Jenkins has installed successfully, the output is showing as Active: <strong>active(excited)</strong>. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. </p>
+<p>And the Jenkins has installed successfully, the output is showing as Active: <strong>active(excited)</strong>. To reach it from a web browser I will adjust the firewall rules to complete the initial setup.
+<img alt="image" src="../pictures/startandstatus.png" />   </p>
 <h3 id="set-up-a-firewall-with-ufw">Set-up a Firewall with UFW</h3>
 <p>Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports. </p>
 <p>By default, Jenkins runs on port 8080. And opening the using ufw(uncomplicated firewall): </p>
@@ -675,14 +687,14 @@ sudo apt update
 </code></pre>
 <p>The 32-character alphanumeric password is displayed in the terminal, paste it onto Administrator password field, and then click on <code>continue</code>. 
 <img alt="image" src="/pictures/unlock.png" /> </p>
-<h3 id="customize-jenkins">Customize Jenkins</h3>
+<h4 id="customize-jenkins">Customize Jenkins</h4>
 <p>In the Customize Jenkins select <code>install suggested plugins</code> which will start installation process directly and click on <code>continue</code>.
 <img alt="image" src="/pictures/costumize.png" /> </p>
-<h3 id="create-admin-user">Create Admin User</h3>
+<h4 id="create-admin-user">Create Admin User</h4>
 <p>Add the required credentials, click on <code>save</code> and continue as admin. </p>
 <p>The <code>Instance configuration</code> page will be displayed which will ask to confirm the preferred URL for Jenkins instance, click on <code>save</code> and <code>finish</code>.<br />
 <img alt="image" src="/pictures/info.png" /> </p>
-<h3 id="installation-starts">Installation Starts</h3>
+<h4 id="installation-starts">Installation Starts</h4>
 <p>Once the process is over click on <code>Reboot</code> which will restart the Jenkins.
 <img alt="image" src="/pictures/started.png" /> </p>
 <p>Now the Jenkins is running Successfully, now typing the below command become the Jenkins user:</p>
