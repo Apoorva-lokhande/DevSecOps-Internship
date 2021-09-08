@@ -5,23 +5,22 @@
 This section aims to set up the required infrastructure of Jenkins to perform the task and solve the 2nd point of the[Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 ## What is Jenkins? 
 
-Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. 
+Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.  
+
+## Installation steps for Jenkins  
 
 ### Prerequisite 
 
 - I have setup `ubuntu 18.04` VM, installing Jenkins from [Documentation](https://www.jenkins.io/doc/book/installing/). 
 
-- I have installed `java 8 OpenJDK` and `JRE (Java Development Kit and Java Runtime Environment)` which is used to develop and run the software, I have used this [Link](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk) to download the same. 
-
-## Installation steps for Jenkins  
-
+- I have installed `java 8 OpenJDK` and `JRE (Java Development Kit and Java Runtime Environment)` which is used to develop and run the software, I have used this [Link](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk) to download the same.
 Add the repository key to the terminal:  
 
     wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - 
 
 ![image](pictures/jenk.png) 
 
-The system will return **OK**  
+The system will return `OK`  
 
 Next, add the Debian package repository address:   
 
@@ -38,7 +37,7 @@ Now install Jenkins and it’s dependencies:
 
 ![image](pictures/installed.png) 
 
-## Starting Jenkins 
+### Starting Jenkins 
 
 The systemctl command is used to manage "systemd" services and service manager:  
 
@@ -52,7 +51,7 @@ Check the status of Jenkins service using the below command:
 
 And the Jenkins has installed successfully, the output is showing as Active: **active(excited)**. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. 
 
-## Set-up a Firewall with UFW 
+### Set-up a Firewall with UFW 
 
 Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports. 
 
@@ -74,7 +73,7 @@ To configure your server to allow incoming SSH connections, you can use this com
 
     sudo ufw allow ssh    
 
-## Setting up Jenkins 
+### Setting up Jenkins 
 
 To find your server's ip address or domain name enter the following command in your terminal: 
 
@@ -95,22 +94,22 @@ The 32-character alphanumeric password is displayed in the terminal, paste it on
 
 ### Customize Jenkins  
 
-In the Customize Jenkins select "install suggested plugins" which will start installation process directly and press `continue`.
+In the Customize Jenkins select `install suggested plugins` which will start installation process directly and click on `continue`.
 ![image](/pictures/costumize.png) 
 
 ### Create Admin User  
 
 Add the required credentials, click on `save` and continue as admin. 
 
-The "Instance configuration" page will be displayed which will ask to confirm the preferred URL for Jenkins instance, click on `save` and `finish`.  
+The `Instance configuration` page will be displayed which will ask to confirm the preferred URL for Jenkins instance, click on `save` and `finish`.  
 ![image](/pictures/info.png) 
 
 
 ### Installation Starts 
-
+Once the process is over click on `Reboot` which will restart the Jenkins.
 ![image](/pictures/started.png) 
 
-Once the process is over click on `Reboot` which will restart the Jenkins. Now the Jenkins is running Successfully, now typing the below command become the Jenkins user:
+Now the Jenkins is running Successfully, now typing the below command become the Jenkins user:
 
     sudo su - jenkins
 

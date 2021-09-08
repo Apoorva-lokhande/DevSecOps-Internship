@@ -277,37 +277,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installing-mkdocs" class="md-nav__link">
-    Installing MKDocs
+  <a href="#what-is-mkdocs" class="md-nav__link">
+    What is MKDocs
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#installing-mkdocs" class="md-nav__link">
+    Installing MKDocs
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing MKDocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#selecting-a-theme" class="md-nav__link">
     Selecting a Theme
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#push-code-to-github" class="md-nav__link">
     Push code to GitHub
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#building-the-mkdocs-site" class="md-nav__link">
     Building the MKDocs site
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -472,37 +485,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installing-mkdocs" class="md-nav__link">
-    Installing MKDocs
+  <a href="#what-is-mkdocs" class="md-nav__link">
+    What is MKDocs
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#installing-mkdocs" class="md-nav__link">
+    Installing MKDocs
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing MKDocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#selecting-a-theme" class="md-nav__link">
     Selecting a Theme
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#push-code-to-github" class="md-nav__link">
     Push code to GitHub
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#building-the-mkdocs-site" class="md-nav__link">
     Building the MKDocs site
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -527,14 +553,15 @@
                 
                 
                 <h1 id="setting-up-mkdocs">Setting up MKDocs</h1>
-<p><strong><em>Objective</em></strong>
-This section aims to create documentation in Markdown and use MkDocs to deploy the documentation generated as a static site and solve the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<p><strong><em>Objective</em></strong></p>
+<p>This section aims to create documentation in Markdown and use MkDocs to deploy the documentation generated as a static site and solve the 3rd point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<h2 id="what-is-mkdocs">What is MKDocs</h2>
 <p>MkDocs is a static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file. MkDocs will build your docs and used to commit and push them to GitHub.</p>
 <h2 id="installing-mkdocs">Installing MKDocs</h2>
 <p>I have installed MKDocs using the official <a href="https://www.mkdocs.org/user-guide/installation/">Documentation</a> </p>
 <ul>
 <li>
-<p>If you need to install pip for the first time, download <a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a>. Then run the following command to install it:</p>
+<p>If you need to install pip for the first time, download <a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a> by running the following command:</p>
 <p>python get-pip.py</p>
 </li>
 <li>
@@ -546,11 +573,11 @@ This section aims to create documentation in Markdown and use MkDocs to deploy t
 <p>mkdocs --version</p>
 </li>
 </ul>
-<h2 id="selecting-a-theme">Selecting a Theme</h2>
+<h3 id="selecting-a-theme">Selecting a Theme</h3>
 <p>In order to customize a theme, I referred official <a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">Documentation</a> from MkDocs themes. Here I preferred <code>Material</code> theme, to use this particular theme it needs to be installed via pip. </p>
 <pre><code>pip install mkdocs-material
 </code></pre>
-<h2 id="configuration">Configuration</h2>
+<h3 id="configuration">Configuration</h3>
 <p>Create a new project to store all the documentation as given in below commands:</p>
 <pre><code>mkdocs new my-project
 cd my-project
@@ -568,9 +595,9 @@ Setting up mkDocs: 'setting-up-mkdocs.md'
 
 theme: material
 </code></pre>
-<p>Here we have mentioned the site name as <strong>DevSecOps-pipeline</strong> which is the title of the site, in the <strong>nav</strong> include all the contents which are explained throughout the documentation and the <strong>theme</strong> as we have downloaded before needs to be mentioned here.</p>
-<h2 id="push-code-to-github">Push code to GitHub</h2>
-<p>Here, I made a repository initially as <code>DevSecOps-Internship</code> also checked the option <code>private repository</code> and then create <code>repository</code>.</p>
+<p>Here we have mentioned the site name as <code>DevSecOps-pipeline</code> which is the title of the site, in the <code>nav</code> include all the contents which are explained throughout the documentation and the <code>theme</code> needs to be mentioned here.</p>
+<h3 id="push-code-to-github">Push code to GitHub</h3>
+<p>Here, I made a repository initially as <code>DevSecOps-Internship</code> also checked the option <code>private repository</code> and then <code>create repository</code>.</p>
 <p>In a terminal, I ran:</p>
 <pre><code>git init
 mkdocs build
@@ -578,9 +605,8 @@ git add .
 git commit -m "Initial commit"
 git push -u origin master
 </code></pre>
-<p>Later, I checked the repository all the files where not committed.</p>
-<p>I figured this out by checking the contents.md file, where I forgot to add the files that were created. I again committed the files using the commands as above, now the files were successfully committed. </p>
-<h2 id="building-the-mkdocs-site">Building the MKDocs site</h2>
+<p>Later, I checked the repository all the files where committed successfully.</p>
+<h3 id="building-the-mkdocs-site">Building the MKDocs site</h3>
 <p>Building a site converts the documented files into a HTML and CSS format and will the files in a folder named <code>site</code> within the same directory which contains <code>mkdocs.yml</code> file.</p>
 <p>In the terminal I ran a following command from parent directory: </p>
 <pre><code>mkdocs build --clean
@@ -598,7 +624,8 @@ git push -u origin master
 <ul>
 <li>Click on Deploy site and the site will be deployed and the link will be available on top of the screen.</li>
 </ul>
-<p><img alt="image" src="/pictures/linkk.png" /></p>
+<p><img alt="image" src="/pictures/linkk.png" />
+- Change the name of the site, as default it will be having dummy name(in my case it is <code>devsecops-internship</code>).</p>
                 
               
               

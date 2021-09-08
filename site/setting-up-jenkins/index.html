@@ -266,7 +266,14 @@
     What is Jenkins?
   </a>
   
-    <nav class="md-nav" aria-label="What is Jenkins?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-steps-for-jenkins" class="md-nav__link">
+    Installation steps for Jenkins
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation steps for Jenkins">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -276,39 +283,26 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-steps-for-jenkins" class="md-nav__link">
-    Installation steps for Jenkins
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#starting-jenkins" class="md-nav__link">
     Starting Jenkins
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#set-up-a-firewall-with-ufw" class="md-nav__link">
     Set-up a Firewall with UFW
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#setting-up-jenkins_1" class="md-nav__link">
     Setting up Jenkins
   </a>
   
-    <nav class="md-nav" aria-label="Setting up Jenkins">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#unlock-jenkins" class="md-nav__link">
@@ -516,7 +510,14 @@
     What is Jenkins?
   </a>
   
-    <nav class="md-nav" aria-label="What is Jenkins?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-steps-for-jenkins" class="md-nav__link">
+    Installation steps for Jenkins
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation steps for Jenkins">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -526,39 +527,26 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-steps-for-jenkins" class="md-nav__link">
-    Installation steps for Jenkins
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#starting-jenkins" class="md-nav__link">
     Starting Jenkins
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#set-up-a-firewall-with-ufw" class="md-nav__link">
     Set-up a Firewall with UFW
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#setting-up-jenkins_1" class="md-nav__link">
     Setting up Jenkins
   </a>
   
-    <nav class="md-nav" aria-label="Setting up Jenkins">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#unlock-jenkins" class="md-nav__link">
@@ -610,22 +598,21 @@
 <p><strong><em>Objective</em></strong></p>
 <p>This section aims to set up the required infrastructure of Jenkins to perform the task and solve the 2nd point of the<a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
 <h2 id="what-is-jenkins">What is Jenkins?</h2>
-<p>Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. </p>
+<p>Jenkins is a self-contained, open-source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.  </p>
+<h2 id="installation-steps-for-jenkins">Installation steps for Jenkins</h2>
 <h3 id="prerequisite">Prerequisite</h3>
 <ul>
 <li>
 <p>I have setup <code>ubuntu 18.04</code> VM, installing Jenkins from <a href="https://www.jenkins.io/doc/book/installing/">Documentation</a>. </p>
 </li>
 <li>
-<p>I have installed <code>java 8 OpenJDK</code> and <code>JRE (Java Development Kit and Java Runtime Environment)</code> which is used to develop and run the software, I have used this <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk">Link</a> to download the same. </p>
+<p>I have installed <code>java 8 OpenJDK</code> and <code>JRE (Java Development Kit and Java Runtime Environment)</code> which is used to develop and run the software, I have used this <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk">Link</a> to download the same.
+Add the repository key to the terminal:  </p>
+<p>wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - </p>
 </li>
 </ul>
-<h2 id="installation-steps-for-jenkins">Installation steps for Jenkins</h2>
-<p>Add the repository key to the terminal:  </p>
-<pre><code>wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-</code></pre>
 <p><img alt="image" src="../pictures/jenk.png" /> </p>
-<p>The system will return <strong>OK</strong>  </p>
+<p>The system will return <code>OK</code>  </p>
 <p>Next, add the Debian package repository address:   </p>
 <pre><code>sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \ 
 /etc/apt/sources.list.d/jenkins.list
@@ -637,7 +624,7 @@ sudo apt update
 <pre><code>sudo apt install jenkins
 </code></pre>
 <p><img alt="image" src="../pictures/installed.png" /> </p>
-<h2 id="starting-jenkins">Starting Jenkins</h2>
+<h3 id="starting-jenkins">Starting Jenkins</h3>
 <p>The systemctl command is used to manage "systemd" services and service manager:  </p>
 <pre><code>sudo systemctl start jenkins
 </code></pre>
@@ -646,7 +633,7 @@ sudo apt update
 </code></pre>
 <p><img alt="image" src="../pictures/startandstatus.png" />  </p>
 <p>And the Jenkins has installed successfully, the output is showing as Active: <strong>active(excited)</strong>. To reach it from a web browser I will adjust the firewall rules to complete the initial setup. </p>
-<h2 id="set-up-a-firewall-with-ufw">Set-up a Firewall with UFW</h2>
+<h3 id="set-up-a-firewall-with-ufw">Set-up a Firewall with UFW</h3>
 <p>Firewall is a software controlling incoming and outgoing network traffic. Firewall is able to manage traffic by monitoring network ports. </p>
 <p>By default, Jenkins runs on port 8080. And opening the using ufw(uncomplicated firewall): </p>
 <pre><code>sudo ufw allow 8080
@@ -661,7 +648,7 @@ sudo apt update
 <p>To configure your server to allow incoming SSH connections, you can use this command: </p>
 <pre><code>sudo ufw allow ssh
 </code></pre>
-<h2 id="setting-up-jenkins_1">Setting up Jenkins</h2>
+<h3 id="setting-up-jenkins_1">Setting up Jenkins</h3>
 <p>To find your server's ip address or domain name enter the following command in your terminal: </p>
 <pre><code>ifconfig
 </code></pre>
@@ -674,15 +661,16 @@ sudo apt update
 <p>The 32-character alphanumeric password is displayed in the terminal, paste it onto Administrator password field, and then click on <code>continue</code>. 
 <img alt="image" src="/pictures/unlock.png" /> </p>
 <h3 id="customize-jenkins">Customize Jenkins</h3>
-<p>In the Customize Jenkins select "install suggested plugins" which will start installation process directly and press <code>continue</code>.
+<p>In the Customize Jenkins select <code>install suggested plugins</code> which will start installation process directly and click on <code>continue</code>.
 <img alt="image" src="/pictures/costumize.png" /> </p>
 <h3 id="create-admin-user">Create Admin User</h3>
 <p>Add the required credentials, click on <code>save</code> and continue as admin. </p>
-<p>The "Instance configuration" page will be displayed which will ask to confirm the preferred URL for Jenkins instance, click on <code>save</code> and <code>finish</code>.<br />
+<p>The <code>Instance configuration</code> page will be displayed which will ask to confirm the preferred URL for Jenkins instance, click on <code>save</code> and <code>finish</code>.<br />
 <img alt="image" src="/pictures/info.png" /> </p>
 <h3 id="installation-starts">Installation Starts</h3>
-<p><img alt="image" src="/pictures/started.png" /> </p>
-<p>Once the process is over click on <code>Reboot</code> which will restart the Jenkins. Now the Jenkins is running Successfully, now typing the below command become the Jenkins user:</p>
+<p>Once the process is over click on <code>Reboot</code> which will restart the Jenkins.
+<img alt="image" src="/pictures/started.png" /> </p>
+<p>Now the Jenkins is running Successfully, now typing the below command become the Jenkins user:</p>
 <pre><code>sudo su - jenkins
 </code></pre>
                 

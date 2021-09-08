@@ -2,7 +2,8 @@
 
 ***Objective***
 
-The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the 1st point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+This section aims to set up the required infrastructure to perform the task and solve the 1st point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+
 ## What is Virtual Machine?
 For understanding Virtual machine (VM) we will have to understand what Virtualization is. 
 
