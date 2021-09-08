@@ -89,6 +89,5 @@ In the terminal I ran a following command from parent directory:
   ![image](/pictures/github-site.png)
 
 - Click on Deploy site and the site will be deployed and the link will be available on top of the screen.
-   
-   ![image](/pictures/linkk.png)
-- Change the name of the site, as default it will be having dummy name (in my case it is `devsecops-internship`).
+
+- Change the name of the site, as default it will be having dummy name (in my case it is `devsecops-pipeline`).

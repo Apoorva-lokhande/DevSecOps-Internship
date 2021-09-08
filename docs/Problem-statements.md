@@ -8,7 +8,7 @@
 6. Getting to know Software Composition Analysis.
 7. Perform dynamic analysis by using suitable DAST tools on DVNA and generate a report.
 8. Generate Software Bill of Materials of DVNA for all its dependencies.
-9. Perform Source Code Quality Analysis for linting errors to improve code quality and generate quality report.
+9.  Perform Source Code Quality Analysis for linting errors to improve code quality and generate quality report.
 10. Create a complete pipeline structure combining all the segments together.
 11. Do extensive documentation in markdown and deploy it as a MkDocs website.
  

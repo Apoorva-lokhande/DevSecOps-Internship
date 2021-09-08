@@ -1,7 +1,8 @@
 # Jenkins Pipeline
 
 ***Objective***
-The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+
+The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the 4rth point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
 ## Why use Jenkins pipeline ?
 Jenkins is an open continuous integration server which has the ability to support the automation of software development processes. You can create multiple automation jobs with the help of use cases, and run them as a Jenkins pipeline.
