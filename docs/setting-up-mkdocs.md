@@ -13,15 +13,15 @@ I have installed MKDocs using the official [Documentation](https://www.mkdocs.or
 
 - If you need to install pip for the first time, download [get-pip.py](https://bootstrap.pypa.io/get-pip.py) by running the following command:
  
-    python get-pip.py
+        python get-pip.py
 
 - Install the MKDocs package using:
   
-    pip insatll mkdocs
+        pip insatll mkdocs
 
 - Later, check the version of the MKDocs installed in order to check everything worked okay.
   
-    mkdocs --version
+        mkdocs --version
 
 ### Selecting a Theme
 
@@ -91,4 +91,4 @@ In the terminal I ran a following command from parent directory:
 - Click on Deploy site and the site will be deployed and the link will be available on top of the screen.
    
    ![image](/pictures/linkk.png)
-- Change the name of the site, as default it will be having dummy name(in my case it is `devsecops-internship`).
+- Change the name of the site, as default it will be having dummy name (in my case it is `devsecops-internship`).
