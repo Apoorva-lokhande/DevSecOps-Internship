@@ -313,28 +313,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#create-a-maven-project-in-jenkins" class="md-nav__link">
+    Create A Maven project in Jenkins.
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-maven-project-in-jenkins" class="md-nav__link">
-    Create A Maven project in Jenkins.
-  </a>
-  
-    <nav class="md-nav" aria-label="Create A Maven project in Jenkins.">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#what-is-jenkinsfile" class="md-nav__link">
     What is Jenkinsfile?
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -343,26 +337,32 @@
     SSH Access Configuration
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="SSH Access Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     Installation
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#ssh-into-vm" class="md-nav__link">
     SSH into VM
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#setup-ssh-keys-for-jenkins" class="md-nav__link">
     Setup SSH keys for Jenkins
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -526,28 +526,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#create-a-maven-project-in-jenkins" class="md-nav__link">
+    Create A Maven project in Jenkins.
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-maven-project-in-jenkins" class="md-nav__link">
-    Create A Maven project in Jenkins.
-  </a>
-  
-    <nav class="md-nav" aria-label="Create A Maven project in Jenkins.">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#what-is-jenkinsfile" class="md-nav__link">
     What is Jenkinsfile?
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -556,26 +550,32 @@
     SSH Access Configuration
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="SSH Access Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     Installation
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#ssh-into-vm" class="md-nav__link">
     SSH into VM
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#setup-ssh-keys-for-jenkins" class="md-nav__link">
     Setup SSH keys for Jenkins
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -622,7 +622,7 @@
 <p>After the restart of Jenkins, the Maven Jenkins plugin will be installed successfully and ready for configuration.</p>
 </li>
 </ul>
-<h2 id="create-a-maven-project-in-jenkins">Create A Maven project in Jenkins.</h2>
+<h3 id="create-a-maven-project-in-jenkins">Create A Maven project in Jenkins.</h3>
 <ul>
 <li>
 <p>In the <code>Dashboard</code>, create a <code>New Item</code>.</p>
@@ -645,10 +645,10 @@
 </ul>
 </li>
 </ul>
-<h3 id="what-is-jenkinsfile">What is Jenkinsfile?</h3>
-<p>Jenkins Pipeline has a customizable and scalable automation system that lets you build distribution pipeline scripts -  “Pipeline as Code”, these scripts are called JenkinsFile. 
-A JenkinsFile stores the entire CI/CD process as code on the local machine. As such, the file can be reviewed and checked into a Source Code Management (SCM) platform (be it Git or SVN) along with your code. Hence, the term “Pipeline as Code”.</p>
-<p>The structure of my jenkinsfile is as follows:</p>
+<h2 id="what-is-jenkinsfile">What is Jenkinsfile?</h2>
+<p>Jenkins Pipeline has a customizable and scalable automation system that lets you build distribution pipeline scripts -  <code>Pipeline as Code</code>, these scripts are called <code>JenkinsFile</code>. 
+A JenkinsFile stores the entire CI/CD process as code on the local machine. As such, the file can be reviewed and checked into a Source Code Management (SCM) platform (be it Git or SVN) along with your code. Hence, the term <code>Pipeline as Code</code>.</p>
+<p>The structure of my maven-jenkinsfile is as follows:</p>
 <pre><code>pipeline {
     agent any
 
@@ -689,65 +689,78 @@ A JenkinsFile stores the entire CI/CD process as code on the local machine. As s
 <li><code>stage</code> - Specify the task to be performed.</li>
 <li><code>steps</code> - This block defines actions to be performed within a particular stage.</li>
 <li><code>sh</code> - Used to execute shell commands through Jenkins.</li>
-<li></li>
 </ul>
 <h2 id="ssh-access-configuration">SSH Access Configuration</h2>
-<ul>
-<li>Secure Shell Protocol (SSH) provides a secure channel over an unsecured network by using a client–server architecture, connecting an SSH client application with an SSH server. The standard TCP port for SSH is 22.</li>
-</ul>
-<h2 id="installation">Installation</h2>
+<p>Secure Shell Protocol (SSH) provides a secure channel over an unsecured network by using a client–server architecture, connecting an SSH client application with an SSH server. The standard TCP port for SSH is 22.</p>
+<h3 id="installation">Installation</h3>
 <ul>
 <li>
 <p>In order to SSH into VM we need to install it!</p>
-<p>sudo apt-get install openssh-server</p>
+<pre><code>sudo apt-get install openssh-server
+</code></pre>
 </li>
 <li>
 <p>Enable the ssh service by:</p>
-<p>sudo systemctl enable ssh</p>
+<pre><code>sudo systemctl enable ssh
+</code></pre>
 </li>
 <li>
 <p>Start the ssh service:</p>
-<p>sudo systemctl start ssh</p>
+<pre><code>sudo systemctl start ssh
+</code></pre>
 </li>
 </ul>
-<h2 id="ssh-into-vm">SSH into VM</h2>
+<h3 id="ssh-into-vm">SSH into VM</h3>
 <ul>
 <li>
 <p>After installing SSH, create a key pair on a client machine.</p>
-<p>ssh-keygen -t ed25519 </p>
+<pre><code>ssh-keygen -t ed25519
+</code></pre>
 </li>
 <li>
-<p>The first prompt from the ssh-keygen command will ask you where to save the keys, I pressed <code>enter</code> to save as it was.</p>
+<p>The first prompt from the ssh-keygen command will ask you where to save the keys, I clicked on <code>enter</code> to save as it was.</p>
 </li>
-<li>Similarly, <code>Creating passphrase</code> just pressed <code>enter</code>.</li>
+<li>Similarly, <code>Creating passphrase</code> just clicked <code>enter</code>.</li>
 <li>
 <p>Once the key is generated, place the public key on the server which you want to connect to. Following the command below:</p>
-<p>ssh-copy-id username@your_server_address</p>
+<pre><code>ssh-copy-id username@your_server_address
+</code></pre>
 </li>
 <li>
 <p>While copying the id I got an error "cannot create .ssh/ authorized keys permission denied", so I changed the permissions of the authorized_keys file and the folder/parent folders in which it is located.</p>
-<p>chmod 700 ~/.ssh
-  chmod 600 ~/.ssh/authorized_keys
-- Also, I changed the permissions of home directory to remove write access for the group and others.</p>
+<pre><code>chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+</code></pre>
+<ul>
+<li>
+<p>Also, I changed the permissions of home directory to remove write access for the group and others.</p>
 <p>chmod go-w ~</p>
 </li>
-<li>
-<p>Now, I tried ssh'ing into the VM and it worked!</p>
-<p>ssh username@server_ip_address</p>
+</ul>
 </li>
 <li>
-<p>I got an error saying permission denied, I refered this  <a href="https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again">documentation</a> and did the necessary changes which are:</p>
-<p>sudo nano /etc/ssh/sshd_config
-- Changed the permissions as below:</p>
-<p>PermitRootLogin yes
-  PasswordAuthentication yes</p>
+<p>Now, I tried sshing into the VM using the following command:</p>
+<pre><code>ssh username@server_ip_address
+</code></pre>
+</li>
+</ul>
+<p><strong><em>Note</em></strong> : While trying to ssh into the server VM, I got an error saying permission denied, I refered this  <a href="https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again">documentation</a> and did the necessary changes which are:</p>
+<pre><code>    sudo nano /etc/ssh/sshd_config
+</code></pre>
+<ul>
+<li>
+<p>Changed the permissions as below:</p>
+<pre><code>PermitRootLogin yes
+PasswordAuthentication yes
+</code></pre>
 </li>
 <li>
 <p>And don't forget to reload:</p>
-<p>sudo systemctl restart ssh.service</p>
+<pre><code>sudo systemctl restart ssh.service
+</code></pre>
 </li>
 </ul>
-<h2 id="setup-ssh-keys-for-jenkins">Setup SSH keys for Jenkins</h2>
+<h3 id="setup-ssh-keys-for-jenkins">Setup SSH keys for Jenkins</h3>
 <ul>
 <li>
 <p>In the jenkins web control panel, install the plugin <a href="https://plugins.jenkins.io/publish-over-ssh/">Publish Over SSH</a> and nagivate to <code>Manage Jenkins</code> -&gt; <code>Configure System</code> -&gt; <code>Publish over SSH</code>.</p>

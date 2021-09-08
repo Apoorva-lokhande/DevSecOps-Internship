@@ -30,7 +30,7 @@ Jenkins provides a particular job type, which explicitly provides options for co
 
 - After the restart of Jenkins, the Maven Jenkins plugin will be installed successfully and ready for configuration.
 
-## Create A Maven project in Jenkins.
+### Create A Maven project in Jenkins.
 
 - In the `Dashboard`, create a `New Item`.
   
@@ -45,13 +45,13 @@ Jenkins provides a particular job type, which explicitly provides options for co
     - Later, clicked on `save` button.
 
 
-### What is Jenkinsfile?
+## What is Jenkinsfile?
 
-Jenkins Pipeline has a customizable and scalable automation system that lets you build distribution pipeline scripts -  “Pipeline as Code”, these scripts are called JenkinsFile. 
-A JenkinsFile stores the entire CI/CD process as code on the local machine. As such, the file can be reviewed and checked into a Source Code Management (SCM) platform (be it Git or SVN) along with your code. Hence, the term “Pipeline as Code”.
+Jenkins Pipeline has a customizable and scalable automation system that lets you build distribution pipeline scripts -  `Pipeline as Code`, these scripts are called `JenkinsFile`. 
+A JenkinsFile stores the entire CI/CD process as code on the local machine. As such, the file can be reviewed and checked into a Source Code Management (SCM) platform (be it Git or SVN) along with your code. Hence, the term `Pipeline as Code`.
 
 
-The structure of my jenkinsfile is as follows:
+The structure of my maven-jenkinsfile is as follows:
 
          
     pipeline {
@@ -93,62 +93,62 @@ The structure of my jenkinsfile is as follows:
 - `stage` - Specify the task to be performed.
 - `steps` - This block defines actions to be performed within a particular stage.
 - `sh` - Used to execute shell commands through Jenkins.
-- 
+ 
 ## SSH Access Configuration
 
-- Secure Shell Protocol (SSH) provides a secure channel over an unsecured network by using a client–server architecture, connecting an SSH client application with an SSH server. The standard TCP port for SSH is 22.
+Secure Shell Protocol (SSH) provides a secure channel over an unsecured network by using a client–server architecture, connecting an SSH client application with an SSH server. The standard TCP port for SSH is 22.
   
-## Installation
+### Installation
 
 - In order to SSH into VM we need to install it!
 
-      sudo apt-get install openssh-server
+        sudo apt-get install openssh-server
 
 - Enable the ssh service by:
   
-      sudo systemctl enable ssh
+        sudo systemctl enable ssh
 
 - Start the ssh service:
   
-      sudo systemctl start ssh
+        sudo systemctl start ssh
     
-## SSH into VM
+### SSH into VM
 
 - After installing SSH, create a key pair on a client machine.
    
-      ssh-keygen -t ed25519 
+        ssh-keygen -t ed25519 
 
-- The first prompt from the ssh-keygen command will ask you where to save the keys, I pressed `enter` to save as it was.
-- Similarly, `Creating passphrase` just pressed `enter`.
+- The first prompt from the ssh-keygen command will ask you where to save the keys, I clicked on `enter` to save as it was.
+- Similarly, `Creating passphrase` just clicked `enter`.
 - Once the key is generated, place the public key on the server which you want to connect to. Following the command below:
   
-      ssh-copy-id username@your_server_address
+        ssh-copy-id username@your_server_address
 
 - While copying the id I got an error "cannot create .ssh/ authorized keys permission denied", so I changed the permissions of the authorized_keys file and the folder/parent folders in which it is located.
  
-      chmod 700 ~/.ssh
-      chmod 600 ~/.ssh/authorized_keys
+        chmod 700 ~/.ssh
+        chmod 600 ~/.ssh/authorized_keys
 - Also, I changed the permissions of home directory to remove write access for the group and others.
  
-      chmod go-w ~
+        chmod go-w ~
 
-- Now, I tried ssh'ing into the VM and it worked!
+- Now, I tried sshing into the VM using the following command:
 
-      ssh username@server_ip_address
+        ssh username@server_ip_address
 
-- I got an error saying permission denied, I refered this  [documentation](https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again) and did the necessary changes which are:
+***Note*** : While trying to ssh into the server VM, I got an error saying permission denied, I refered this  [documentation](https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again) and did the necessary changes which are:
                 
-      sudo nano /etc/ssh/sshd_config
+        sudo nano /etc/ssh/sshd_config
 - Changed the permissions as below:
 
-      PermitRootLogin yes
-      PasswordAuthentication yes
+        PermitRootLogin yes
+        PasswordAuthentication yes
    
 - And don't forget to reload:
 
-      sudo systemctl restart ssh.service
+        sudo systemctl restart ssh.service
 
-## Setup SSH keys for Jenkins   
+### Setup SSH keys for Jenkins   
 - In the jenkins web control panel, install the plugin [Publish Over SSH](https://plugins.jenkins.io/publish-over-ssh/) and nagivate to `Manage Jenkins` -> `Configure System` -> `Publish over SSH`.
   
 - Either enter the path of the file e.g. `var/lib/jenkins/.ssh/id_rsa`, or add the private SSH key to the input field.
