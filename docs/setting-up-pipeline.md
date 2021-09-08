@@ -34,10 +34,10 @@ Jenkins provides a particular job type, which explicitly provides options for co
 
 - In the `Dashboard`, create a `New Item`.
   
-- Now, enter `item name` as Jenkin-Maven and selct Maven project as shown below and click on **OK**.
+- Now, enter `item name` as Jenkin-Maven and selct Maven project as shown below and click on `OK`.
 
-- Here, under `general` section:
-    - I gave the description of the project.
+- Under `general` section:
+    - I gave the `description` of the project.
     - Under `Source Code Management` I checked the `Git` option and provided the [Github URl](https://github.com/jenkins-docs/simple-java-maven-app). This helps jenkins to know where to fetch the project from.
    
 - Under `Build Triggers`:
@@ -130,7 +130,7 @@ Secure Shell Protocol (SSH) provides a secure channel over an unsecured network 
         chmod 600 ~/.ssh/authorized_keys
 - Also, I changed the permissions of home directory to remove write access for the group and others.
  
-        chmod go-w ~
+            chmod go-w ~
 
 - Now, I tried sshing into the VM using the following command:
 
@@ -138,7 +138,8 @@ Secure Shell Protocol (SSH) provides a secure channel over an unsecured network 
 
 ***Note*** : While trying to ssh into the server VM, I got an error saying permission denied, I refered this  [documentation](https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again) and did the necessary changes which are:
                 
-        sudo nano /etc/ssh/sshd_config
+    sudo nano /etc/ssh/sshd_config
+
 - Changed the permissions as below:
 
         PermitRootLogin yes
@@ -154,6 +155,6 @@ Secure Shell Protocol (SSH) provides a secure channel over an unsecured network 
 - Either enter the path of the file e.g. `var/lib/jenkins/.ssh/id_rsa`, or add the private SSH key to the input field.
 ![image](pictures/sshs.png)
 
-- Add SSH server details. Give the Production servers hostname (IP address), username for logging in and remote directory (/home/prod-vm)
+- Add SSH server details. Give the Production server's hostname (IP address), username for logging in and remote directory (/home/prod-vm). Click on `Test Configuration` and it should return `success` as shown in the below image:
 
 ![image](pictures/ssh-server.png)

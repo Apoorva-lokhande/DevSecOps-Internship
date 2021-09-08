@@ -500,13 +500,15 @@
                 
                 <h1 id="configuring-production-vm">Configuring Production VM</h1>
 <p><strong><em>Objective</em></strong></p>
-<p>The aim of this section is to configure DVNA in a Production server as mentioned in the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<p>The aim of this section is to configure DVNA in a Production server as mentioned in the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a> and solve the 5th point of the same.</p>
 <h2 id="what-is-dvna">What is DVNA</h2>
 <p>Damn Vulnerable NodeJS Application (DVNA) is a simple NodeJS application to demonstrate <a href="https://owasp.org/www-project-top-ten/2017/">OWASP Top 10 Vulnerabilities</a> and guide on fixing and avoiding these vulnerabilities</p>
 <h2 id="requirements">Requirements</h2>
-<p>To serve DVNA, there are some prerequisites:
-- VM running Ubuntu 18.04 LTS.
-- Docker, NodeJS and NPM</p>
+<p>To serve DVNA, there are some prerequisites:</p>
+<ul>
+<li>VM running Ubuntu 18.04 LTS.</li>
+<li>Docker, NodeJS and NPM.  </li>
+</ul>
 <h2 id="install-docker-nodejs-and-npm">Install Docker, NodeJS and NPM</h2>
 <ul>
 <li>
@@ -527,10 +529,10 @@ $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /
 </code></pre>
 </li>
 <li>
-<p>Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:</p>
+<p>Update the <code>apt package index</code>, and install the latest version of <code>Docker Engine</code> and <code>containerid</code> and run to test if the <code>docker</code> installation is successfull.</p>
 <pre><code>sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
-sudo docker run hello-world # Test if docker installation is successful
+sudo docker run hello-world
 </code></pre>
 </li>
 <li>
@@ -538,13 +540,13 @@ sudo docker run hello-world # Test if docker installation is successful
 <pre><code>sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - &amp;&amp;
 sudo apt install -y nodejs
 </code></pre>
-</li>
-</ul>
 <h2 id="setup-dvna">Setup DVNA</h2>
-<ul>
-<li>I followed the <a href="https://github.com/appsecco/dvna/blob/master/docs/setup.md">official documentation</a> for setup.</li>
+</li>
 <li>
-<p>Create a file named vars.env with the following configuration:</p>
+<p>I followed the <a href="https://github.com/appsecco/dvna/blob/master/docs/setup.md">official documentation</a> for setup.</p>
+</li>
+<li>
+<p>Create a file named <code>vars.env</code> with the following configuration:</p>
 <pre><code>MYSQL_USER=dvna
 MYSQL_DATABASE=dvna
 MYSQL_PASSWORD=passw0rd
@@ -560,7 +562,7 @@ MYSQL_PORT=3306
 </li>
 <li>
 <p>Start the application using the official image:</p>
-<pre><code>docker run --name dvna-app --env-file vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna
+<pre><code>docker run --name dvna-app --env-file vars.env --link dvna-mysql:mysql-db -p 8080:8080 appsecco/dvna
 </code></pre>
 </li>
 <li>
