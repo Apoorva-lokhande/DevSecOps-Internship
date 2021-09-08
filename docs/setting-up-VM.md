@@ -1,9 +1,9 @@
-# What is Virtual Machine? 
+# Setting up VMs
 
 ***Objective***
 
 The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the 1st point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
-
+## What is Virtual Machine?
 For understanding Virtual machine (VM) we will have to understand what Virtualization is. 
 
 - **Virtualization** is a software based or virtual version of something, that be compute, storage, networking, servers or applications. And Hypervisor makes Virtualization possible. 
@@ -73,7 +73,7 @@ Here, I clicked on `start`. Now Jenkins VM starts running!
 
 ### Language selection 
 
-Select the language `English` and click on `done`.
+After successfully installtion the b`language selection` dialogue box will opwn and here select the language `English` and click on `done`.
 
 ![image](/pictures/9.png) 
 
@@ -114,19 +114,17 @@ I kept this too as default and hit `Done`.
 I provided all the details and clicked on `Done`. 
 ![image](/pictures/17.png) 
 
-## SSH Setup 
-In order to install the OpenSSH server I pressed Space button to select the `Install OpenSSH server` option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and clicked on `Done`. 
+### SSH Setup 
+In order to install the OpenSSH server I selected the `Install OpenSSH server` option because by default ubuntu won't have openSSH installed, and then I kept `Import SSH identity` as default and clicked on `Done`. 
 ![image](/pictures/18.png) 
 
 ### Featured Server Snaps 
 Selected the snaps which are useful in a server environment, once selected clicked on `Done`.
 ![image](/pictures/19.png)   
 
-![image](/pictures/20.png) 
-
 ### Installation complete 
 
-Installation complete window appeared, I waited until the **Reboot** button appeared on this window. Later, selected `reboot`. 
+Installation complete window appeared, wait until the **Reboot** button appears on this window. Later, select `reboot`. 
 
 ![image](/pictures/21.png) 
 

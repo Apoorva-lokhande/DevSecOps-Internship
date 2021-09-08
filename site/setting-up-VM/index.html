@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-is-virtual-machine" class="md-skip">
+        <a href="#setting-up-vms" class="md-skip">
           Skip to content
         </a>
       
@@ -247,6 +247,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-is-virtual-machine" class="md-nav__link">
+    What is Virtual Machine?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-vm" class="md-nav__link">
     Setting up VM
   </a>
@@ -331,18 +338,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#ssh-setup" class="md-nav__link">
     SSH Setup
   </a>
   
-    <nav class="md-nav" aria-label="SSH Setup">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#featured-server-snaps" class="md-nav__link">
@@ -547,6 +548,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-is-virtual-machine" class="md-nav__link">
+    What is Virtual Machine?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-vm" class="md-nav__link">
     Setting up VM
   </a>
@@ -631,18 +639,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#ssh-setup" class="md-nav__link">
     SSH Setup
   </a>
   
-    <nav class="md-nav" aria-label="SSH Setup">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#featured-server-snaps" class="md-nav__link">
@@ -676,9 +678,10 @@
               
                 
                 
-                <h1 id="what-is-virtual-machine">What is Virtual Machine?</h1>
+                <h1 id="setting-up-vms">Setting up VMs</h1>
 <p><strong><em>Objective</em></strong></p>
 <p>The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the 1st point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<h2 id="what-is-virtual-machine">What is Virtual Machine?</h2>
 <p>For understanding Virtual machine (VM) we will have to understand what Virtualization is. </p>
 <ul>
 <li>
@@ -736,7 +739,7 @@
 <p>Here, I clicked on <code>start</code>. Now Jenkins VM starts running! </p>
 <p><img alt="image" src="/pictures/8.png" /> </p>
 <h3 id="language-selection">Language selection</h3>
-<p>Select the language <code>English</code> and click on <code>done</code>.</p>
+<p>After successfully installtion the b<code>language selection</code> dialogue box will opwn and here select the language <code>English</code> and click on <code>done</code>.</p>
 <p><img alt="image" src="/pictures/9.png" /> </p>
 <h3 id="keyboard-configuration">Keyboard configuration</h3>
 <p>By default, English is selected for Layout and variant, clicked on  <code>Done</code>. </p>
@@ -758,15 +761,14 @@
 <h3 id="profile-setup">Profile setup</h3>
 <p>I provided all the details and clicked on <code>Done</code>. 
 <img alt="image" src="/pictures/17.png" /> </p>
-<h2 id="ssh-setup">SSH Setup</h2>
-<p>In order to install the OpenSSH server I pressed Space button to select the <code>Install OpenSSH server</code> option. I selected the install openSSH server because by default ubuntu did not have openSSH installed, and then I kept Import SSH identity as default and clicked on <code>Done</code>. 
+<h3 id="ssh-setup">SSH Setup</h3>
+<p>In order to install the OpenSSH server I selected the <code>Install OpenSSH server</code> option because by default ubuntu won't have openSSH installed, and then I kept <code>Import SSH identity</code> as default and clicked on <code>Done</code>. 
 <img alt="image" src="/pictures/18.png" /> </p>
 <h3 id="featured-server-snaps">Featured Server Snaps</h3>
 <p>Selected the snaps which are useful in a server environment, once selected clicked on <code>Done</code>.
 <img alt="image" src="/pictures/19.png" />   </p>
-<p><img alt="image" src="/pictures/20.png" /> </p>
 <h3 id="installation-complete">Installation complete</h3>
-<p>Installation complete window appeared, I waited until the <strong>Reboot</strong> button appeared on this window. Later, selected <code>reboot</code>. </p>
+<p>Installation complete window appeared, wait until the <strong>Reboot</strong> button appears on this window. Later, select <code>reboot</code>. </p>
 <p><img alt="image" src="/pictures/21.png" /> </p>
 <p>And the installation of Ubuntu 18.04 is completed! </p>
 <p>Repeat the same process in order to create another VM for DVNA deployment where I have specified the server name as <code>DVNA-deploy</code>. </p>
