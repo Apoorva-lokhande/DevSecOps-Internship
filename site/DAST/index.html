@@ -584,7 +584,7 @@
 <li>Docker files used:<ul>
 <li><code>--rm</code> to  remove container after completion.</li>
 <li><code>-d</code>to run as a background job.</li>
-<li><code>-u</code> to specify user to run container as.</li>
+<li><code>-u</code> to specify user to run as container.</li>
 <li><code>-v</code> to 'host dir':'container dir', mount volumes.</li>
 </ul>
 </li>
@@ -598,7 +598,7 @@
 <p>To run a fullscan script, run the following command:</p>
 <pre><code>sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-full-scan.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
 </code></pre>
-<p>The <code>report</code> created <code>zap-report.html</code> will be saved in the home directory after successfull completion!</p>
+<p>The <code>report</code> created as <code>zap-report.html</code> is saved in the home directory after successfull completion.</p>
 <h3 id="dast-pipeline">DAST Pipeline</h3>
 <p>Finally, I added the script to the jenkins file to perform DAST on DVNA:</p>
 <pre><code>stage('ZAP Scan') {

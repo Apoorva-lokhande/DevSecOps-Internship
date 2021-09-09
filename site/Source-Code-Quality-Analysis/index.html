@@ -385,33 +385,51 @@
     Linting tools for DVNA
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Linting tools for DVNA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#integrating-jshint-with-jenkins-pipeline" class="md-nav__link">
     Integrating JSHint with Jenkins pipeline
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Integrating JSHint with Jenkins pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#jshint-pipeline" class="md-nav__link">
     JSHint Pipeline
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#eslint" class="md-nav__link">
     ESLint
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="ESLint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#eslint-pipeline" class="md-nav__link">
     ESLint Pipeline
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -512,33 +530,51 @@
     Linting tools for DVNA
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Linting tools for DVNA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#integrating-jshint-with-jenkins-pipeline" class="md-nav__link">
     Integrating JSHint with Jenkins pipeline
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Integrating JSHint with Jenkins pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#jshint-pipeline" class="md-nav__link">
     JSHint Pipeline
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#eslint" class="md-nav__link">
     ESLint
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="ESLint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#eslint-pipeline" class="md-nav__link">
     ESLint Pipeline
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -564,29 +600,32 @@
 <h2 id="linting-tools-for-dvna">Linting tools for DVNA</h2>
 <p>DVNA is a Nodejs application and hence, I used <a href="https://jshint.com/install/">JSHint</a> and <a href="https://eslint.org/docs/2.13.1/user-guide/command-line-interface">ESLint</a> as the linter.</p>
 <p>JSHint scans your program's source code and reports about commonly made mistakes and potential bugs. The potential problem could be a syntax error, a bug due to implicit type conversion, a leaking variable, or any of the other problems that JSHint looks for and it is a command-line utility, I can easily integrate it into my CI pipeline with Jenkins. </p>
-<h2 id="integrating-jshint-with-jenkins-pipeline">Integrating JSHint with Jenkins pipeline</h2>
+<h3 id="integrating-jshint-with-jenkins-pipeline">Integrating JSHint with Jenkins pipeline</h3>
 <ul>
 <li>
 <p>I installed it globally with NPM using the following command:</p>
-<p>sudo npm install -g jshint</p>
+<pre><code>sudo npm install -g jshint
+</code></pre>
 </li>
 <li>
 <p>Run the jshint command with the aplication/project directory to scan all the <code>.js</code> files as given below:</p>
-<p>jshint ~/app &gt; ~/report/jshint-report</p>
+<pre><code>jshint ~/app &gt; ~/report/jshint-report
+</code></pre>
 </li>
 <li>
 <p>The above command will scan all the files in the directory. To restrict the scan to only .js and .ejs files, use a find command. We will further exclude all files in the <code>node_modules</code> directory.</p>
-<p>jshint $(find ~/app -type f -name "<em>.js" -o -name "</em>.ejs" | grep -v node_modules) &gt; ~/reports/jshint-report</p>
+<pre><code>jshint $(find ~/app -type f -name "*.js" -o -name "*.ejs" | grep -v node_modules) &gt; ~/reports/jshint-report
+</code></pre>
 </li>
 </ul>
-<h2 id="jshint-pipeline">JSHint Pipeline</h2>
+<h4 id="jshint-pipeline">JSHint Pipeline</h4>
 <pre><code>stage ('JSHint Analysis') {  
     steps {
         sh 'jshint $(find ~/app -type f \( -name "*.js" -o -name "*.ejs" \) | grep -v node_modules) &gt; ~/reports/jshint-report || true'
     }
 }
 </code></pre>
-<h2 id="eslint">ESLint</h2>
+<h3 id="eslint">ESLint</h3>
 <p>ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code. ESLint covers both code quality and coding style issues.Unlike JSHint, ESLint uses Espree for JavaScript parsing and an AST to evaluate patterns in code. It's completely pluggable, every single rule is a plugin and you can add more at runtime.</p>
 <p>I followed the <a href="https://eslint.org/docs/user-guide/getting-started">official documentation</a> to install ESLint using NPM:</p>
 <pre><code>npm install -g eslint
@@ -599,8 +638,8 @@
 ✔ Where does your code run? · browser
 ✔ What format do you want your config file to be in? · JSON
 </code></pre>
-<p><strong><em>NOTE</em></strong>: The .eslintrc.json config file is required everytime I run an eslint scan on a file or directory.It's not possible to create the config file by running eslint --init as the command line waits for responses to file configuration questions. To resolve this problem, copy the configuration details shown above into <code>&lt;Jenkins-Home-Dir&gt;/.eslintrc.json</code> file. You can now specify eslint to use this config file during its execution.</p>
-<p>The contents of the .eslintrc.json file are as below:</p>
+<p><strong><em>NOTE</em></strong>: The <code>.eslintrc.json</code> config file is required everytime I run an eslint scan on a file or directory. It's not possible to create the config file by running eslint --init as the command line waits for responses to file configuration questions. To resolve this problem, copy the configuration details shown above into <code>&lt;Jenkins-Home-Dir&gt;/.eslintrc.json</code> file. You can now specify eslint to use this config file during its execution.</p>
+<p>The contents of the <code>.eslintrc.json</code> file are as below:</p>
 <pre><code>{
     "env": {
         "browser": true,
@@ -616,13 +655,13 @@
 }
 </code></pre>
 <p>To perform an eslint scan, run eslint command with the following flags:
-- <code>-c</code>  to specify the config file.
-- <code>-f</code> to format of output report.
-- <code>--ext</code> to specify the extensions of files to be scannned.
-- <code>-o</code> to specify file to write the report to a particular file. </p>
+      - <code>-c</code>  to specify the config file.
+      - <code>-f</code> to format of output report.
+      - <code>--ext</code> to specify the extensions of files to be scannned.
+      - <code>-o</code> to specify file to write the report to a particular file. </p>
 <pre><code>  eslint -c ~/.eslintrc.json -f html --ext .js,.ejs -o ~/reports/eslint-report.html ~/app
 </code></pre>
-<h2 id="eslint-pipeline">ESLint Pipeline</h2>
+<h4 id="eslint-pipeline">ESLint Pipeline</h4>
 <p>Finally, I added a stage in the pipeline to run the script after I made it executable. The stage that I added was as follows:</p>
 <pre><code>stage ('ESLint Analysis') {
     steps {

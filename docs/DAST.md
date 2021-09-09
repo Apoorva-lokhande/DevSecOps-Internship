@@ -37,7 +37,7 @@ We will be performing a [baseline-scan](https://www.zaproxy.org/docs/docker/base
 1. Docker files used:
      - `--rm` to  remove container after completion.
      - `-d `to run as a background job.
-     - `-u` to specify user to run container as.
+     - `-u` to specify user to run as container.
      - `-v` to 'host dir':'container dir', mount volumes.
 2. Zap CLI flags used:
      - `-t 'target'` to specify target to scan.
@@ -48,7 +48,7 @@ To run a fullscan script, run the following command:
 
     sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-full-scan.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
 
-The `report` created `zap-report.html` will be saved in the home directory after successfull completion!
+The `report` created as `zap-report.html` is saved in the home directory after successfull completion.
 
 ### DAST Pipeline
 
