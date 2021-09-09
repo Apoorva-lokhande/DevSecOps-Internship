@@ -95,7 +95,7 @@ All the stages that follow the Build Stage, except for the last two stages, are 
 
 #### Remove DVNA from Jenkins
 
-After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local `appsecco/dvna` docker container to avoid running a container with older release of the application image. On the other hand, you don't need to remove the mysql:5.7 image, since we require v5.7 and not the latest version.
+After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local `appsecco/dvna` docker container to avoid running a container with older release of the application image. On the other hand, you don't need to remove the mysql:5.7 container, since we require v5.7 and not the latest version.
 
 #### Deployment
 

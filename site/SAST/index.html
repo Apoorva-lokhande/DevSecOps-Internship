@@ -848,7 +848,7 @@
 <h4 id="static-and-dynamic-analysis">Static and Dynamic Analysis</h4>
 <p>All the stages that follow the Build Stage, except for the last two stages, are for performing static analysis  and dynamic analysis on DVNA and later being stored in a folder <code>reports</code> in <code>jenkins</code> home directory.</p>
 <h4 id="remove-dvna-from-jenkins">Remove DVNA from Jenkins</h4>
-<p>After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local <code>appsecco/dvna</code> docker container to avoid running a container with older release of the application image. On the other hand, you don't need to remove the mysql:5.7 image, since we require v5.7 and not the latest version.</p>
+<p>After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local <code>appsecco/dvna</code> docker container to avoid running a container with older release of the application image. On the other hand, you don't need to remove the mysql:5.7 container, since we require v5.7 and not the latest version.</p>
 <h4 id="deployment">Deployment</h4>
 <p>Finally, the satge <code>deploy to dvna</code>, operations are performed on VM over SSH which was configured previously. The two containers, <code>dvna-app</code> and <code>dvna-mysql</code> are run and successfully deployed.</p>
 <h2 id="static-application-security-testing">Static Application Security Testing</h2>
