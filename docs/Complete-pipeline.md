@@ -2,7 +2,7 @@
 
 ## Objective
 
-The aim of this section is to perform dynamic analysis using DAST tools on DVNA and solve the 6th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+The aim of this section is to define complete structure of CI/CD pipeline and solve all the points [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
 
 ## Complete Pipeline

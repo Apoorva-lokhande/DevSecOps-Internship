@@ -18,5 +18,5 @@ These are some references I used along with the ones mentioned implicitly in the
 * ZAP docker baseline-scan - <https://www.zaproxy.org/docs/docker/baseline-scan/>
 * JSHint - <https://jshint.com/docs/cli/, https://github.com/jshint/jshint>
 * ESLint <https://eslint.org/docs/user-guide/, https://github.com/eslint/eslint>
-* SBoM - <https://www.synopsys.com/blogs/software-security/software-bill-of-materials-bom/<>
+* SBoM - <https://www.synopsys.com/blogs/software-security/software-bill-of-materials-bom/>
 * Cyclonedx-bom - <https://github.com/CycloneDX/cyclonedx-node-module#cyclonedx-nodejs-module>
