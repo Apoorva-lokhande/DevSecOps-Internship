@@ -74,11 +74,13 @@ The contents of the `.eslintrc.json` file are as below:
     }
 
 To perform an eslint scan, run eslint command with the following flags:
-      - `-c`  to specify the config file.
-      - `-f` to format of output report.
-      - `--ext` to specify the extensions of files to be scannned.
-      - `-o` to specify file to write the report to a particular file. 
 
+- `-c`  to specify the config file.
+- `-f` to format of output report.
+- `--ext` to specify the extensions of files to be scannned.
+- `-o` to specify file to write the report to a particular file. 
+
+        
       eslint -c ~/.eslintrc.json -f html --ext .js,.ejs -o ~/reports/eslint-report.html ~/app
 
 #### ESLint Pipeline

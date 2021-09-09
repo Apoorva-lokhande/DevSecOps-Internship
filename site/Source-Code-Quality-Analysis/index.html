@@ -654,13 +654,16 @@
     }
 }
 </code></pre>
-<p>To perform an eslint scan, run eslint command with the following flags:
-      - <code>-c</code>  to specify the config file.
-      - <code>-f</code> to format of output report.
-      - <code>--ext</code> to specify the extensions of files to be scannned.
-      - <code>-o</code> to specify file to write the report to a particular file. </p>
-<pre><code>  eslint -c ~/.eslintrc.json -f html --ext .js,.ejs -o ~/reports/eslint-report.html ~/app
-</code></pre>
+<p>To perform an eslint scan, run eslint command with the following flags:</p>
+<ul>
+<li><code>-c</code>  to specify the config file.</li>
+<li><code>-f</code> to format of output report.</li>
+<li><code>--ext</code> to specify the extensions of files to be scannned.</li>
+<li>
+<p><code>-o</code> to specify file to write the report to a particular file. </p>
+<p>eslint -c ~/.eslintrc.json -f html --ext .js,.ejs -o ~/reports/eslint-report.html ~/app</p>
+</li>
+</ul>
 <h4 id="eslint-pipeline">ESLint Pipeline</h4>
 <p>Finally, I added a stage in the pipeline to run the script after I made it executable. The stage that I added was as follows:</p>
 <pre><code>stage ('ESLint Analysis') {
