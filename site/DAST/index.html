@@ -569,15 +569,19 @@
 <pre><code>sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-baseline.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
 </code></pre>
 <ol>
-<li>Docker files used:</li>
+<li>Docker files used:<ul>
 <li><code>--rm</code> to  remove container after completion.</li>
 <li><code>-d</code>to run as a background job.</li>
 <li><code>-u</code> to specify user to run container as.</li>
 <li><code>-v</code> to 'host dir':'container dir', mount volumes.</li>
-<li>Zap CLI flags used:</li>
+</ul>
+</li>
+<li>Zap CLI flags used:<ul>
 <li><code>-t 'target'</code> to specify target to scan.</li>
 <li><code>-r 'file.html'</code> to generate an HTML output report.</li>
 <li><code>-l level</code> to minimum level to show: PASS, IGNORE, INFO, WARN or FAIL.</li>
+</ul>
+</li>
 </ol>
 <p>To run a fullscan script, run the following command:</p>
 <pre><code>sudo docker run --rm -d -u zap --name owasp-zap -v ~/:/zap/wrk/ owasp/zap2docker-stable zap-full-scan.py -t http://192.168.1.55:8080 -r zap-report.html -l PASS
