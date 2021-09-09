@@ -50,7 +50,7 @@ To run a fullscan script, run the following command:
 
 The `report` created `zap-report.html` will be saved in the home directory after successfull completion!
 
-## DAST Pipeline
+### DAST Pipeline
 
 Finally, I added the script to the jenkins file to perform DAST on DVNA:
 
