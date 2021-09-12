@@ -9,7 +9,7 @@ The aim of this section is to define complete structure of CI/CD pipeline and so
 
 Various stages of DVNA (SAST, DAST, Code Quality Analysis, SBoM, SCA) were tested individually, here we have combined all all the segments together. The following is the complete pipeline to perform multiple scans and then deploy it in production:
 
-![image](pictures/pipeline-strucrute.png)
+![image](pictures/pipeline-updated.png)
 
     pipeline {
         agent any
