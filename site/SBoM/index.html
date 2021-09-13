@@ -515,8 +515,8 @@
                 
                 <h1 id="what-is-sbom">What is SBoM?</h1>
 <h2 id="objective">Objective</h2>
-<p>This section aims to generate a Software Bill of Materials for DVNA and provide a solution to the 10th point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.
-A software bill of materials is a list of all the open source and third-party components present in a codebase. A Bill of Materials is a list of components used to assemble/create a product. It gives out a specification about how each component was used in the making of the end product.</p>
+<p>This section aims to generate a Software Bill of Materials for DVNA and provide a solution to the 10th point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<p>A software bill of materials is a list of all the open source and third-party components present in a codebase. A Bill of Materials is a list of components used to assemble/create a product. It gives out a specification about how each component was used in the making of the end product.</p>
 <h2 id="cyclonedx">CycloneDX</h2>
 <p>To generate the SBoM for DVNA, we are using a tool called CycloneDX. According to the <a href="https://github.com/CycloneDX/cyclonedx-node-module#cyclonedx-nodejs-module">documentation</a>, CycloneDX is a module for Node.js that creates a valid CycloneDX SBoM containing an aggregate of all project dependencies.
 SCA tools can discover all related components, their supporting libraries, and their direct and indirect dependencies. SCA tools can also detect software licenses, deprecated dependencies, as well as vulnerabilities, and potential exploits. The scanning process generates a component inventory or  <a href="https://www.synopsys.com/blogs/software-security/software-bill-of-materials-bom/">software bill of materials (SBoM)</a>, providing a complete inventory of a project’s software assets which is then compared against a variety of databases, these databases hold information regarding known and common vulnerabilities.</p>
