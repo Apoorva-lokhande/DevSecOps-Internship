@@ -731,9 +731,9 @@
                 
                 <h1 id="static-analysis">Static Analysis</h1>
 <h2 id="objective">Objective</h2>
-<p>The aim of this section is to understand the tech stack used for the project (DVNA), identify suitable tools to perform SAST and generate a report to provide a solution to the 6th point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<p>This section aims to understand the tech stack used for the project (DVNA), identify suitable tools to perform SAST, and generate a report to provide a solution to the 6th point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
 <h2 id="working-of-pipeline">Working of pipeline</h2>
-<p>To start creating the Jenkins pipeline, login into the jenkin web interface.</p>
+<p>To start creating the Jenkins pipeline, login into the Jenkins web interface.</p>
 <ul>
 <li>
 <p>In the <code>Dashboard</code>, create a <code>New Item</code> and enter a <code>item name</code>(e.g. <code>dvna-pipeline</code>) and select <code>pipeline</code> and click <code>OK</code>.</p>
@@ -766,7 +766,7 @@
 </li>
 </ul>
 <h2 id="jenkinsfile">Jenkinsfile</h2>
-<p>Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline and is checked into source control.The following are the contents of the Jenkinsfile which implements a continuous delivery pipeline:</p>
+<p>Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline and is checked into source control. The following are the contents of the Jenkinsfile which implements a continuous delivery pipeline:</p>
 <pre><code>    pipeline {
         agent any
 
@@ -822,19 +822,19 @@
 <h4 id="build">Build</h4>
 <p>This stage contains the environment variables, in which <code>vars.env</code> file is created and for <code>dvna-mysql</code> container. <code>dvna-app</code> and <code>dvna-mysql</code> containers will run and will be copied into the home directory.</p>
 <h4 id="static-and-dynamic-analysis">Static and Dynamic Analysis</h4>
-<p>All the stages that follow the Build Stage, except for the last two stages, are for performing static analysis  and dynamic analysis on DVNA and later being stored in a folder <code>reports</code> in <code>jenkins</code> home directory.</p>
+<p>All the stages that follow the Build Stage, except for the last two stages, are for performing static analysis and dynamic analysis on DVNA and later being stored in a folder <code>reports</code> in <code>jenkins</code> home directory.</p>
 <h4 id="remove-dvna-from-jenkins">Remove DVNA from Jenkins</h4>
-<p>After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local <code>appsecco/dvna</code> docker container to avoid running a container with older release of the application image. On the other hand, you don't need to remove the mysql:5.7 container, since we require v5.7 and not the latest version.</p>
+<p>After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local <code>appsecco/dvna</code> docker container to avoid running a container with an older release of the application image. On the other hand, you don't need to remove the mysql:5.7 container, since we require v5.7 and not the latest version.</p>
 <h4 id="deployment">Deployment</h4>
-<p>Finally, the satge <code>deploy to dvna</code>, operations are performed on VM over SSH which was configured previously. The two containers, <code>dvna-app</code> and <code>dvna-mysql</code> are run and successfully deployed.</p>
+<p>Finally, in the stage <code>deploy to dvna</code>, operations are performed on VM over SSH which was configured previously. The two containers, <code>dvna-app</code> and <code>dvna-mysql</code> are run and successfully deployed.</p>
 <h2 id="static-application-security-testing">Static Application Security Testing</h2>
-<p>SAST is a testing methodology that analyses source code, byte code and binaries for bugs and design errors to find <a href="https://www.synopsys.com/blogs/software-security/types-of-security-vulnerabilities/">security vulnerabilities</a>, before the application is compiled. </p>
+<p>SAST is a testing methodology that analyses source code, byte code, and binaries for bugs and design errors to find <a href="https://www.synopsys.com/blogs/software-security/types-of-security-vulnerabilities/">security vulnerabilities</a> before the application is compiled. </p>
 <p>SAST does not require a working application and can take place without code being executed. It helps developers identify vulnerabilities in the initial stages of development and quickly resolve issues without breaking builds or passing on vulnerabilities to the final release of the application.</p>
 <h3 id="sast-tools-for-nodejs-applications">SAST Tools for Node.js Applications</h3>
 <p>As given the name Damn Vulnerable Nodejs Application, it is quite obvious to figure the tech stack used, Nodejs is the server-side language used along with a SQL database.  </p>
 <p>The following are the tools used to perform static analysis on Nodejs applications with steps to install and configure them with Jenkins.</p>
 <h4 id="njsscan">njsscan</h4>
-<p>njsscan is a open source static security code scanner for Node.js applications. Finds insecure patterns in Node.js code and HTML templates.</p>
+<p>njsscan is an open source static security code scanner for Node.js applications. Finds insecure patterns in Node.js code and HTML templates.</p>
 <p>The tool is written in python, we need to install it using pip3, I went ahead and updated <code>apt package</code> and installed <code>python3-pip</code>.</p>
 <pre><code>sudo apt update &amp;&amp; sudo apt install python3-pip
 </code></pre>
@@ -842,7 +842,7 @@
 <pre><code>pip3 install njsscan
 </code></pre>
 <p><strong><em>NOTE</em></strong>: I got an error while installing through njsscan, I entered into the <code>root</code> directory and installed it, which worked for me or you can also create a virtual environment and install it.</p>
-<p>I referred the documentation which provides <a href="https://github.com/ajinabraham/njsscan#command-line-options">command line options</a>. Later, I added the script in the jenkinsfile with the following syntax:</p>
+<p>I referred to the documentation which provides <a href="https://github.com/ajinabraham/njsscan#command-line-options">command line options</a>. Later, I added the script in the Jenkins file with the following syntax:</p>
 <pre><code>mkdir reports
 njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
 </code></pre>
@@ -859,7 +859,7 @@ njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
 <p>Audits JavaScript is a SAST tool which uses <a href="https://ossindex.sonatype.org/rest">OSS Index v3 REST API</a> to identify known vulnerabilities and outdated package versions.</p>
 <ul>
 <li>
-<p>To install npm and nodejs in dvna container in production server, I followed the commands as given below, the package versions are: <code>npm v6.14.14</code> and <code>nodejs v14.17.4</code>.</p>
+<p>To install npm and nodejs in the dvna container in the production server, I followed the commands as given below, the package versions are: <code>npm v6.14.14</code> and <code>nodejs v14.17.4</code>.</p>
 <pre><code>sudo apt update
 sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install -y nodejs

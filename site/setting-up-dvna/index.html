@@ -335,7 +335,42 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#objective_1" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-dvna_1" class="md-nav__link">
+    What is DVNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements_1" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker-nodejs-and-npm_1" class="md-nav__link">
+    Install Docker, NodeJS and NPM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup-dvna" class="md-nav__link">
+    Setup DVNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-dvna_1" class="md-nav__link">
     Setup DVNA
   </a>
   
@@ -508,7 +543,42 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#objective_1" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-dvna_1" class="md-nav__link">
+    What is DVNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements_1" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker-nodejs-and-npm_1" class="md-nav__link">
+    Install Docker, NodeJS and NPM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup-dvna" class="md-nav__link">
+    Setup DVNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-dvna_1" class="md-nav__link">
     Setup DVNA
   </a>
   
@@ -540,10 +610,81 @@
 </ul>
 <h2 id="install-docker-nodejs-and-npm">Install Docker, NodeJS and NPM</h2>
 <ul>
+<li>For Docker installation I referred the <a href="https://docs.docker.com/engine/install/">official documentation</a>, update the <code>apt</code> package index:<pre><code>sudo apt-get update# Configuring Production VM
+</code></pre>
+</li>
+</ul>
+<h2 id="objective_1">Objective</h2>
+<p>This section aims to configure DVNA in a Production server as mentioned in the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a> and solve the 5th point of the same.</p>
+<h2 id="what-is-dvna_1">What is DVNA</h2>
+<p>Damn Vulnerable NodeJS Application (DVNA) is a simple NodeJS application to demonstrate <a href="https://owasp.org/www-project-top-ten/2017/">OWASP Top 10 Vulnerabilities</a> and guide on fixing and avoiding these vulnerabilities.</p>
+<h2 id="requirements_1">Requirements</h2>
+<p>To serve DVNA, there are some prerequisites:</p>
+<ul>
+<li>VM running Ubuntu 18.04 LTS.</li>
+<li>Docker, NodeJS and NPM.  </li>
+</ul>
+<h2 id="install-docker-nodejs-and-npm_1">Install Docker, NodeJS and NPM</h2>
+<ul>
 <li>
 <p>For Docker installation I referred the <a href="https://docs.docker.com/engine/install/">official documentation</a>, update the <code>apt</code> package index:</p>
 <pre><code>sudo apt-get update
 </code></pre>
+</li>
+<li>
+<p>Add Docker’s official GPG key:</p>
+<pre><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+</code></pre>
+</li>
+<li>
+<p>Use the following command to set up the stable repository:</p>
+<pre><code>echo \
+"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</code></pre>
+</li>
+<li>
+<p>Update the <code>apt package index</code>, and install the latest version of <code>Docker Engine</code> and <code>containerid</code> and run to test if the <code>docker</code> installation is successful.</p>
+<pre><code>sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo docker run hello-world
+</code></pre>
+</li>
+<li>
+<p>Install NodeJS and NPM:</p>
+<pre><code>sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - &amp;&amp;
+sudo apt install -y nodejs
+</code></pre>
+<h2 id="setup-dvna">Setup DVNA</h2>
+</li>
+<li>
+<p>I followed the <a href="https://github.com/appsecco/dvna/blob/master/docs/setup.md">official documentation</a> for setup.</p>
+</li>
+<li>
+<p>Create a file named <code>vars.env</code> with the following configuration:</p>
+<pre><code>MYSQL_USER=dvna
+MYSQL_DATABASE=dvna
+MYSQL_PASSWORD=passw0rd
+MYSQL_RANDOM_ROOT_PASSWORD=yes
+MYSQL_HOST=mysql-db
+MYSQL_PORT=3306
+</code></pre>
+</li>
+<li>
+<p>Start a MySQL container, unless you want to use your own, in which case configure in the env file above.</p>
+<pre><code>docker run --name dvna-mysql --env-file vars.env -d mysql:5.7
+</code></pre>
+</li>
+<li>
+<p>Start the application using the official image:</p>
+<pre><code>docker run --name dvna-app --env-file vars.env --link dvna-mysql:mysql-db -p 8080:8080 appsecco/dvna
+</code></pre>
+</li>
+<li>
+<p>To test if the containers are running, run <code>docker ps -a</code> you will see two containers running <code>dvna-app</code> and <code>dvna-mysql</code> and <code>docker stop</code> for stopping the container.</p>
+</li>
+<li>
+<p>Access the application at http://your-ip-address:8080.</p>
 </li>
 <li>
 <p>Add Docker’s official GPG key:</p>
@@ -569,7 +710,7 @@ sudo docker run hello-world
 <pre><code>sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - &amp;&amp;
 sudo apt install -y nodejs
 </code></pre>
-<h2 id="setup-dvna">Setup DVNA</h2>
+<h2 id="setup-dvna_1">Setup DVNA</h2>
 </li>
 <li>
 <p>I followed the <a href="https://github.com/appsecco/dvna/blob/master/docs/setup.md">official documentation</a> for setup.</p>

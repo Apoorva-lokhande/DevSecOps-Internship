@@ -300,7 +300,7 @@
       
         <li class="md-nav__item">
   <a href="#why-use-jenkins-pipeline" class="md-nav__link">
-    Why use Jenkins pipeline ?
+    Why use Jenkins pipeline?
   </a>
   
 </li>
@@ -535,7 +535,7 @@
       
         <li class="md-nav__item">
   <a href="#why-use-jenkins-pipeline" class="md-nav__link">
-    Why use Jenkins pipeline ?
+    Why use Jenkins pipeline?
   </a>
   
 </li>
@@ -623,18 +623,18 @@
                 
                 <h1 id="jenkins-pipeline">Jenkins Pipeline</h1>
 <h2 id="objective">Objective</h2>
-<p>The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the 4rth point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
-<h2 id="why-use-jenkins-pipeline">Why use Jenkins pipeline ?</h2>
-<p>Jenkins is an open continuous integration server which has the ability to support the automation of software development processes. You can create multiple automation jobs with the help of use cases, and run them as a Jenkins pipeline.</p>
-<p>Here are the reasons why you use should use Jenkins pipeline:</p>
+<p>This section aims to understand the Jenkins pipeline to deploy DVNA and solve the 4rth point of the <a href="https://devsecops-report.netlify.app/problem-statements/">Problem Statement</a>.</p>
+<h2 id="why-use-jenkins-pipeline">Why use Jenkins pipeline?</h2>
+<p>Jenkins is an open continuous integration server that can support the automation of software development processes. You can create multiple automation jobs with the help of use cases, and run them as a Jenkins pipeline.</p>
+<p>Here are the reasons why you use should use the Jenkins pipeline:</p>
 <ul>
-<li>Jenkins pipeline is implemented as a code which allows multiple users to edit and execute the pipeline process.</li>
+<li>Jenkins pipeline is implemented as a code that allows multiple users to edit and execute the pipeline process.</li>
 <li>Pipelines are robust. So, if your server undergoes an unforeseen restart, the pipeline will be automatically resumed.</li>
-<li>You can pause the pipeline process and make it wait to resume until there is an input from the user.</li>
+<li>You can pause the pipeline process and make it wait to resume until there is input from the user.</li>
 <li>Jenkins Pipelines support big projects. You can run multiple jobs, and even use pipelines in a loop.</li>
 </ul>
 <h2 id="setup-jenkins-pipeline">Setup Jenkins Pipeline</h2>
-<p>Here, we are using <a href="https://maven.apache.org/">Apache Maven</a> as a plugin which is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.</p>
+<p>Here, we are using <a href="https://maven.apache.org/">Apache Maven</a> as a plugin which is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting, and documentation from a central piece of information.</p>
 <p>Jenkins provides a particular job type, which explicitly provides options for configuring and executing a Maven project. This job type is called the <code>Maven project</code> Let’s see how we can create a Maven project in Jenkins and run the same.</p>
 <h3 id="install-maven-plugin-in-jenkins">Install Maven Plugin in Jenkins</h3>
 <ul>
@@ -657,20 +657,20 @@
 <p>In the <code>Dashboard</code>, create a <code>New Item</code>.</p>
 </li>
 <li>
-<p>Now, enter <code>item name</code> as Jenkin-Maven and selct Maven project as shown below and click on <code>OK</code>.</p>
+<p>Now, enter <code>item name</code> as Jenkin-Maven and select Maven project as shown below, and click on <code>OK</code>.</p>
 </li>
 <li>
 <p>Under <code>general</code> section:</p>
 <ul>
 <li>I gave the <code>description</code> of the project.</li>
-<li>Under <code>Source Code Management</code> I checked the <code>Git</code> option and provided the <a href="https://github.com/jenkins-docs/simple-java-maven-app">Github URl</a>. This helps jenkins to know where to fetch the project from.</li>
+<li>Under <code>Source Code Management</code> I checked the <code>Git</code> option and provided the <a href="https://github.com/jenkins-docs/simple-java-maven-app">Github URl</a>. This helps Jenkins to know where to fetch the project from.</li>
 </ul>
 </li>
 <li>
 <p>Under <code>Build Triggers</code>:</p>
 <ul>
 <li>I checked <code>Build whenever a SNAPSHOT dependency is built</code> this is convenient for automatically performing continuous integration. Jenkins will check the snapshot dependencies from the dependency element in the POM, as well as plugins and extensions used in POMs.</li>
-<li>Later, clicked on <code>save</code> button.</li>
+<li>Later, click on the <code>save</code> button.</li>
 </ul>
 </li>
 </ul>
@@ -720,11 +720,11 @@ A JenkinsFile stores the entire CI/CD process as code on the local machine. As s
 <li><code>sh</code> - Used to execute shell commands through Jenkins.</li>
 </ul>
 <h2 id="ssh-access-configuration">SSH Access Configuration</h2>
-<p>Secure Shell Protocol (SSH) provides a secure channel over an unsecured network by using a client–server architecture, connecting an SSH client application with an SSH server. The standard TCP port for SSH is 22.</p>
+<p>Secure Shell Protocol (SSH) provides a secure channel over an unsecured network by using a client-server architecture, connecting an SSH client application with an SSH server. The standard TCP port for SSH is 22.</p>
 <h3 id="installation">Installation</h3>
 <ul>
 <li>
-<p>In order to SSH into VM we need to install it!</p>
+<p>To SSH into VM we need to install it!</p>
 <pre><code>sudo apt-get install openssh-server
 </code></pre>
 </li>
@@ -751,7 +751,7 @@ A JenkinsFile stores the entire CI/CD process as code on the local machine. As s
 </li>
 <li>Similarly, <code>Creating passphrase</code> just clicked <code>enter</code>.</li>
 <li>
-<p>Once the key is generated, place the public key on the server which you want to connect to. Following the command below:</p>
+<p>Once the key is generated, place the public key on the server to which you want to connect to. Following the command below:</p>
 <pre><code>ssh-copy-id username@your_server_address
 </code></pre>
 </li>
@@ -761,7 +761,7 @@ A JenkinsFile stores the entire CI/CD process as code on the local machine. As s
 chmod 600 ~/.ssh/authorized_keys
 </code></pre>
 <ul>
-<li>Also, I changed the permissions of home directory to remove write access for the group and others.<pre><code>chmod go-w ~
+<li>Also, I changed the permissions of the home directory to remove write access for the group and others.<pre><code>chmod go-w ~
 </code></pre>
 </li>
 </ul>
@@ -772,7 +772,7 @@ chmod 600 ~/.ssh/authorized_keys
 </code></pre>
 </li>
 </ul>
-<p><strong><em>Note</em></strong> : While trying to ssh into the server VM, I got an error saying permission denied, I refered this  <a href="https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again">documentation</a> and did the necessary changes which are:</p>
+<p><strong><em>Note</em></strong> : While trying to ssh into the server VM, I got an error saying permission denied, I referred to this  <a href="https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again">documentation</a> and did the necessary changes which are:</p>
 <pre><code>sudo nano /etc/ssh/sshd_config
 </code></pre>
 <ul>
@@ -798,7 +798,7 @@ PasswordAuthentication yes
 <img alt="image" src="../pictures/sshs.png" /></p>
 </li>
 <li>
-<p>Add SSH server details. Give the Production server's hostname (IP address), username for logging in and remote directory (/home/prod-vm). Click on <code>Test Configuration</code> and it should return <code>success</code> as shown in the below image:</p>
+<p>Add SSH server details. Give the Production server's hostname (IP address), username for logging in, and remote directory (/home/prod-vm). Click on <code>Test Configuration</code> and it should return <code>success</code> as shown in the below image:</p>
 </li>
 </ul>
 <p><img alt="image" src="../pictures/ssh-server.png" /></p>

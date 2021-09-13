@@ -7,25 +7,25 @@ This section aims to set up the required infrastructure to perform the task and 
 ## What is Virtual Machine?
 For understanding Virtual machine (VM) we will have to understand what Virtualization is. 
 
-- **Virtualization** is a software based or virtual version of something, that be compute, storage, networking, servers or applications. And Hypervisor makes Virtualization possible. 
+- **Virtualization** is a software-based or virtual version of something, that computes, storage, networking, servers, or applications. And Hypervisor makes Virtualization possible. 
 
-- **Hypervisor** is a piece of software that runs above host or server. 
+- **Hypervisor** is a piece of software that runs above the host or server. 
 
     - There are 2 types of hypervisors: 
 
-        1. Type 1: It is installed directly on top of physical server. 
+        1. Type 1: It is installed directly on top of a physical server. 
 
         2. Type 2: Here there is a layer of Host operating system (OS) between the hardware and Hypervisor (as we are using here). 
 
-A VM is an OS or application environment that is installed on software, which imitates dedicated physical server. A VM provides an isolated environment for running its own OS and applications independently from the underlying host system or from other VMs on that host. The VM's OS is commonly referred to as the guest OS, and it can be the same as or different from the host OS or the other VMs. 
+A VM is an OS or application environment that is installed on software, which imitates a dedicated physical server. A VM provides an isolated environment for running its OS and applications independently from the underlying host system or from other VMs on that host. The VM's OS is commonly referred to as the guest OS, and it can be the same as or different from the host OS or the other VMs. 
    
 ## Setting up VM
 Here I will be setting up two VMs:
 
 1. For Jenkins Deployment.
-2. For DVNA server.
+2. For the DVNA server.
 
-In virtual Box Click on `NEW` icon to create a new machine. Later follow the steps as given below:
+In virtual Box Click on the `NEW` icon to create a new machine. Later follow the steps as given below:
 
 ### Name and operating system 
 
@@ -60,7 +60,7 @@ I followed the official [link](https://releases.ubuntu.com/18.04/) to download t
 
 ![image](/pictures/desktop.png) 
 
-In VM box I selected `Jenkins-deploy` to install the server and then clicked on `start`.
+In the VM box, I selected `Jenkins-deploy` to install the server and then click on `start`.
 
 ![image](/pictures/mark.png) 
 
@@ -74,7 +74,7 @@ Here, I clicked on `start`. Now Jenkins VM starts running!
 
 ### Language selection 
 
-After successfully installtion the b`language selection` dialogue box will opwn and here select the language `English` and click on `done`.
+After successfully installation the `language selection`  dialogue box will open and here select the language `English` and click on `done`.
 
 ![image](/pictures/9.png) 
 
@@ -91,11 +91,11 @@ I kept it as default and selected `Done`.
 ![image](/pictures/11.png) 
 
 ### Configure proxy  
-The proxy configured on this screen is used for accessing the package repository and the snap store both in the installer environment and in the installed system. I did not provide any Proxy address, kept it default and selected `Done`.
+The proxy configured on this screen is used for accessing the package repository and the snap store both in the installer environment and in the installed system. I did not provide any Proxy address, kept it default, and selected `Done`.
 ![image](/pictures/12.png) 
 
-### Configure ubuntu archive mirror 
-The installer will attempt to use GeoIP to lookup an appropriate default package mirror for your location. I kept this too as default and selected `Done`.
+### Configure Ubuntu archive mirror 
+The installer will attempt to use GeoIP to look up an appropriate default package mirror for your location. I kept this too as default and selected `Done`.
 
 ![image](/pictures/13.png) 
 
@@ -116,11 +116,11 @@ I provided all the details and clicked on `Done`.
 ![image](/pictures/17.png) 
 
 ### SSH Setup 
-In order to install the OpenSSH server I selected the `Install OpenSSH server` option because by default ubuntu won't have openSSH installed, and then I kept `Import SSH identity` as default and clicked on `Done`. 
+To install the OpenSSH server I selected the `Install OpenSSH server` option because by default ubuntu won't have openSSH installed, and then I kept `Import SSH identity` as default and clicked on `Done`. 
 ![image](/pictures/18.png) 
 
 ### Featured Server Snaps 
-Selected the snaps which are useful in a server environment, once selected clicked on `Done`.
+Selected the snaps which are useful in a server environment, once selected click on `Done`.
 ![image](/pictures/19.png)   
 
 ### Installation complete 
@@ -131,7 +131,7 @@ Installation complete window appeared, wait until the **Reboot** button appears 
 
 And the installation of Ubuntu 18.04 is completed! 
 
-Repeat the same process in order to create another VM for DVNA deployment where I have specified the server name as `DVNA-deploy`. 
+Repeat the same process to create another VM for DVNA deployment where I have specified the server name as `DVNA-deploy`. 
 
  
  

@@ -1,11 +1,11 @@
 # Static Analysis
 
 ## Objective
-
-The aim of this section is to understand the tech stack used for the project (DVNA), identify suitable tools to perform SAST and generate a report to provide a solution to the 6th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+This section aims to understand the tech stack used for the project (DVNA), identify suitable tools to perform SAST, and generate a report to provide a solution to the 6th point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
 ## Working of pipeline
-To start creating the Jenkins pipeline, login into the jenkin web interface.
+To start creating the Jenkins pipeline, login into the Jenkins web interface.
+ 
 
 -  In the `Dashboard`, create a `New Item` and enter a `item name`(e.g. `dvna-pipeline`) and select `pipeline` and click `OK`.
   
@@ -27,7 +27,7 @@ To start creating the Jenkins pipeline, login into the jenkin web interface.
   
 ## Jenkinsfile
 
-Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline and is checked into source control.The following are the contents of the Jenkinsfile which implements a continuous delivery pipeline:
+Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline and is checked into source control. The following are the contents of the Jenkinsfile which implements a continuous delivery pipeline:
 
         pipeline {
             agent any
@@ -91,19 +91,20 @@ This stage contains the environment variables, in which `vars.env` file is creat
 
 #### Static and Dynamic Analysis
 
-All the stages that follow the Build Stage, except for the last two stages, are for performing static analysis  and dynamic analysis on DVNA and later being stored in a folder `reports` in `jenkins` home directory.
+All the stages that follow the Build Stage, except for the last two stages, are for performing static analysis and dynamic analysis on DVNA and later being stored in a folder `reports` in `jenkins` home directory.
 
 #### Remove DVNA from Jenkins
 
-After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local `appsecco/dvna` docker container to avoid running a container with older release of the application image. On the other hand, you don't need to remove the mysql:5.7 container, since we require v5.7 and not the latest version.
+
+After the scans are complete, the containers running in Jenkins VM are stopped and removed. Since we're working with a containerized application (DVNA), we need to perform tests on the latest available image on DockerHub. Hence, we remove the existing local `appsecco/dvna` docker container to avoid running a container with an older release of the application image. On the other hand, you don't need to remove the mysql:5.7 container, since we require v5.7 and not the latest version.
 
 #### Deployment
 
-Finally, the satge `deploy to dvna`, operations are performed on VM over SSH which was configured previously. The two containers, `dvna-app` and `dvna-mysql` are run and successfully deployed.
+Finally, in the stage `deploy to dvna`, operations are performed on VM over SSH which was configured previously. The two containers, `dvna-app` and `dvna-mysql` are run and successfully deployed.
 
 ## Static Application Security Testing
 
-SAST is a testing methodology that analyses source code, byte code and binaries for bugs and design errors to find [security vulnerabilities](https://www.synopsys.com/blogs/software-security/types-of-security-vulnerabilities/), before the application is compiled. 
+SAST is a testing methodology that analyses source code, byte code, and binaries for bugs and design errors to find [security vulnerabilities](https://www.synopsys.com/blogs/software-security/types-of-security-vulnerabilities/) before the application is compiled. 
 
 SAST does not require a working application and can take place without code being executed. It helps developers identify vulnerabilities in the initial stages of development and quickly resolve issues without breaking builds or passing on vulnerabilities to the final release of the application.
 
@@ -116,7 +117,7 @@ The following are the tools used to perform static analysis on Nodejs applicatio
 
 #### njsscan
 
-njsscan is a open source static security code scanner for Node.js applications. Finds insecure patterns in Node.js code and HTML templates.
+njsscan is an open source static security code scanner for Node.js applications. Finds insecure patterns in Node.js code and HTML templates.
 
 The tool is written in python, we need to install it using pip3, I went ahead and updated `apt package` and installed `python3-pip`.
 
@@ -128,7 +129,7 @@ Intall, njsscan using pip3:
 
 ***NOTE***: I got an error while installing through njsscan, I entered into the `root` directory and installed it, which worked for me or you can also create a virtual environment and install it.
 
-I referred the documentation which provides [command line options](https://github.com/ajinabraham/njsscan#command-line-options). Later, I added the script in the jenkinsfile with the following syntax:
+I referred to the documentation which provides [command line options](https://github.com/ajinabraham/njsscan#command-line-options). Later, I added the script in the Jenkins file with the following syntax:
 
     mkdir reports
     njsscan -o ~/reports/nodejsscan-report.json --json  ./dvna
@@ -148,7 +149,7 @@ The complete report generated by NodeJsScan can be found [here](https://github.c
 
 Audits JavaScript is a SAST tool which uses [OSS Index v3 REST API](https://ossindex.sonatype.org/rest) to identify known vulnerabilities and outdated package versions.
 
-- To install npm and nodejs in dvna container in production server, I followed the commands as given below, the package versions are: `npm v6.14.14` and `nodejs v14.17.4`.
+- To install npm and nodejs in the dvna container in the production server, I followed the commands as given below, the package versions are: `npm v6.14.14` and `nodejs v14.17.4`.
 
         sudo apt update
         sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -

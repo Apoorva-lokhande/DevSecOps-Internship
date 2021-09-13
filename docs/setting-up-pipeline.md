@@ -2,21 +2,21 @@
 
 ## Objective
 
-The aim of this section is to understand the Jenkins pipeline to deploy DVNA and solve the 4rth point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+This section aims to understand the Jenkins pipeline to deploy DVNA and solve the 4rth point of the [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
-## Why use Jenkins pipeline ?
-Jenkins is an open continuous integration server which has the ability to support the automation of software development processes. You can create multiple automation jobs with the help of use cases, and run them as a Jenkins pipeline.
+## Why use Jenkins pipeline?
+Jenkins is an open continuous integration server that can support the automation of software development processes. You can create multiple automation jobs with the help of use cases, and run them as a Jenkins pipeline.
 
-Here are the reasons why you use should use Jenkins pipeline:
+Here are the reasons why you use should use the Jenkins pipeline:
 
-- Jenkins pipeline is implemented as a code which allows multiple users to edit and execute the pipeline process.
+- Jenkins pipeline is implemented as a code that allows multiple users to edit and execute the pipeline process.
 - Pipelines are robust. So, if your server undergoes an unforeseen restart, the pipeline will be automatically resumed.
-- You can pause the pipeline process and make it wait to resume until there is an input from the user.
+- You can pause the pipeline process and make it wait to resume until there is input from the user.
 - Jenkins Pipelines support big projects. You can run multiple jobs, and even use pipelines in a loop.
 
 ##  Setup Jenkins Pipeline
 
-Here, we are using [Apache Maven](https://maven.apache.org/) as a plugin which is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.
+Here, we are using [Apache Maven](https://maven.apache.org/) as a plugin which is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting, and documentation from a central piece of information.
 
 Jenkins provides a particular job type, which explicitly provides options for configuring and executing a Maven project. This job type is called the `Maven project` Let’s see how we can create a Maven project in Jenkins and run the same.
 
@@ -34,15 +34,15 @@ Jenkins provides a particular job type, which explicitly provides options for co
 
 - In the `Dashboard`, create a `New Item`.
   
-- Now, enter `item name` as Jenkin-Maven and selct Maven project as shown below and click on `OK`.
+- Now, enter `item name` as Jenkin-Maven and select Maven project as shown below, and click on `OK`.
 
 - Under `general` section:
     - I gave the `description` of the project.
-    - Under `Source Code Management` I checked the `Git` option and provided the [Github URl](https://github.com/jenkins-docs/simple-java-maven-app). This helps jenkins to know where to fetch the project from.
+    - Under `Source Code Management` I checked the `Git` option and provided the [Github URl](https://github.com/jenkins-docs/simple-java-maven-app). This helps Jenkins to know where to fetch the project from.
    
 - Under `Build Triggers`:
     - I checked `Build whenever a SNAPSHOT dependency is built` this is convenient for automatically performing continuous integration. Jenkins will check the snapshot dependencies from the dependency element in the POM, as well as plugins and extensions used in POMs.
-    - Later, clicked on `save` button.
+    - Later, click on the `save` button.
 
 
 ## What is Jenkinsfile?
@@ -96,11 +96,11 @@ The structure of my maven-jenkinsfile is as follows:
  
 ## SSH Access Configuration
 
-Secure Shell Protocol (SSH) provides a secure channel over an unsecured network by using a client–server architecture, connecting an SSH client application with an SSH server. The standard TCP port for SSH is 22.
+Secure Shell Protocol (SSH) provides a secure channel over an unsecured network by using a client-server architecture, connecting an SSH client application with an SSH server. The standard TCP port for SSH is 22.
   
 ### Installation
 
-- In order to SSH into VM we need to install it!
+- To SSH into VM we need to install it!
 
         sudo apt-get install openssh-server
 
@@ -120,7 +120,7 @@ Secure Shell Protocol (SSH) provides a secure channel over an unsecured network 
 
 - The first prompt from the ssh-keygen command will ask you where to save the keys, I clicked on `enter` to save as it was.
 - Similarly, `Creating passphrase` just clicked `enter`.
-- Once the key is generated, place the public key on the server which you want to connect to. Following the command below:
+- Once the key is generated, place the public key on the server to which you want to connect to. Following the command below:
   
         ssh-copy-id username@your_server_address
 
@@ -128,7 +128,7 @@ Secure Shell Protocol (SSH) provides a secure channel over an unsecured network 
  
         chmod 700 ~/.ssh
         chmod 600 ~/.ssh/authorized_keys
-- Also, I changed the permissions of home directory to remove write access for the group and others.
+- Also, I changed the permissions of the home directory to remove write access for the group and others.
  
             chmod go-w ~
 
@@ -136,7 +136,7 @@ Secure Shell Protocol (SSH) provides a secure channel over an unsecured network 
 
         ssh username@server_ip_address
 
-***Note*** : While trying to ssh into the server VM, I got an error saying permission denied, I refered this  [documentation](https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again) and did the necessary changes which are:
+***Note*** : While trying to ssh into the server VM, I got an error saying permission denied, I referred to this  [documentation](https://www.digitalocean.com/community/questions/ssh-permission-denied-please-try-again) and did the necessary changes which are:
                 
     sudo nano /etc/ssh/sshd_config
 
@@ -155,6 +155,6 @@ Secure Shell Protocol (SSH) provides a secure channel over an unsecured network 
 - Either enter the path of the file e.g. `var/lib/jenkins/.ssh/id_rsa`, or add the private SSH key to the input field.
 ![image](pictures/sshs.png)
 
-- Add SSH server details. Give the Production server's hostname (IP address), username for logging in and remote directory (/home/prod-vm). Click on `Test Configuration` and it should return `success` as shown in the below image:
+- Add SSH server details. Give the Production server's hostname (IP address), username for logging in, and remote directory (/home/prod-vm). Click on `Test Configuration` and it should return `success` as shown in the below image:
 
 ![image](pictures/ssh-server.png)

@@ -2,12 +2,12 @@
 
 ## Objective
 
-The aim of this section is to define complete structure of CI/CD pipeline and solve all the points [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
+This section aims to define the complete structure of the CI/CD pipeline and solve all the points [Problem Statement](https://devsecops-report.netlify.app/problem-statements/).
 
 
 ## Complete Pipeline
 
-Various stages of DVNA (SAST, DAST, Code Quality Analysis, SBoM, SCA) were tested individually, here we have combined all all the segments together. The following is the complete pipeline to perform multiple scans and then deploy it in production:
+Various stages of DVNA (SAST, DAST, Code Quality Analysis, SBoM, SCA) were tested individually, here we have combined all the segments. The following is the complete pipeline to perform multiple scans and then deploy it in production:
 
 ![image](pictures/pipeline-updated.png)
 
